@@ -20,6 +20,15 @@
 
 .list-group-item {
 	cursor: pointer;
+	background-color: #e6e6e6;
+}
+
+.list-group-item:nth-child(2n+1) {
+	background-color: #f2f2f2;
+}
+
+.list-group-item:hover {
+	background-color: #d7d7d7;
 }
 
 .list-group-item-done {
