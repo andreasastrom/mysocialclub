@@ -1,0 +1,11 @@
+.login-background {
+	height: 100vh;
+	width: 100vw;
+	background: url('../images/background.jpg');
+	background-size: cover;
+	color: #fff;
+}
+
+.login-box {
+	margin-top: 200px;
+}

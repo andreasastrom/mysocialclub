@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style/graph.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'style/countdown.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'style/weather.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/login.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.6.3/css/font-awesome.min.css'%}">
     <script src="{% static 'js/main.js'%}"></script>
     <script src="{% static 'js/items.js'%}"></script>
@@ -134,14 +135,18 @@
                 </div>
             </div>
         </div>
-        <div data-bind="visible: !loggedIn()">
+        <div class="login-background" data-bind="visible: !loggedIn()">
             <div class="row">
-                <div class="loggon col-md-4 col-md-offset-4">
-                    <h1>Du måste logga in</h1>
+                <div class="login-box col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1">
+                    <h1>Welcome!</h1>
+                    <h3>Today will be great</h3>
                     <input class="form-control" placeholder="Username" type="text" data-bind="value: username, valueUpdate: 'keypress'"/>
                     <input class="form-control" placeholder="Password" type="password" data-bind="value: password, valueUpdate: 'keypress'"/>
                     <br/>
                     <button class="btn btn-success" data-bind="click: logOn">Logga in</button>
+                    <div data-bind="visible: logonFailed">
+                        Inloggnigen misslyckades.
+                    </div>
                 </div>
             </div>
         </div>

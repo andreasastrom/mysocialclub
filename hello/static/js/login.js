@@ -4,6 +4,9 @@ function login() {
 	self.loggedIn = ko.observable(false); 
 	self.username = ko.observable('');
 	self.password = ko.observable('');
+	self.logonFailed = ko.observable(false);
+	var password;
+	var username;
 	
 	function updateItem(username, password){
 		$.ajax({
@@ -17,13 +20,17 @@ function login() {
 		  }, 
 		  error: function(response){	
 		  	self.loggedIn(false);
+		  	self.logonFailed(true);
 		  }
 		});
 	}
 
 	function logOn(){
-		var username = self.username; 
-		var password = self.password;
+		self.logonFailed(false);
+		username = self.username; 
+		password = self.password;
+		self.username('');
+		self.password('');
 		updateItem(username, password);
 	}
 
