@@ -24,6 +24,8 @@ urlpatterns = [
 	url(r'^activity/remove/', hello.views.remove_acticity),
 	url(r'^weather/get/', hello.views.get_weather),
 
+	url(r'^login/$', hello.views.user_login),
+	url(r'^loginpage', hello.views.login),
 
 	
 ]

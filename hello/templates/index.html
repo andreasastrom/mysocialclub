@@ -1,140 +1,151 @@
-{% load staticfiles %}
+﻿{% load staticfiles %}
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.5/Chart.min.js"></script>
-	
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.5/Chart.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-	<link rel="stylesheet" type="text/css" href="{% static 'style/mystyle.css'%}">
-	<link rel="stylesheet" type="text/css" href="{% static 'style/shoppinglist.css'%}">
-	<link rel="stylesheet" type="text/css" href="{% static 'style/graph.css'%}">
-	<link rel="stylesheet" type="text/css" href="{% static 'style/countdown.css'%}">
-	<link rel="stylesheet" type="text/css" href="{% static 'style/weather.css'%}">
-	<link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.6.3/css/font-awesome.min.css'%}">
-	<script src="{% static 'js/main.js'%}"></script>
-	<script src="{% static 'js/items.js'%}"></script>
-	<script src="{% static 'js/checklist.js'%}"></script>
-	<script src="{% static 'js/countdown.js'%}"></script>
-	<script src="{% static 'js/weather.js'%}"></script>
-	
-	<link rel="icon" type="image/png" href="{% static 'icon/fav.gif'%}" sizes="32x32" />
-	<!-- <link rel="icon" type="image/png" href="{% static 'icon/favicon-16x16.png'%}" sizes="16x16" /> -->
-	
-<title>Mette & Andreas</title>
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'style/mystyle.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/shoppinglist.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/graph.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/countdown.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'style/weather.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.6.3/css/font-awesome.min.css'%}">
+    <script src="{% static 'js/main.js'%}"></script>
+    <script src="{% static 'js/items.js'%}"></script>
+    <script src="{% static 'js/checklist.js'%}"></script>
+    <script src="{% static 'js/countdown.js'%}"></script>
+    <script src="{% static 'js/weather.js'%}"></script>
+    <script src="{% static 'js/login.js'%}"></script>
+
+    <link rel="icon" type="image/png" href="{% static 'icon/fav.gif'%}" sizes="32x32" />
+    <!-- <link rel="icon" type="image/png" href="{% static 'icon/favicon-16x16.png'%}" sizes="16x16" /> -->
+
+    <title>Mette & Andreas</title>
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-4 col-xs-12">
-				<div class="shoppinglist-container">
-					<h2>Inköpslista</h2>
-					<div class="input-group">
-					  <input type="text" class="form-control" placeholder="Vad?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
-					  <span class="input-group-addon" data-bind="click:shopplinglistAdd">Lägg till</span>
-					</div>
+    <div class="container-fluid">
+        <div class="row" data-bind="visible: loggedIn()">
+            <div class="col-md-4 col-xs-12">
+                <div class="shoppinglist-container">
+                    <h2>Inköpslista</h2>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Vad?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
+                        <span class="input-group-addon" data-bind="click:shopplinglistAdd">Lägg till</span>
+                    </div>
 
-					<div class="list-group-container">
-						<ul class="list-group" data-bind="foreach: itemList()">
-						  <li class="list-group-item" data-bind="visible: showItem">
-						  	<span data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
-							  	<i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
-							  	<span data-bind="text: name, css:{'list-group-item-done':done}"></span>
-						    </span>
-						    <span class="listeItem-delete" data-bind="click: deleteItem">
-						    	<i class="fa fa-trash-o"></i>
-						    </span>
-						  </li>
-						</ul>
-					</div>
-				</div>
-			</div>
+                    <div class="list-group-container">
+                        <ul class="list-group" data-bind="foreach: itemList()">
+                            <li class="list-group-item" data-bind="visible: showItem">
+                                <span data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
+                                    <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
+                                    <span data-bind="text: name, css:{'list-group-item-done':done}"></span>
+                                </span>
+                                <span class="listeItem-delete" data-bind="click: deleteItem">
+                                    <i class="fa fa-trash-o"></i>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-			<div class="col-md-2 col-xs-12">
-				<div class="countdown-container" data-bind="visible: showTheWorld">
-					<!-- ko foreach:{data: activityList(),as: 'activity'}--> 
-					<div class="countdown" data-bind="visible: showActivity">
-						<div class="countdown-close" data-bind="click: removeThisActicity, visible: countdownSettings()">
-							<i class="fa fa-times" aria-hidden="true"></i>
-						</div>
-						<div class="countdown-row" data-bind="css: activity.style">
-							<h1 data-bind="text: activity.daysLeft"></h1>
-							<span data-bind="text: activity.title">Days until Taomina</span>
-						</div>
-					</div>
-					<!-- /ko -->
-					
-					<span data-bind="click: showCountdownSettings, visible: !showLoader()">
-						<i class="fa fa-gear fa-lg"></i>
-						Redigera
-					</span>
-					<div data-bind="visible: countdownSettings">
-						<i class="fa fa-spinner fa-spin fa-3x fa-fw loading-spinner" data-bind="visible: showLoader()"></i>						
-						<div data-bind="visible: !showLoader()">
-							<input type="text" class="form-control" placeholder="Aktivitet" data-bind="value: countdownactivity, valueUpdate: 'keypress'"></input>
-							<input type="datetime" class="form-control" placeholder="Datum" data-bind="value: countdowndate, valueUpdate: 'keypress'"></input>
-							
-							<div class="dropdown">
-							  <button class="btn btn-default dropdown-toggle countdown-dropdown-buttom" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-							    <span data-bind="text: styleText"></span>
-							    <span class="caret"></span>
-							  </button>
-							  <ul class="dropdown-menu countdown-dropdown-list" aria-labelledby="dropdownMenu1">
-							    <li data-bind="click: function(){style('green'); styleText('Grön');}">
-							    	<a>Grön<i class="fa fa-circle green-dropdown circle"></i></a>
-						    	</li>
-							    <li data-bind="click: function(){style('orange'); styleText('Orange');}">
-							    	<a>Orange<i class="fa fa-circle orange-dropdown circle"></i></a>
-						    	</li>
-							    <li data-bind="click: function(){style('teal'); styleText('Teal');}">
-							    	<a>Teal<i class="fa fa-circle teal-dropdown circle"></i></a>
-						    	</li>
-							    <li data-bind="click: function(){style('red'); styleText('Röd');}">
-							    	<a>Röd<i class="fa fa-circle red-dropdown circle"></i></a>
-						    	</li>
-							    <li data-bind="click: function(){style('blue'); styleText('Blå');}">
-							    	<a>Blå<i class="fa fa-circle blue-dropdown circle"></i></a>
-						    	</li>
-							  </ul>
-							</div>
+            <div class="col-md-2 col-xs-12">
+                <div class="countdown-container" data-bind="visible: showTheWorld">
+                    <!-- ko foreach:{data: activityList(),as: 'activity'}-->
+                    <div class="countdown" data-bind="visible: showActivity">
+                        <div class="countdown-close" data-bind="click: removeThisActicity, visible: countdownSettings()">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </div>
+                        <div class="countdown-row" data-bind="css: activity.style">
+                            <h1 data-bind="text: activity.daysLeft"></h1>
+                            <span data-bind="text: activity.title">Days until Taomina</span>
+                        </div>
+                    </div>
+                    <!-- /ko -->
 
-							<button class="btn btn-success countdown-create" data-bind="click: createCountdown">Skapa</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-xs-12">
-				<div class="weather-container">
-				<h2 data-bind="text: destionationName()"></h2>
-					<h1 data-bind=" text: temperature() + ' °C '"></h1>
-					<i class="fa fa-sun-o fa-3x" aria-hidden="true"></i>
-					<ul>
-						<li><span data-bind="text: 'Max: ' + maxTemp() + ' °C'"></span></li>
-						<li><span data-bind="text: 'Min: ' + minTemp() + ' °C'"></span></li>
-						<li>Wind<span data-bind="text: ': ' + wind() + ' m/s'"></span></li>
-					</ul>
-					
-					<!-- ko if: drawChart -->
-					<canvas id="myChart" width="400" height="400"></canvas>
-					<!-- /ko -->
-					
-				</div>
-			</div>
-		</div>
-	</div>
+                    <span data-bind="click: showCountdownSettings, visible: !showLoader()">
+                        <i class="fa fa-gear fa-lg"></i>
+                        Redigera
+                    </span>
+                    <div data-bind="visible: countdownSettings">
+                        <i class="fa fa-spinner fa-spin fa-3x fa-fw loading-spinner" data-bind="visible: showLoader()"></i>
+                        <div data-bind="visible: !showLoader()">
+                            <input type="text" class="form-control" placeholder="Aktivitet" data-bind="value: countdownactivity, valueUpdate: 'keypress'"></input>
+                            <input type="datetime" class="form-control" placeholder="Datum" data-bind="value: countdowndate, valueUpdate: 'keypress'"></input>
+
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle countdown-dropdown-buttom" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span data-bind="text: styleText"></span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu countdown-dropdown-list" aria-labelledby="dropdownMenu1">
+                                    <li data-bind="click: function(){style('green'); styleText('Grön');}">
+                                        <a>Grön<i class="fa fa-circle green-dropdown circle"></i></a>
+                                    </li>
+                                    <li data-bind="click: function(){style('orange'); styleText('Orange');}">
+                                        <a>Orange<i class="fa fa-circle orange-dropdown circle"></i></a>
+                                    </li>
+                                    <li data-bind="click: function(){style('teal'); styleText('Teal');}">
+                                        <a>Teal<i class="fa fa-circle teal-dropdown circle"></i></a>
+                                    </li>
+                                    <li data-bind="click: function(){style('red'); styleText('Röd');}">
+                                        <a>Röd<i class="fa fa-circle red-dropdown circle"></i></a>
+                                    </li>
+                                    <li data-bind="click: function(){style('blue'); styleText('Blå');}">
+                                        <a>Blå<i class="fa fa-circle blue-dropdown circle"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button class="btn btn-success countdown-create" data-bind="click: createCountdown">Skapa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <div class="weather-container">
+                    <h2 data-bind="text: destionationName()"></h2>
+                    <h1 data-bind="text: temperature() + ' °C '"></h1>
+                    <i class="fa fa-sun-o fa-3x" aria-hidden="true"></i>
+                    <ul>
+                        <li><span data-bind="text: 'Max: ' + maxTemp() + ' °C'"></span></li>
+                        <li><span data-bind="text: 'Min: ' + minTemp() + ' °C'"></span></li>
+                        <li>Wind<span data-bind="text: ': ' + wind() + ' m/s'"></span></li>
+                    </ul>
+
+                    <!-- ko if: drawChart -->
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <!-- /ko -->
+
+                </div>
+            </div>
+        </div>
+        <div data-bind="visible: !loggedIn()">
+            <div class="row">
+                <div class="loggon col-md-4 col-md-offset-4">
+                    <h1>Du måste logga in</h1>
+                    <input class="form-control" placeholder="Username" type="text" data-bind="value: username, valueUpdate: 'keypress'"/>
+                    <input class="form-control" placeholder="Password" type="password" data-bind="value: password, valueUpdate: 'keypress'"/>
+                    <br/>
+                    <button class="btn btn-success" data-bind="click: logOn">Logga in</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 

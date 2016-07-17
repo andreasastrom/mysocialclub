@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 from django.core import serializers
 from .models import Greeting
 import requests
-from hello import item, activity
+from hello import item, activity, userModel
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 def index(request):
@@ -67,3 +70,28 @@ def remove_acticity(request):
 def get_weather(request):
     weather = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Taormina&units=metric&appid=05cded3be7ec61a14bd04f1a39eb18a5')
     return HttpResponse(weather)
+
+def login(request):
+    return render(request, 'login.html')
+# def emai_check(user):
+#     return user.email.end
+
+# @user_passes_test(email_check)
+@csrf_exempt
+def user_login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        # the password verified for the user
+        if user.is_active:
+            print("User is valid, active and authenticated")
+            return HttpResponse('Success', status=200)
+        else:
+            print"ej bra"
+            return HttpResponse('Unauthorized', status=401)
+    else:
+        print "nej"
+        return HttpResponse('Unauthorized', status=401)
+    
+    
