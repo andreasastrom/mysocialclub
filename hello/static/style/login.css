@@ -10,3 +10,18 @@
 .login-box {
 	margin-top: 200px;
 }
+
+.login-control {
+	color: #fff;
+	border-radius: 0px;
+	background: transparent;
+	background-image: none;
+	border:none;
+	border-bottom: 3px solid #fff;
+	box-shadow: none;
+	margin-bottom: 20px;
+}
+
+.login-control:focus {
+	box-shadow: none;
+}

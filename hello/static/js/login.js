@@ -29,7 +29,6 @@ function login() {
 		self.logonFailed(false);
 		username = self.username(); 
 		password = self.password();
-		console.log(password);
 		self.username('');
 		self.password('');
 		updateItem(username, password);
