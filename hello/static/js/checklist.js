@@ -4,6 +4,16 @@ function checklistVm() {
 	self.itemList = ko.observableArray();
 	self.shopplinglistInput = ko.observable('');	
 
+	var el = document.getElementById('myShoppingList');
+	var sortable = new Sortable(el, {
+		ghostClass: 'ghost',
+		onEnd: function (/**Event*/evt) {
+        	evt.oldIndex;  // element's old index within parent
+        	evt.newIndex;  // element's new index within parent        	
+    	}
+
+	})	
+
 	function getItems()
 	{ 
 		$.getJSON('/items/all', function (data) {
