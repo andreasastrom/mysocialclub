@@ -3,16 +3,20 @@ function checklistVm() {
 	self.name = ko.observable("hej");
 	self.itemList = ko.observableArray();
 	self.shopplinglistInput = ko.observable('');	
+	self.loadSorting = ko.observable(true);
 
-	var el = document.getElementById('myShoppingList');
-	var sortable = new Sortable(el, {
-		ghostClass: 'ghost',
-		onEnd: function (/**Event*/evt) {
-        	evt.oldIndex;  // element's old index within parent
-        	evt.newIndex;  // element's new index within parent        	
-    	}
+	if(self.loadSorting){
+		var el = document.getElementById('myShoppingList');
+		var sortable = new Sortable(el, {
+			ghostClass: 'ghost',
+			onEnd: function (/**Event*/evt) {
+	        	evt.oldIndex;  // element's old index within parent
+	        	evt.newIndex;  // element's new index within parent        	
+	    	}
 
-	})	
+		});	
+		self.loadSorting(false);
+	}
 
 	function getItems()
 	{ 
