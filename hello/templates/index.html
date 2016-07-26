@@ -32,6 +32,7 @@
     <script src="{% static 'js/countdown.js'%}"></script>
     <script src="{% static 'js/weather.js'%}"></script>
     <script src="{% static 'js/login.js'%}"></script>
+    <script src="{% static 'js/bakery.js'%}"></script>
 
     <link rel="icon" type="image/png" href="{% static 'icon/fav.gif'%}" sizes="32x32" />
     <!-- <link rel="icon" type="image/png" href="{% static 'icon/favicon-16x16.png'%}" sizes="16x16" /> -->
@@ -40,7 +41,8 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row" data-bind="visible: loggedIn()">
+        <!-- ko if: loggedIn() -->
+        <div class="row">
             <div class="col-md-4 col-xs-12">
                 <div class="shoppinglist-container">
                     <h2>Inköpslista</h2>
@@ -136,6 +138,8 @@
                 </div>
             </div>
         </div>
+        <!-- /ko -->
+        <!-- if : !loggedIn() -->
         <div class="login-background" data-bind="visible: !loggedIn()">
             <div class="row">
                 <div class="login-box col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1">
@@ -153,6 +157,7 @@
                 </div>
             </div>
         </div>
+        <!-- /ko -->
     </div>
 </body>
 </html>
