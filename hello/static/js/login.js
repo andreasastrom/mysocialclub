@@ -1,7 +1,6 @@
 
-function login() {
+function login(main) {
 	var self = this; 
-	self.loggedIn = ko.observable(false); 
 	self.username = ko.observable('');
 	self.password = ko.observable('');
 	self.logonFailed = ko.observable(false);
@@ -16,10 +15,11 @@ function login() {
 		  // async: false,
 		  data: {username: username, password: password},
 		  success: function(response){
-		  	self.loggedIn(true);//getItems();
+		  	setCookie("loggin",true,2)
+		  	main.loggedIn(true);//getItems();
 		  }, 
 		  error: function(response){	
-		  	self.loggedIn(false);
+		  	main.loggedIn(false);
 		  	self.logonFailed(true);
 		  }
 		});
