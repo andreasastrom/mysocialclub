@@ -34,6 +34,18 @@ function login(main) {
 		updateItem(username, password);
 	}
 
+	$(document).keypress(function(e) {
+	    if(e.which == 13) {
+	    	debugger;
+	    	if(!main.loggedIn()){
+	    		logOn();
+	    	}
+	    	else {
+	    		shopplinglistAdd();
+	    	}
+	    }
+	});
+
 	//updateItem('');
 	self.logOn = logOn;
 	return self; 

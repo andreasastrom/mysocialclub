@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.5/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -53,7 +54,7 @@
 
                     <div class="list-group-container">
                         <ul class="list-group" id="myShoppingList" data-bind="foreach: itemList()">
-                            <li class="list-group-item" data-bind="visible: showItem">
+                            <li class="list-group-item" data-bind="visible: showItem, attr:{id: id}">
                                 <span data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
                                     <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
                                     <span data-bind="text: name, css:{'list-group-item-done':done}"></span>

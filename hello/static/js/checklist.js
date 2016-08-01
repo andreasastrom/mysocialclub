@@ -10,8 +10,10 @@ function checklistVm() {
 		var sortable = new Sortable(el, {
 			ghostClass: 'ghost',
 			onEnd: function (/**Event*/evt) {
-	        	evt.oldIndex;  // element's old index within parent
-	        	evt.newIndex;  // element's new index within parent        	
+	        	var id = evt.item.id;  // element's old index within parent
+	        	var newvalue = evt.newIndex + 1;  // element's new index within parent        	
+	        	console.log(evt.item.id)
+	        	updateItemOrder(newvalue,id);
 	    	}
 
 		});	
@@ -23,6 +25,18 @@ function checklistVm() {
 		$.getJSON('/items/all', function (data) {
 			processItems(data);
 		});   
+	}
+
+	function updateItemOrder(newvalue, id){
+		$.ajax({
+		  type: "POST",
+		  url: "/items/update-order/",
+		  data: {newvalue: newvalue, id: id},
+		  success: function(){
+		  	self.shopplinglistInput('');
+		  	console.log("Allt funkade");				  	  				 		  	
+		  }
+		});		
 	}
 
 	function processItems(items){
@@ -50,7 +64,7 @@ function checklistVm() {
 	}
 
 	$(document).keypress(function(e) {
-	    if(e.which == 13) {
+	    if(e.which == 13) {	    	
 	        shopplinglistAdd();
 	    }
 	});

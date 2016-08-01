@@ -48,6 +48,13 @@ def update_item(request):
     return render(request, 'index.html')
 
 @csrf_exempt
+def update_item_order(request):
+    newvalue = request.POST.get("newvalue", "")
+    id = request.POST.get("id", "")    
+    item.update_item_order(newvalue, id)
+    return HttpResponse('Success', status=200)
+
+@csrf_exempt
 def create_activity(request):
     title = request.POST.get("title", "")
     date = request.POST.get("date", "")
