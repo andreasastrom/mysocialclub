@@ -10,7 +10,7 @@ class Item(models.Model):
 	createdtime = models.DateTimeField('date created', auto_now_add=True)
 	done = models.IntegerField(default=0)
 	endtime = models.DateTimeField('date deleted', auto_now_add=False, null=True)
-	order = models.IntegerField(default=0)
+	ordernumber = models.IntegerField(default=0)
 
 class Countdown(models.Model):
 	title = models.CharField(max_length=100)
