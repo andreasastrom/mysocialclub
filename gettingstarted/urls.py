@@ -18,6 +18,9 @@ urlpatterns = [
 	url(r'^items/create/', hello.views.create_item),
 	url(r'^items/update/', hello.views.update_item),
 	url(r'^items/remove/', hello.views.remove_item),
+	url(r'^items/update-order/', hello.views.update_item_order),
+
+
 
 	url(r'^activity/create/', hello.views.create_activity),
 	url(r'^activity/all/', hello.views.get_all_activities),

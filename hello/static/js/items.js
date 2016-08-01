@@ -1,7 +1,7 @@
 function ItemFactory(item, getItems){
 		this.name = item.fields.name;
 		this.done = item.fields.done;
-		this.id = item.pk;
+		this.id = item.pk;		
 		this.showItem = ko.observable(true);
 		this.markItemAsDone = function(){
 			updateItem(this.id, this.done);
