@@ -11,6 +11,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.5/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/locales/bootstrap-datepicker.sv.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script> -->
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/locale/sv.js"></script>    
+    
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -26,6 +33,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style/weather.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'style/login.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.6.3/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+
     <script src="{% static 'js/main.js'%}"></script>
     <script src="{% static 'js/items.js'%}"></script>
     <script src="{% static 'js/checklist.js'%}"></script>
@@ -76,7 +85,7 @@
                         </div>
                         <div class="countdown-row" data-bind="css: activity.style, click: setIsSelected">
                             <h1 data-bind="text: activity.daysLeft"></h1>
-                            <span data-bind="text: activity.title, visible: !isSelected()">Days until Taomina</span>
+                            <span data-bind="text: activity.title, visible: !isSelected()"></span>
                             <span data-bind="visible: isSelected, text: activity.date"></span>
                         </div>
                     </div>
@@ -90,7 +99,17 @@
                         <i class="fa fa-spinner fa-spin fa-3x fa-fw loading-spinner" data-bind="visible: showLoader()"></i>
                         <div data-bind="visible: !showLoader()">
                             <input type="text" class="form-control" placeholder="Aktivitet" data-bind="value: countdownactivity, valueUpdate: 'keypress'"></input>
-                            <input type="datetime" class="form-control" placeholder="Datum" data-bind="value: countdowndate, valueUpdate: 'keypress'"></input>
+                            <!-- <input type="datetime" class="form-control" placeholder="Datum" data-bind="value: countdowndate(), valueUpdate: 'keypress'"></input> -->                        
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                    <input type='text' id="myDateTime" class="form-control"></input>
+                                    
+                                </div>
+                            </div>        
+
 
                             <div class="dropdown">
                                 <button class="btn btn-default dropdown-toggle countdown-dropdown-buttom" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

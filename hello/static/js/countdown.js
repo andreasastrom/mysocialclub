@@ -11,14 +11,20 @@ function countdownVm() {
 	self.styleText = ko.observable('Välj stil');	
 
 	function createCountdown(){
-		createCountDownActivity(self.countdownactivity(), self.countdowndate(), self.style());
+		var date = $('#myDateTime').val();
+		createCountDownActivity(self.countdownactivity(), date, self.style());
 		self.countdownactivity('');
-		self.countdowndate('');
+		// self.countdowndate('');
 		self.style('');
 	}
 
 
-	function createCountDownActivity(title, date, style){
+	$('#datetimepicker1').datetimepicker({		
+		locale: 'sv'
+
+	});
+
+	function createCountDownActivity(title, date, style){	
 		self.showLoader(true);	
 		$.ajax({
 		  type: "POST",
