@@ -74,9 +74,10 @@
                         <div class="countdown-close" data-bind="click: removeThisActicity, visible: countdownSettings()">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </div>
-                        <div class="countdown-row" data-bind="css: activity.style">
+                        <div class="countdown-row" data-bind="css: activity.style, click: setIsSelected">
                             <h1 data-bind="text: activity.daysLeft"></h1>
-                            <span data-bind="text: activity.title">Days until Taomina</span>
+                            <span data-bind="text: activity.title, visible: !isSelected()">Days until Taomina</span>
+                            <span data-bind="visible: isSelected, text: activity.date"></span>
                         </div>
                     </div>
                     <!-- /ko -->
