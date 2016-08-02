@@ -1,5 +1,5 @@
 .login-background {
-	height: 95vh;
+	height: 96vh;
 	/*width: 100vw;*/
 	background-color: #373447;
 	/*background: url('../images/background.jpg');*/
@@ -8,7 +8,13 @@
 }
 
 .login-box {
-	margin-top: 200px;
+	position: fixed;
+	top: 20%;
+}
+
+.login-text {
+	text-align: center;
+	margin-bottom: 3rem;
 }
 
 .login-control {
@@ -20,6 +26,10 @@
 	border-bottom: 3px solid #fff;
 	box-shadow: none;
 	margin-bottom: 20px;
+}
+
+.login-button {
+	width: 100%;
 }
 
 .login-control:focus {

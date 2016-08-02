@@ -33,4 +33,45 @@ def update_item(id, value):
 def remove_item(id):
 	item = Item.objects.filter(id=id)
 	item.delete()
-	print "Remove item"
+
+def get_highest_soring_order(): 
+	startdate = timezone.now() - timezone.timedelta(hours=1)
+	enddate = timezone.now()
+	all_items = Item.objects.filter(Q(endtime__range=[startdate, enddate]) | Q(endtime=None))
+	index = all_items.order_by("-ordernumber")[0]	
+	return index.ordernumber
+
+
+def update_item_order(newvalue, id):
+	reorder_items(newvalue)	
+	print newvalue	
+	print id
+	item = Item.objects.filter(id=id)	
+	item.update(ordernumber=newvalue)
+	
+
+
+def reorder_items(i):	
+	startdate = timezone.now() - timezone.timedelta(hours=1)
+	enddate = timezone.now()
+	print "_____________"
+	print i 
+	print " ----------------"
+	# count = Item.objects.filter(ordernumber__gte=i).count()
+	# print count + i
+	#Item.objects.filter((Q(endtime__range=[startdate, enddate]) | Q(endtime=None)) & Q(ordernumber__gt=i)).update(ordernumber=F('ordernumber') + 1)
+	# items = Item.objects.filter((Q(endtime__range=[startdate, enddate]) | Q(endtime=None)) & Q(ordernumber__gt=i))
+	for item in items:
+		item.update(ordernumber = F('ordernumber') + 1)
+
+	print "Hje"
+
+
+	# for item in all_items: 
+	# 	print item.name
+	# 	i = i + 1
+	# 	item(order=i)	
+	# 	item.save()	
+		
+
+	#print all_items.count()
