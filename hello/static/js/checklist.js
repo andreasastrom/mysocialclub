@@ -4,6 +4,9 @@ function checklistVm() {
 	self.itemList = ko.observableArray();
 	self.shopplinglistInput = ko.observable('');	
 	self.loadSorting = ko.observable(true);
+	self.doneTask = ko.observable(0);
+	self.totalCount = ko.observable(0);
+	var done = 0;
 
 	if(self.loadSorting){
 		var el = document.getElementById('myShoppingList');
@@ -27,10 +30,17 @@ function checklistVm() {
 
 	function processItems(items){
 		self.itemList.removeAll();
+		done = 0;
+		self.totalCount(items.length);
 		$.each(items, function(i, item){
 			var myItem = new ItemFactory(item, getItems);
+			console.log(myItem.done);
+			if(myItem.done === 1){
+				done++;
+			}
 			self.itemList.push(myItem);
 		})
+		self.doneTask(done);
 	}
 
 	function shopplinglistAdd(){

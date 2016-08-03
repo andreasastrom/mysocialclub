@@ -55,6 +55,9 @@
             <div class="col-md-4 col-xs-12">
                 <div class="shoppinglist-container">
                     <h2>Inköpslista</h2>
+                    
+                    <span data-bind="text: doneTask() + '/' + totalCount(), visible: totalCount() > 0"></span>
+                    
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Vad?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
                         <span class="input-group-addon" data-bind="click:shopplinglistAdd">Lägg till</span>
