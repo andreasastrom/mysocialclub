@@ -4,15 +4,11 @@ function login(main) {
 	self.username = ko.observable('');
 	self.password = ko.observable('');
 	self.logonFailed = ko.observable(false);
-	var password;
-	var username;
 	
-	function updateItem(username, password){
+	function logginUser(username, password){
 		$.ajax({
 		  type: "POST",
 		  url: "/login/",
-		  // cache: true,
-		  // async: false,
 		  data: {username: username, password: password},
 		  success: function(response){
 		  	setCookie("loggin",true,2)
@@ -27,14 +23,13 @@ function login(main) {
 
 	function logOn(){
 		self.logonFailed(false);
-		username = self.username(); 
-		password = self.password();
+		var username = self.username(); 
+		var password = self.password();
 		self.username('');
 		self.password('');
-		updateItem(username, password);
+		logginUser(username, password);
 	}
 
-	//updateItem('');
 	self.logOn = logOn;
 	return self; 
 }

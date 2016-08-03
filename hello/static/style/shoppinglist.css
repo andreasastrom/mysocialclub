@@ -18,6 +18,11 @@
 	color: #000;
 }
 
+.list-group-text {
+	width: 60%;
+    display: inline-block;
+}
+
 .list-group-item {
 	cursor: pointer;
 	background-color: #e6e6e6;

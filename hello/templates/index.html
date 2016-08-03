@@ -63,13 +63,13 @@
                     <div class="list-group-container">
                         <ul class="list-group" id="myShoppingList" data-bind="foreach: itemList()">
                             <li class="list-group-item" data-bind="visible: showItem">
-                                <span data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
+                                <div class="list-group-text" data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
                                     <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
                                     <span data-bind="text: name, css:{'list-group-item-done':done}"></span>
-                                </span>
-                                <span class="listeItem-delete" data-bind="click: deleteItem">
+                                </div>
+                                <div class="listeItem-delete" data-bind="click: deleteItem">
                                     <i class="fa fa-trash-o"></i>
-                                </span>
+                                </dib>
                             </li>
                         </ul>
                     </div>
@@ -159,7 +159,8 @@
             </div>
         </div>
         <!-- /ko -->
-        <!-- if : !loggedIn() -->
+
+        <!-- ko if : !loggedIn() -->
         <div class="login-background" data-bind="visible: !loggedIn()">
             <div class="row">
                 <div class="login-box col-md-4 col-md-offset-4 col-lg-2 col-lg-offset-5 col-xs-10 col-xs-offset-1">

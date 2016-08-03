@@ -11,22 +11,16 @@ function myViewModel(){
 	var loginStatus = getCookie("loggin");
 	
 	if(loginStatus){
-		console.log("ok")
 		self.loggedIn(true);
 	}
 	else {
 		self.loggedIn(false);
 		login(self);
-		//var loginData = login().loggedIn();
 	}
 
-	
-	
-	//loggedIn(loginData);
 	checklistVm();
 	countdownVm();
 	weatherVm();
-
-	//self.loggedIn = loggedIn;
+	
 	return self; 	
 }
