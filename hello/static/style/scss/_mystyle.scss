@@ -1,6 +1,19 @@
+$colorBlue: #0288D1;
+$colorBlueDark: #01579B;
+$colorOrangeDark: #E65100;
+$colorOrange: #F57C00;
+$colorGreen: #388E3C; 
+$colorGreenDark: #4CAF50;
+$colorWhite: #FFFFFF;
+$colorRed: #D32F2F;
+$colorRedDark: #901F1F;
+$colorTeal: #00796B;
+$colorTealDark: #B2DFDB;
+$colorGrey: #DDDDDD;
+
 body {
-	background-color: #ddd;
-	margin-bottom: 50px;
+	background-color: $colorGrey;
+	margin-bottom: 5rem;
 }
 
 input[type='text'],
@@ -8,55 +21,55 @@ input[type='number'],
 input[type='datetime'],
 input[type='password'],
 textarea {
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .blue {
-	background-color: #0288D1;
-	color: #01579B;
-	box-shadow: 0px 2px 2px 0px #01579B;
+	background-color: $colorBlue;
+	color: $colorBlueDark;
+	box-shadow: 0px 2px 2px 0px $colorBlueDark;
 }
 
 .orange {
-	color: #E65100;
-	background-color: #F57C00;
-	box-shadow: 0px 2px 2px 0px #E65100;
+	color: $colorOrangeDark;
+	background-color: $colorOrange;
+	box-shadow: 0px 2px 2px 0px $colorOrangeDark;
 }
 
 .green {
-	color: #388E3C;
-	background-color: #4CAF50;
-	box-shadow: 0px 2px 2px 0px #388E3C;
+	color: $colorGreen;
+	background-color: $colorGreenDark;
+	box-shadow: 0px 2px 2px 0px $colorGreen;
 }
 
 .red {
-	color: #FFF;
-	background-color: #D32F2F;
-	box-shadow: 0px 2px 2px 0px #901F1F;
+	color: $colorWhite;
+	background-color: $colorRed;
+	box-shadow: 0px 2px 2px 0px $colorRedDark;
 }
 
 .teal {
-	color: #00796B;
-	background-color: #B2DFDB;
-	box-shadow: 0px 2px 2px 0px #00796B;
+	color: $colorTeal;
+	background-color: $colorTealDark;
+	box-shadow: 0px 2px 2px 0px $colorTeal;
 }
 
 .green-dropdown {
-	color: #4CAF50;
+	color: $colorGreenDark;
 }
 
 .orange-dropdown {
-	color: #F57C00;
+	color: $colorOrange;
 }
 
 .red-dropdown {
-	color: #D32F2F;
+	color: $colorRed;
 }
 
 .teal-dropdown {
-	color: #B2DFDB;
+	color: $colorTeal;
 }
 
 .blue-dropdown {
-	color: #0288D1;
+	color: $colorBlue;
 }

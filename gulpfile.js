@@ -9,7 +9,7 @@ gulp.task('build', function () {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('hello/static/style/scss/**/*.scss', ['sass']);
+  gulp.watch('hello/static/style/scss/**/*.scss', ['build']);
 });
 
 
