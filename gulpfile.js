@@ -14,5 +14,5 @@ gulp.task('watch', function () {
 
 
 gulp.task('default', function() {  
-  gulp.start('sass:watch')
+  gulp.start('watch')
 });
