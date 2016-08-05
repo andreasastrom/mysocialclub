@@ -1,0 +1,62 @@
+body {
+	background-color: #ddd;
+	margin-bottom: 50px;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='datetime'],
+input[type='password'],
+textarea {
+  font-size: 16px;
+}
+
+.blue {
+	background-color: #0288D1;
+	color: #01579B;
+	box-shadow: 0px 2px 2px 0px #01579B;
+}
+
+.orange {
+	color: #E65100;
+	background-color: #F57C00;
+	box-shadow: 0px 2px 2px 0px #E65100;
+}
+
+.green {
+	color: #388E3C;
+	background-color: #4CAF50;
+	box-shadow: 0px 2px 2px 0px #388E3C;
+}
+
+.red {
+	color: #FFF;
+	background-color: #D32F2F;
+	box-shadow: 0px 2px 2px 0px #901F1F;
+}
+
+.teal {
+	color: #00796B;
+	background-color: #B2DFDB;
+	box-shadow: 0px 2px 2px 0px #00796B;
+}
+
+.green-dropdown {
+	color: #4CAF50;
+}
+
+.orange-dropdown {
+	color: #F57C00;
+}
+
+.red-dropdown {
+	color: #D32F2F;
+}
+
+.teal-dropdown {
+	color: #B2DFDB;
+}
+
+.blue-dropdown {
+	color: #0288D1;
+}

@@ -1,0 +1,54 @@
+.countdown {
+	position: relative;
+	height: 165px;
+}
+
+.countdown-container {
+	margin-top:20px;
+}
+
+.countdown-close {
+	position: absolute;
+    z-index: 1;
+    right: -11px;
+    height: 30px;
+    width: 30px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 15px;
+    top: -10px;
+    box-shadow: 0 0 0 1px #ccc;
+    padding-top: 7px;
+    cursor: pointer;       
+}
+
+.countdown-row {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 30px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+}
+h1 {
+	font-size: 60px;
+}
+
+.circle {
+	float: right;
+	margin-right: 5px;
+}
+
+.countdown-dropdown-buttom {
+	width: 100%;
+	text-align: left;
+}
+
+.countdown-dropdown-list {
+	width: 100%
+}
+
+.countdown-create {
+	margin-top: 10px;
+}
