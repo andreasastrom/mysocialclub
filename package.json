@@ -1,0 +1,23 @@
+{
+  "name": "mysocialclub",
+  "version": "1.0.0",
+  "description": "\"My hobby project\"",
+  "main": "main.js",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreasastrom/mysocialclub.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreasastrom/mysocialclub/issues"
+  },
+  "homepage": "https://github.com/andreasastrom/mysocialclub#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
+}

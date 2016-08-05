@@ -1,0 +1,51 @@
+.shoppinglist-container {
+	background-color: #555555;
+	color: #fff;
+	padding: 10px;
+	margin-top: 20px;
+	border-radius: 7px;
+	box-shadow: 0px 2px 2px 0px #777777;
+}
+.list-group-container {
+	position: relative;
+	top: 15px;
+}
+
+.listeItem-delete {
+	float: right;
+	width: 100px;
+	text-align: right;
+	color: #000;
+}
+
+.list-group-text {
+	width: 60%;
+    display: inline-block;
+}
+
+.list-group-item {
+	cursor: pointer;
+	background-color: #e6e6e6;
+}
+
+.list-group-item:nth-child(2n+1) {
+	background-color: #f2f2f2;
+}
+
+.list-group-item:hover {
+	background-color: #d7d7d7;
+}
+
+.list-group-item-done {
+	text-decoration: line-through;
+}
+.loading-spinner {
+    position: relative;
+    left: 33%;
+    right: 33%;
+}
+
+.list-counter {
+	text-align: center;
+}
+

@@ -1,0 +1,37 @@
+.login-background {
+	height: 96vh;
+	/*width: 100vw;*/
+	background-color: #373447;
+	/*background: url('../images/background.jpg');*/
+	background-size: cover;
+	color: #fff;
+}
+
+.login-box {
+	position: fixed;
+	top: 20%;
+}
+
+.login-text {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.login-control {
+	color: #fff;
+	border-radius: 0px;
+	background: transparent;
+	background-image: none;
+	border:none;
+	border-bottom: 3px solid #fff;
+	box-shadow: none;
+	margin-bottom: 20px;
+}
+
+.login-button {
+	width: 100%;
+}
+
+.login-control:focus {
+	box-shadow: none;
+}
