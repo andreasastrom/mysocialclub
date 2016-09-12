@@ -1,7 +1,7 @@
 function checklistVm() {
-	var self = this;
-	self.name = ko.observable("hej");
+	var self = this;	
 	self.itemList = ko.observableArray();
+	self.checkList = ko.observableArray();
 	self.shopplinglistInput = ko.observable('');	
 	self.loadSorting = ko.observable(true);
 	self.doneTask = ko.observable(0);
@@ -28,13 +28,29 @@ function checklistVm() {
 		});   
 	}
 
+	function getAllChecklistsItems()
+	{ 
+		$.getJSON('/checklists/all', function (data) {
+			console.log(data);
+		});   
+	}
+
+	function processItems(checklists){
+		$.each(checklists, function(i, item){
+			var myChecklists = new ItemFactory(item, getItems);			
+			// if(myItem.done === 1){
+			// 	done++;
+			// }
+			self.checkList.push(myItem);
+		})
+	}
+	
 	function processItems(items){
 		self.itemList.removeAll();
 		done = 0;
 		self.totalCount(items.length);
 		$.each(items, function(i, item){
-			var myItem = new ItemFactory(item, getItems);
-			console.log(myItem.done);
+			var myItem = new ItemFactory(item, getItems);			
 			if(myItem.done === 1){
 				done++;
 			}
@@ -65,6 +81,7 @@ function checklistVm() {
 	    }
 	});
 
+	getAllChecklistsItems();
 	getItems();
 	self.shopplinglistAdd = shopplinglistAdd;
 	self.httpGet = getItems;

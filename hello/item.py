@@ -6,7 +6,7 @@ from django.core import serializers
 
 
 def create_item(name):	
-	i = Item(name=name)	
+	i = Item(name=name, checklist_id=1)	
 	i.save()
 
 def get_all_items():
@@ -23,12 +23,9 @@ def update_item(id, value):
 		endt =  timezone.now()
 	else:
 		endt = None
-
-	print endt
 	item = Item.objects.filter(id=id)
 	item.update(done = value)
-	item.update(endtime = endt)
-	print "update item"
+	item.update(endtime = endt)	
 
 def remove_item(id):
 	item = Item.objects.filter(id=id)

@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from .models import Greeting
 import requests
-from hello import item, activity, userModel
+from hello import item, activity, userModel, checklist
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -14,6 +14,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 def index(request):
     #userModel.create_user()
+    #checklist.getAllActiveCheckLists()
     return render(request, 'index.html')
 
 	
@@ -95,3 +96,7 @@ def user_login(request):
         return HttpResponse('Unauthorized', status=401)
     
     
+
+def get_all_active_checkLists(request):
+    all_active_checklists = checklist.get_all_active_checkLists()
+    return HttpResponse(all_active_checklists)

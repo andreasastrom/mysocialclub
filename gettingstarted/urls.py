@@ -27,5 +27,6 @@ urlpatterns = [
 	url(r'^login/$', hello.views.user_login),
 	url(r'^loginpage', hello.views.login),
 
+	url(r'^checklists/all', hello.views.get_all_active_checkLists),
 	
 ]
