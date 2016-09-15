@@ -17,6 +17,14 @@ def get_all_items():
 	all_items_serialized = serializers.serialize('json', all_items_orderd)
 	return all_items_serialized
 
+def get_all_items_by_checklist_id(checklist_id):
+	startdate = timezone.now() - timezone.timedelta(hours=1)
+	enddate = timezone.now()
+	all_items = Item.objects.filter(Q(endtime__range=[startdate, enddate]) | Q(endtime=None) & Q(checklist_id=checklist_id))
+	all_items_orderd = all_items.order_by('createdtime')
+	all_items_serialized = serializers.serialize('json', all_items_orderd)
+	return all_items_serialized
+
 def update_item(id, value):
 		
 	if value == "1":

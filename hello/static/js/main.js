@@ -17,7 +17,7 @@ function myViewModel(){
 		self.loggedIn(false);
 		login(self);
 	}
-
+	
 	checklistVm();
 	countdownVm();
 	weatherVm();

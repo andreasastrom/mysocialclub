@@ -34,6 +34,7 @@
     <script src="{% static 'js/weather.js'%}"></script>
     <script src="{% static 'js/login.js'%}"></script>
     <script src="{% static 'js/bakery.js'%}"></script>
+    <script src="{% static 'js/m/m.checklist.js'%}"></script>
 
     <script src="{% static 'js/m/m.checklist.js'%}"></script>
 
@@ -71,6 +72,10 @@
                         <b data-bind="text: doneTask() + '/' + totalCount()"></b>
                     </div>
                 </div>
+            </div>
+
+            <div data-bind="foreach: checklists">
+                <p data-bind="text: name"></p>
             </div>
 
             <div class="col-md-2 col-xs-12">

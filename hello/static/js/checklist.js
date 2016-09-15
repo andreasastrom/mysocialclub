@@ -6,6 +6,7 @@ function checklistVm() {
 	self.loadSorting = ko.observable(true);
 	self.doneTask = ko.observable(0);
 	self.totalCount = ko.observable(0);
+	self.checklists = ko.observableArray();
 	var done = 0;
 
 	if(self.loadSorting){
@@ -28,10 +29,18 @@ function checklistVm() {
 		});   
 	}
 
+
+	function loaded(data){		
+		$.each(data, function (index, checklist){
+			var d = checklistModel(checklist);
+			self.checklists.push(d);
+		});
+	}
+
 	function getAllChecklistsItems()
 	{ 
 		$.getJSON('/checklists/all', function (data) {
-			console.log(data);
+			loaded(data);
 		});   
 	}
 
