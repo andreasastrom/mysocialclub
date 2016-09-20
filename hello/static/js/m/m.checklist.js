@@ -5,6 +5,7 @@ function checklistModel(checklist)
 	self.name = checklist.fields.name;	
 	self.removed = checklist.fields.removed;
 	self.checklist_id = checklist.pk;
+	self.shopplinglistInput = ko.observable('');
 
 	function loaded(data) {		
 		self.listItem.removeAll();
@@ -25,8 +26,24 @@ function checklistModel(checklist)
 		});
 	}
 
+	var create = function () {
+		var inputvalue = self.shopplinglistInput();			
+		if(self.shopplinglistInput().length > 0){
+			$.ajax({
+			  type: "POST",
+			  url: "/items/create/",
+			  data: {name: inputvalue, checklist: self.checklist_id},
+			  success: function(){
+			  	self.shopplinglistInput('');
+			  	console.log("Allt funkade");
+			  	load(self.checklist_id);				  	  				 			  	
+			  }
+			});
+		}
+	}
+
 	load(self.checklist_id);
 	//function som hämtar alla checklistepunkter med rätt id. 
-
+	self.create = create;
 	return self;		
 }

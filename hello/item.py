@@ -5,8 +5,8 @@ from django.db.models import Q
 from django.core import serializers
 
 
-def create_item(name):	
-	i = Item(name=name, checklist_id=1)	
+def create_item(name, checklist):	
+	i = Item(name=name, checklist_id=checklist)	
 	i.save()
 
 def get_all_items():

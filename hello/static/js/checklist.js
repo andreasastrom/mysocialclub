@@ -2,7 +2,6 @@ function checklistVm() {
 	var self = this;	
 	self.itemList = ko.observableArray();
 	self.checkList = ko.observableArray();
-	self.shopplinglistInput = ko.observable('');	
 	self.loadSorting = ko.observable(true);
 	self.doneTask = ko.observable(0);
 	self.totalCount = ko.observable(0);

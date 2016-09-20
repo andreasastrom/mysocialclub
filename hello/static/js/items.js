@@ -1,9 +1,10 @@
 function ItemFactory(item, reload){
 	this.name = item.fields.name;
 	this.done = item.fields.done;
-	this.id = item.pk;
-	var checklist_id = item.fields.checklist;	
+	this.id = item.pk;	
 	this.showItem = ko.observable(true);
+	var checklist_id = item.fields.checklist;	
+	
 	this.markItemAsDone = function(){
 		updateItem(this.id, this.done);
 	}
@@ -33,7 +34,7 @@ function ItemFactory(item, reload){
 		  data: {id: id},
 		  success: function(){
 		  	console.log("Remove");
-		  	reload(this.checklist_id);
+		  	reload(checklist_id);
 		  }
 		});
 	}

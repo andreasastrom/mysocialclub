@@ -28,7 +28,8 @@ def db(request):
 @csrf_exempt
 def create_item(request):
     name = request.POST.get("name", "")
-    item.create_item(name)
+    checklist = request.POST.get("checklist", 1)
+    item.create_item(name, checklist)
     return render(request, 'index.html')
 
 def get_all_items(request):
