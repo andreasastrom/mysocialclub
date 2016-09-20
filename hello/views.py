@@ -35,8 +35,12 @@ def get_all_items(request):
     i = item.get_all_items()
     return HttpResponse(i)
 
+@csrf_exempt
 def get_all_items_by_checklist_id(request):
-    i = item.get_all_items_by_checklist_id(1)
+    print request
+    id = request.GET.get("checklist_id", 0)
+    print id 
+    i = item.get_all_items_by_checklist_id(id)
     return HttpResponse(i)
 
 @csrf_exempt

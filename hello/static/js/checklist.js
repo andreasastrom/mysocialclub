@@ -30,9 +30,9 @@ function checklistVm() {
 	}
 
 
-	function loaded(data){		
+	function loaded(data){			
 		$.each(data, function (index, checklist){
-			var d = checklistModel(checklist);
+			var d = new checklistModel(checklist);
 			self.checklists.push(d);
 		});
 	}
@@ -46,10 +46,7 @@ function checklistVm() {
 
 	function processItems(checklists){
 		$.each(checklists, function(i, item){
-			var myChecklists = new ItemFactory(item, getItems);			
-			// if(myItem.done === 1){
-			// 	done++;
-			// }
+			var myChecklists = new ItemFactory(item);						
 			self.checkList.push(myItem);
 		})
 	}
@@ -77,8 +74,7 @@ function checklistVm() {
 			  data: {name: inputvalue},
 			  success: function(){
 			  	self.shopplinglistInput('');
-			  	console.log("Allt funkade");				  	  				 
-			  	getItems();
+			  	console.log("Allt funkade");				  	  				 			  	
 			  }
 			});
 		}

@@ -47,16 +47,16 @@
     <div class="container-fluid">
         <!-- ko if: loggedIn() -->
         <div class="row">
-            <div class="col-md-4 col-xs-12">
+            <div class="col-md-4 col-xs-12" data-bind="foreach: checklists">
                 <div class="shoppinglist-container">
-                    <h2>Inköpslista</h2>
+                    <h2 data-bind="text: name"></h2>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Vad?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
                         <span class="input-group-addon" data-bind="click:shopplinglistAdd">Lägg till</span>
                     </div>
 
                     <div class="list-group-container">
-                        <ul class="list-group" id="myShoppingList" data-bind="foreach: itemList()">
+                        <ul class="list-group" id="myShoppingList" data-bind="foreach: listItem()">
                             <li class="list-group-item" data-bind="visible: showItem">
                                 <div class="list-group-text" data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
                                     <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
@@ -72,10 +72,6 @@
                         <b data-bind="text: doneTask() + '/' + totalCount()"></b>
                     </div>
                 </div>
-            </div>
-
-            <div data-bind="foreach: checklists">
-                <p data-bind="text: name"></p>
             </div>
 
             <div class="col-md-2 col-xs-12">
