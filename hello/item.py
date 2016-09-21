@@ -19,16 +19,13 @@ def get_all_items():
 
 def get_all_items_by_checklist_id(checklist_id):
 	startdate = timezone.now() - timezone.timedelta(hours=1)
-	enddate = timezone.now()	
-	print type(checklist_id)
+	enddate = timezone.now()		
 	all_items = Item.objects.filter(Q(
 			Q(checklist_id=float(checklist_id)) 
 			& Q(
 				Q(endtime__range=[startdate, enddate]) | Q(endtime=None))
 			)
 	)
-	#all_items = Item.objects.filter(Q(Q(endtime__range=[startdate, enddate]) | Q(endtime=None)), checklist_id=float(checklist_id))
-	
 	all_items_orderd = all_items.order_by('createdtime')
 	all_items_serialized = serializers.serialize('json', all_items_orderd)
 	return all_items_serialized

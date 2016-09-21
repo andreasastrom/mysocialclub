@@ -47,7 +47,9 @@
     <div class="container-fluid">
         <!-- ko if: loggedIn() -->
         <div class="row">
-            <div class="col-md-4 col-xs-12" data-bind="foreach: checklists">
+            <div class="col-md-4 col-xs-12">
+
+                <!-- ko foreach: checklists -->
                 <div class="shoppinglist-container">
                     <h2 data-bind="text: name"></h2>
                     <div class="input-group">
@@ -72,7 +74,19 @@
                         <b data-bind="text: doneTask() + '/' + totalCount()"></b>
                     </div> -->
                 </div>
+                <!-- /ko -->
+                <div class="shoppinglist-creat">
+                    <h3> Skapa en lista </h3>        
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Skapa ny lista" data-bind="value: checklistName, valueUpdate:'keypress'">                        
+                        <span class="input-group-addon" data-bind="click: createChecklist">Skapa</span>
+                        
+                    </div>
+
+                </div>        
             </div>
+
+            <!-- <span data-bind="text: testar123"> -->
 
             <div class="col-md-2 col-xs-12">
                 <div class="countdown-container" data-bind="visible: showTheWorld">

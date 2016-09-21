@@ -109,3 +109,9 @@ def user_login(request):
 def get_all_active_checkLists(request):
     all_active_checklists = checklist.get_all_active_checkLists()
     return HttpResponse(all_active_checklists)
+
+@csrf_exempt
+def create_checklist(request):
+    name = request.POST['name']
+    checklist.create_checklist(name)
+    return HttpResponse('Success', status=200)
