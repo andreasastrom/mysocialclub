@@ -18,6 +18,7 @@ urlpatterns = [
 	url(r'^items/create/', hello.views.create_item),
 	url(r'^items/update/', hello.views.update_item),
 	url(r'^items/remove/', hello.views.remove_item),
+	url(r'^checklist/items/', hello.views.get_all_items_by_checklist_id),
 
 	url(r'^activity/create/', hello.views.create_activity),
 	url(r'^activity/all/', hello.views.get_all_activities),
@@ -27,6 +28,7 @@ urlpatterns = [
 	url(r'^login/$', hello.views.user_login),
 	url(r'^loginpage', hello.views.login),
 
-	url(r'^checklists/all', hello.views.get_all_active_checkLists),
+	url(r'^checklist/create', hello.views.create_checklist),
+	url(r'^checklists/all', hello.views.get_all_active_checkLists),	
 	
 ]

@@ -3,8 +3,9 @@ from django.core import serializers
 
 def get_all_active_checkLists():
 	all_checklists = Checklist.objects.filter(removed=0)
-	#all_checklists = Checklist.objects.all()
-	print "roon"
-	all_checklists_serialized = serializers.serialize('json', all_checklists)
-	print "lol"
+	all_checklists_serialized = serializers.serialize('json', all_checklists)	
 	return all_checklists_serialized
+
+def create_checklist(name):
+	c = Checklist(name=name)
+	c.save()

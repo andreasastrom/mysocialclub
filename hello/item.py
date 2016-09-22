@@ -5,14 +5,27 @@ from django.db.models import Q
 from django.core import serializers
 
 
-def create_item(name):	
-	i = Item(name=name, checklist_id=1)	
+def create_item(name, checklist):	
+	i = Item(name=name, checklist_id=checklist)	
 	i.save()
 
 def get_all_items():
 	startdate = timezone.now() - timezone.timedelta(hours=1)
 	enddate = timezone.now()
 	all_items = Item.objects.filter(Q(endtime__range=[startdate, enddate]) | Q(endtime=None))
+	all_items_orderd = all_items.order_by('createdtime')
+	all_items_serialized = serializers.serialize('json', all_items_orderd)
+	return all_items_serialized
+
+def get_all_items_by_checklist_id(checklist_id):
+	startdate = timezone.now() - timezone.timedelta(hours=1)
+	enddate = timezone.now()		
+	all_items = Item.objects.filter(Q(
+			Q(checklist_id=float(checklist_id)) 
+			& Q(
+				Q(endtime__range=[startdate, enddate]) | Q(endtime=None))
+			)
+	)
 	all_items_orderd = all_items.order_by('createdtime')
 	all_items_serialized = serializers.serialize('json', all_items_orderd)
 	return all_items_serialized

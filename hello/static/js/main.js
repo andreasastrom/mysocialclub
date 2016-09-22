@@ -6,7 +6,7 @@ $( document ).ready(function() {
 function myViewModel(){
 	var self = this;
 	self.loggedIn = ko.observable(false); 
-	var loggedIn = ko.observable(false);
+	var loggedIn = ko.observable(false);	
 
 	var loginStatus = getCookie("loggin");
 	
@@ -18,9 +18,9 @@ function myViewModel(){
 		login(self);
 	}
 
-	checklistVm();
-	countdownVm();
-	weatherVm();
+	self.checklistVm = checklistVm();
+	self.countdownVm = countdownVm();
+	self.weatherVm = weatherVm();
 	
 	return self; 	
 }

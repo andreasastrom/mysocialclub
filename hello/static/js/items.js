@@ -1,16 +1,18 @@
-function ItemFactory(item, getItems){
-		this.name = item.fields.name;
-		this.done = item.fields.done;
-		this.id = item.pk;
-		this.showItem = ko.observable(true);
-		this.markItemAsDone = function(){
-			updateItem(this.id, this.done);
-		}
+function ItemFactory(item, reload){
+	this.name = item.fields.name;
+	this.done = item.fields.done;
+	this.id = item.pk;	
+	this.showItem = ko.observable(true);
+	var checklist_id = item.fields.checklist;	
+	
+	this.markItemAsDone = function(){
+		updateItem(this.id, this.done);
+	}
 
-		this.deleteItem = function(){
-			this.showItem(false);
-			removeItem(this.id)
-		}
+	this.deleteItem = function(){
+		this.showItem(false);
+		removeItem(this.id)
+	}
 
 	function updateItem(id, done){
 		var d = (done == 0? 1: 0);
@@ -20,7 +22,7 @@ function ItemFactory(item, getItems){
 		  data: {id: id, done: d},
 		  success: function(){
 		  	console.log("Update");
-		  	getItems();
+		  	reload(checklist_id);
 		  }
 		});
 	}
@@ -32,7 +34,7 @@ function ItemFactory(item, getItems){
 		  data: {id: id},
 		  success: function(){
 		  	console.log("Remove");
-		  	getItems();
+		  	reload(checklist_id);
 		  }
 		});
 	}

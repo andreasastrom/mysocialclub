@@ -29,11 +29,12 @@
 
     <script src="{% static 'js/main.js'%}"></script>
     <script src="{% static 'js/items.js'%}"></script>
-    <script src="{% static 'js/checklist.js'%}"></script>
+    <script src="{% static 'js/vm/vm.checklist.js'%}"></script>
     <script src="{% static 'js/countdown.js'%}"></script>
     <script src="{% static 'js/weather.js'%}"></script>
     <script src="{% static 'js/login.js'%}"></script>
     <script src="{% static 'js/bakery.js'%}"></script>
+    <script src="{% static 'js/m/m.checklist.js'%}"></script>
 
     <script src="{% static 'js/m/m.checklist.js'%}"></script>
 
@@ -47,15 +48,17 @@
         <!-- ko if: loggedIn() -->
         <div class="row">
             <div class="col-md-4 col-xs-12">
+
+                <!-- ko foreach: checklists -->
                 <div class="shoppinglist-container">
-                    <h2>Inköpslista</h2>
+                    <h2 data-bind="text: name"></h2>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Vad?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
-                        <span class="input-group-addon" data-bind="click:shopplinglistAdd">Lägg till</span>
+                        <span class="input-group-addon" data-bind="click:create">Lägg till</span>
                     </div>
 
                     <div class="list-group-container">
-                        <ul class="list-group" id="myShoppingList" data-bind="foreach: itemList()">
+                        <ul class="list-group" id="myShoppingList" data-bind="foreach: listItem()">
                             <li class="list-group-item" data-bind="visible: showItem">
                                 <div class="list-group-text" data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
                                     <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
@@ -67,11 +70,23 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="list-counter" data-bind="visible: totalCount() > 0">
+                    <!-- <div class="list-counter" data-bind="visible: totalCount() > 0">
                         <b data-bind="text: doneTask() + '/' + totalCount()"></b>
-                    </div>
+                    </div> -->
                 </div>
+                <!-- /ko -->
+                <div class="shoppinglist-creat">
+                    <h3> Skapa en lista </h3>        
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Skapa ny lista" data-bind="value: checklistName, valueUpdate:'keypress'">                        
+                        <span class="input-group-addon" data-bind="click: createChecklist">Skapa</span>
+                        
+                    </div>
+
+                </div>        
             </div>
+
+            <!-- <span data-bind="text: testar123"> -->
 
             <div class="col-md-2 col-xs-12">
                 <div class="countdown-container" data-bind="visible: showTheWorld">

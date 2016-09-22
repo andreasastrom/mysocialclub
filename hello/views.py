@@ -28,11 +28,20 @@ def db(request):
 @csrf_exempt
 def create_item(request):
     name = request.POST.get("name", "")
-    item.create_item(name)
+    checklist = request.POST.get("checklist", 1)
+    item.create_item(name, checklist)
     return render(request, 'index.html')
 
 def get_all_items(request):
     i = item.get_all_items()
+    return HttpResponse(i)
+
+@csrf_exempt
+def get_all_items_by_checklist_id(request):
+    print request
+    id = request.GET.get("checklist_id", 0)
+    print id 
+    i = item.get_all_items_by_checklist_id(id)
     return HttpResponse(i)
 
 @csrf_exempt
@@ -100,3 +109,9 @@ def user_login(request):
 def get_all_active_checkLists(request):
     all_active_checklists = checklist.get_all_active_checkLists()
     return HttpResponse(all_active_checklists)
+
+@csrf_exempt
+def create_checklist(request):
+    name = request.POST['name']
+    checklist.create_checklist(name)
+    return HttpResponse('Success', status=200)
