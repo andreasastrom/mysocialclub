@@ -50,7 +50,12 @@
             <div class="col-md-4 col-xs-12">
 
                 <!-- ko foreach: checklists -->
-                <div class="shoppinglist-container">
+                <div class="shoppinglist-container" data-bind="visible: showChecklist">
+                    
+                    <div class="shoppinglist-close" data-bind="click: remove">
+                        <i class="fa fa-times buttom" aria-hidden="true"></i>
+                    </div>
+
                     <h2 data-bind="text: name"></h2>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Vad?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>

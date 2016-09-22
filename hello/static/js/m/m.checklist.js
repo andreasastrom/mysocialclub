@@ -6,6 +6,7 @@ function checklistModel(checklist)
 	self.removed = checklist.fields.removed;
 	self.checklist_id = checklist.pk;
 	self.shopplinglistInput = ko.observable('');
+	self.showChecklist = ko.observable(true);
 
 	function loaded(data) {		
 		self.listItem.removeAll();
@@ -18,7 +19,7 @@ function checklistModel(checklist)
 	function load(checklist_id) { 			
 		$.ajax({
 			type: "GET",
-			url: "/checklist/items/",
+			url: "/checklist/items",
 			data: {checklist_id: checklist_id},
 			success: function(data){				  
 				loaded(JSON.parse(data));
@@ -31,7 +32,7 @@ function checklistModel(checklist)
 		if(self.shopplinglistInput().length > 0){
 			$.ajax({
 			  type: "POST",
-			  url: "/items/create/",
+			  url: "/items/create",
 			  data: {name: inputvalue, checklist: self.checklist_id},
 			  success: function(){
 			  	self.shopplinglistInput('');
@@ -42,8 +43,21 @@ function checklistModel(checklist)
 		}
 	}
 
+	var remove = function() {
+		$.ajax({
+			  type: "POST",
+			  url: "/checklists/remove",
+			  data: {id: self.checklist_id},
+			  success: function(){
+	  		  	self.showChecklist(false)		  				  	  				 			  				
+			  }
+			});
+
+	}
+
 	load(self.checklist_id);
 	//function som hämtar alla checklistepunkter med rätt id. 
 	self.create = create;
+	self.remove = remove;
 	return self;		
 }

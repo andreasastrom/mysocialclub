@@ -28,7 +28,7 @@ function countdownVm() {
 		self.showLoader(true);	
 		$.ajax({
 		  type: "POST",
-		  url: "/activity/create/",
+		  url: "/activity/create",
 		  data: {title: title, date: date, style:style},
 		  success: function(){
 		  	console.log("Created");		  	
@@ -80,14 +80,12 @@ function countdownVm() {
 		self.countdownSettings(!self.countdownSettings());
 	}
 
-	function removeActicity(id){
-		console.log("tar bort")
+	function removeActicity(id){		
 		$.ajax({
 		  type: "POST",
-		  url: "/activity/remove/",
+		  url: "/activity/remove",
 		  data: {id: id},
-		  success: function(){
-		  	console.log("Remove");
+		  success: function(){		  	
 		  	getActivities();
 		  }
 		});

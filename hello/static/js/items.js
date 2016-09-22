@@ -18,7 +18,7 @@ function ItemFactory(item, reload){
 		var d = (done == 0? 1: 0);
 		$.ajax({
 		  type: "POST",
-		  url: "/items/update/",
+		  url: "/items/update",
 		  data: {id: id, done: d},
 		  success: function(){
 		  	console.log("Update");
@@ -30,7 +30,7 @@ function ItemFactory(item, reload){
 	function removeItem(id){
 		$.ajax({
 		  type: "POST",
-		  url: "/items/remove/",
+		  url: "/items/remove",
 		  data: {id: id},
 		  success: function(){
 		  	console.log("Remove");
