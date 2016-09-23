@@ -11,6 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.5/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.16.1/lodash.min.js"></script>
+
+    
    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/locale/sv.js"></script>    
@@ -81,6 +84,13 @@
                 </div>
                 <!-- /ko -->
                 <div class="shoppinglist-creat">
+                    <!-- ko if: 1==2 -->
+                    <div class="shoppinglist-add-toggler">
+                        <h2>+</h2>
+                        <p>Lägg till en lista</p>
+                    </div>
+                    <!-- /ko -->
+
                     <h3> Skapa en lista </h3>        
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Skapa ny lista" data-bind="value: checklistName, valueUpdate:'keypress'">                        

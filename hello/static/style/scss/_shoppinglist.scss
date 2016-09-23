@@ -64,6 +64,21 @@
     cursor: pointer;
 
     .buttom {
-    	color: black;
+    	color: #555555;
     }       
+}
+
+.shoppinglist-add-toggler {
+	text-align: center; 
+	background-color: #ccc;
+	border-radius: 5px;
+	padding: 5px;
+	margin-top: 10px;
+	cursor: pointer; 
+	color: #666;
+
+	&:hover {
+		background-color: #666;
+		color: #ccc;
+	}
 }

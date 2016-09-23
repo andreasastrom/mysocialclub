@@ -4,10 +4,22 @@ function checklistVm() {
 	self.checklistName = ko.observable('');
 
 	function loaded(data){
-		self.checklists.removeAll();			
+		var addChecklist = true;	
+		self.checklists.removeAll();
 		$.each(data, function (index, checklist){
 			var d = new checklistModel(checklist);
-			self.checklists.push(d);
+			
+			if(self.checklists().length > 0 ) {
+				addChecklist = _.some(self.checklists(), function(list){
+					return list.checklist_id = d.checklist_id;
+				});	
+			}			
+			// if(addChecklist) {
+				self.checklists.push(d);
+			// }
+			// else {
+			// 	console.log(d);	
+			// }
 		});
 	}
 

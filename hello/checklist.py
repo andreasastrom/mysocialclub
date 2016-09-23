@@ -12,4 +12,4 @@ def create_checklist(name):
 
 def remove(id): 
 	c = Checklist.objects.filter(id=id)
-	c.delete()
+	c.update(removed = 1)	

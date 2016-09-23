@@ -101,7 +101,19 @@ h1 {
   padding-top: 7px;
   cursor: pointer; }
   .shoppinglist-close .buttom {
-    color: black; }
+    color: #555555; }
+
+.shoppinglist-add-toggler {
+  text-align: center;
+  background-color: #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  color: #666; }
+  .shoppinglist-add-toggler:hover {
+    background-color: #666;
+    color: #ccc; }
 
 .weather-container {
   background-color: #F08080;
