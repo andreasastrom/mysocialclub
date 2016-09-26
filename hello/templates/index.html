@@ -11,6 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.5/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.4.2/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.16.1/lodash.min.js"></script>
+
+    
    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/locale/sv.js"></script>    
@@ -50,37 +53,51 @@
             <div class="col-md-4 col-xs-12">
 
                 <!-- ko foreach: checklists -->
-                <div class="shoppinglist-container">
-                    <h2 data-bind="text: name"></h2>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Vad?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
-                        <span class="input-group-addon" data-bind="click:create">Lägg till</span>
+                <div class="shoppinglist-container" data-bind="visible: showChecklist">
+                    
+                    <div class="shoppinglist-close" data-bind="click: remove">
+                        <i class="fa fa-times buttom" aria-hidden="true"></i>
                     </div>
 
-                    <div class="list-group-container">
-                        <ul class="list-group" id="myShoppingList" data-bind="foreach: listItem()">
-                            <li class="list-group-item" data-bind="visible: showItem">
-                                <div class="list-group-text" data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
-                                    <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
-                                    <span data-bind="text: name, css:{'list-group-item-done':done}"></span>
-                                </div>
-                                <div class="listeItem-delete" data-bind="click: deleteItem">
-                                    <i class="fa fa-trash-o"></i>
-                                </dib>
-                            </li>
-                        </ul>
+                    <h2 data-bind="text: name, click: toggleList"></h2>
+                    <div data-bind="visible: showList()">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Vad?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
+                            <span class="input-group-addon" data-bind="click:create">Lägg till</span>
+                        </div>
+
+                        <div class="list-group-container">
+                            <ul class="list-group" id="myShoppingList" data-bind="foreach: listItem()">
+                                <li class="list-group-item" data-bind="visible: showItem">
+                                    <div class="list-group-text" data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
+                                        <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
+                                        <span data-bind="text: name, css:{'list-group-item-done':done}"></span>
+                                    </div>
+                                    <div class="listeItem-delete" data-bind="click: deleteItem">
+                                        <i class="fa fa-trash-o"></i>
+                                    </dib>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <!-- <div class="list-counter" data-bind="visible: totalCount() > 0">
                         <b data-bind="text: doneTask() + '/' + totalCount()"></b>
                     </div> -->
                 </div>
                 <!-- /ko -->
-                <div class="shoppinglist-creat">
-                    <h3> Skapa en lista </h3>        
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Skapa ny lista" data-bind="value: checklistName, valueUpdate:'keypress'">                        
-                        <span class="input-group-addon" data-bind="click: createChecklist">Skapa</span>
-                        
+                <div class="shoppinglist-creat">                    
+                    <div class="shoppinglist-add-toggler" data-bind="click: addNewChecklist, visible: !addList()">
+                        <h2>+</h2>
+                        <p>Lägg till en lista</p>
+                    </div>                    
+
+                    <div data-bind="visible: addList">
+                        <h3> Skapa en lista </h3>        
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Skapa ny lista" data-bind="value: checklistName, valueUpdate:'keypress'">                        
+                            <span class="input-group-addon" data-bind="click: createChecklist">Skapa</span>
+                            
+                        </div>
                     </div>
 
                 </div>        

@@ -9,3 +9,7 @@ def get_all_active_checkLists():
 def create_checklist(name):
 	c = Checklist(name=name)
 	c.save()
+
+def remove(id): 
+	c = Checklist.objects.filter(id=id)
+	c.update(removed = 1)	
