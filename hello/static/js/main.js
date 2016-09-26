@@ -21,6 +21,6 @@ function myViewModel(){
 	self.checklistVm = checklistVm();
 	self.countdownVm = countdownVm();
 	self.weatherVm = weatherVm();
-	
+		
 	return self; 	
 }

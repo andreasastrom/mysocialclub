@@ -2,6 +2,7 @@ function checklistVm() {
 	var self = this;			
 	self.checklists = ko.observableArray();
 	self.checklistName = ko.observable('');
+	self.addList = ko.observable(false);	
 
 	function loaded(data){
 		var addChecklist = true;	
@@ -39,10 +40,15 @@ function checklistVm() {
 				  data: {name: name},
 				  success: function(){
 				  	self.checklistName('')				  	
+				  	self.addList(false);
 				  	load()				  				  	  				 			  
 				  }
 			});
 		}
+	}
+
+	self.addNewChecklist = function() {
+		self.addList(true);
 	}
 
 	load();	
