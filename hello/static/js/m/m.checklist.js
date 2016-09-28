@@ -8,6 +8,7 @@ function checklistModel(checklist)
 	self.shopplinglistInput = ko.observable('');
 	self.showChecklist = ko.observable(true);
 	self.showList = ko.observable(false);
+	self.checklistMenu = ko.observable(false);	
 
 	function loaded(data) {		
 		self.listItem.removeAll();
@@ -60,6 +61,10 @@ function checklistModel(checklist)
 
 	var toggleList = function(){
 		self.showList(!self.showList());
+	}
+
+	self.toggleChecklist = function() {
+		self.checklistMenu(!self.checklistMenu());
 	}
 
 	load(self.pk);
