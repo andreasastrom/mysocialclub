@@ -30,6 +30,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.6.3/css/font-awesome.min.css'%}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
 
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
     <script src="{% static 'js/main.js'%}"></script>
     <script src="{% static 'js/items.js'%}"></script>
     <script src="{% static 'js/vm/vm.checklist.js'%}"></script>
@@ -51,15 +53,21 @@
         <!-- ko if: loggedIn() -->
         <div class="row">
             <div class="col-md-4 col-xs-12">
-
                 <!-- ko foreach: checklists -->
                 <div class="shoppinglist-container" data-bind="visible: showChecklist">
                     
-                    <div class="shoppinglist-close" data-bind="click: remove">
-                        <i class="fa fa-times buttom" aria-hidden="true"></i>
+                    <div class="shoppinglist-menu-button" data-bind="click: toggleChecklist">
+                        <i class="fa fa-bars"></i>                        
                     </div>
 
-                    <h2 data-bind="text: name, click: toggleList"></h2>
+                    <div class="shoppinglist-menu" data-bind="visible: checklistMenu">
+                            <a>Byt namn</a>
+                            <a data-bind="click: remove">Ta bort</a>
+                            <a>Arkivera</a>
+                    </div>
+
+                    <!-- <span data-bind="text: listItem().length, visible: listItem().length > 0"></span> -->
+                    <h2 data-bind="text: name, click: toggleList"></h2>                    
                     <div data-bind="visible: showList()">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Vad?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
@@ -83,7 +91,8 @@
                     <!-- <div class="list-counter" data-bind="visible: totalCount() > 0">
                         <b data-bind="text: doneTask() + '/' + totalCount()"></b>
                     </div> -->
-                </div>
+
+                </div>                
                 <!-- /ko -->
                 <div class="shoppinglist-creat">                    
                     <div class="shoppinglist-add-toggler" data-bind="click: addNewChecklist, visible: !addList()">

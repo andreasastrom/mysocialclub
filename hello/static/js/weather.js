@@ -27,11 +27,15 @@ function weatherVm(){
 	loadData();
 
 	function readData(weather){
-		self.temperature(Math.round(weather.main.temp));
-		self.minTemp(Math.round(weather.main.temp_min));
-		self.maxTemp(Math.round(weather.main.temp_max));
-		self.wind(weather.wind.speed); 
-		self.destionationName(weather.name); 
+		if(weather.cod === "404"){
+			if(!!weather.main.temp) {
+				self.temperature(Math.round(weather.main.temp));
+				self.minTemp(Math.round(weather.main.temp_min));
+				self.maxTemp(Math.round(weather.main.temp_max));
+				self.wind(weather.wind.speed); 
+				self.destionationName(weather.name); 
+			}
+		}
 	}	
 
 	function drawChart(){

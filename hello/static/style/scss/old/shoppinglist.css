@@ -1,10 +1,10 @@
 .shoppinglist-container {
-	background-color: #555555;
-	color: #fff;
-	padding: 10px;
 	margin-top: 20px;
+	padding: 10px;
 	border-radius: 7px;
+	background-color: #555555;
 	box-shadow: 0px 2px 2px 0px #777777;
+	color: #fff;
 }
 .list-group-container {
 	position: relative;
@@ -14,18 +14,18 @@
 .listeItem-delete {
 	float: right;
 	width: 100px;
-	text-align: right;
 	color: #000;
+	text-align: right;
 }
 
 .list-group-text {
-	width: 60%;
     display: inline-block;
+	width: 60%;
 }
 
 .list-group-item {
-	cursor: pointer;
 	background-color: #e6e6e6;
+	cursor: pointer;
 }
 
 .list-group-item:nth-child(2n+1) {
@@ -41,8 +41,8 @@
 }
 .loading-spinner {
     position: relative;
-    left: 33%;
     right: 33%;
+    left: 33%;
 }
 
 .list-counter {
