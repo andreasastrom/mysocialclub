@@ -27,6 +27,7 @@ def get_all_items_by_checklist_id(checklist_id):
 			)
 	)
 	all_items_orderd = all_items.order_by('createdtime')
+	all_items_orderd = all_items_orderd.order_by('done')
 	all_items_serialized = serializers.serialize('json', all_items_orderd)
 	return all_items_serialized
 
