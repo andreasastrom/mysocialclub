@@ -140,6 +140,19 @@ h1 {
 .shoppinglist-menu a:hover {
   background-color: #ccc; }
 
+.coverPage {
+  position: absolute;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+@media screen and (max-width: 480px) {
+  .shoppinglist-menu {
+    background-color: #ccc;
+    position: absolute;
+    right: 15px; } }
+
 .weather-container {
   background-color: #F08080;
   color: #fff;
