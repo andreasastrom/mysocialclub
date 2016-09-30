@@ -91,11 +91,12 @@
 
 .shoppinglist-menu {
 	position: absolute;
-	right: -85px;	
+	right: -115px;	
 	color: #000;
 	background-color: #fff;	
-	z-index: 1;
-	padding: 5px;
+	z-index: 2;
+	border-radius: 5px;    	
+	padding: 5px 20px 5px 20px;
 	cursor: pointer;
 
 		a {
@@ -106,24 +107,24 @@
 			 
 
 			&:hover {
-				background-color: #ccc;
-			
+				background-color: #ccc;			
+			}
 		}
-	}
 }
 
 .coverPage {
 	position: absolute;
+	top: 0;
 	right: 0;
-	left: 0; 
-	width: 100%;	
-	height: 100%; 	
+	left: 0;	
+	width: 100vw;	
+	height: 100vh; 	
+	z-index: 1;	
 }
 
 
 @media screen and (max-width: 480px) {
-    .shoppinglist-menu { 
-    	background-color: #ccc;
+    .shoppinglist-menu {     	
     	position: absolute;
     	right: 15px;
     }
