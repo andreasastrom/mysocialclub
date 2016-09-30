@@ -68,7 +68,6 @@
                             <a>Arkivera</a>
                     </div>                    
 
-                    <!-- <span data-bind="text: listItem().length, visible: listItem().length > 0"></span> -->
                     <h2 data-bind="text: name, click: toggleList, visible: !showRename()"></h2>
                     
                     <div class="renameChecklist" data-bind="visible: showRename()">                                                    
@@ -94,11 +93,11 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="list-counter" data-bind="visible: listItem().length > 0">
+                            <!-- <span data-bind="text: listItem().length"></span> -->
+                            <b data-bind="text: doneItem().length + '/' + listItem().length"></b>
+                        </div>
                     </div>
-                    <!-- <div class="list-counter" data-bind="visible: totalCount() > 0">
-                        <b data-bind="text: doneTask() + '/' + totalCount()"></b>
-                    </div> -->
-
                 </div>                
                 <!-- /ko -->
                 <div class="shoppinglist-creat">                    

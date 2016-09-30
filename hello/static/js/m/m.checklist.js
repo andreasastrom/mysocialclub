@@ -10,11 +10,17 @@ function checklistModel(checklist)
 	self.showList = ko.observable(false);
 	self.checklistMenu = ko.observable(false);
 	self.showRename = ko.observable(false);	
+	self.doneItem = ko.observableArray();
+	self.itemsToDo = ko.observableArray();
 
 	function loaded(data) {		
 		self.listItem.removeAll();
+		self.doneItem.removeAll();
 		$.each(data, function(i, item){		
-			var myChecklists = new ItemFactory(item, load);									
+			var myChecklists = new ItemFactory(item, load);
+			if(item.fields.done == 1) {
+				self.doneItem.push(item);
+			}								
 			self.listItem.push(myChecklists);
 		});
 	}
