@@ -13,3 +13,7 @@ def create_checklist(name):
 def remove(id): 
 	c = Checklist.objects.filter(id=id)
 	c.update(removed = 1)	
+
+def update(id ,name):
+	c = Checklist.objects.filter(id=id)
+	c.update(name=name)	

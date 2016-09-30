@@ -54,22 +54,28 @@
         <div class="row">
             <div class="col-md-4 col-xs-12">
                 <!-- ko foreach: checklists -->
-                <div class="coverPage" data-bind="visible: checklistMenu, click: toggleChecklist"></div>
+                <div class="coverPage" data-bind="visible: checklistMenu(), click: toggleChecklist"></div>
+                <div class="coverPage" data-bind="visible: showRename(), click: update"></div>
                 <div class="shoppinglist-container" data-bind="visible: showChecklist">
                     
                     <div class="shoppinglist-menu-button" data-bind="click: toggleChecklist">
                         <i class="fa fa-bars"></i>                        
                     </div>
 
-                    <div class="shoppinglist-menu" data-bind="visible: checklistMenu">
-                            <a>Byt namn</a>
+                    <div class="shoppinglist-menu" data-bind="visible: checklistMenu()">
+                            <a data-bind="click: rename">Byt namn</a>
                             <a data-bind="click: remove">Ta bort</a>
                             <a>Arkivera</a>
                     </div>                    
 
                     <!-- <span data-bind="text: listItem().length, visible: listItem().length > 0"></span> -->
-                    <h2 data-bind="text: name, click: toggleList"></h2>                    
-                    <div data-bind="visible: showList()">
+                    <h2 data-bind="text: name, click: toggleList, visible: !showRename()"></h2>
+                    
+                    <div class="renameChecklist" data-bind="visible: showRename()">                                                    
+                        <input type="text" class="form-control " dir="auto" data-bind="value: name" aria-describedby="basic-addon2">
+                    </div>
+
+                    <div data-bind="visible: showList() && !showRename()">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Vad?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
                             <span class="input-group-addon" data-bind="click:create">Lägg till</span>

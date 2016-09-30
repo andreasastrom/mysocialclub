@@ -118,7 +118,13 @@ def create_checklist(request):
 
 @csrf_exempt
 def remove_checklist(request):
-    id = request.POST['id']
-    print id
+    id = request.POST['id']    
     checklist.remove(id)
+    return HttpResponse('Success', status=200)
+
+@csrf_exempt
+def update_checklist(request):
+    id = request.POST['id']
+    name = request.POST['name']    
+    checklist.update(id, name)
     return HttpResponse('Success', status=200)

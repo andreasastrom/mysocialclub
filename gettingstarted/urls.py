@@ -31,5 +31,6 @@ urlpatterns = [
 	url(r'^checklist/create', hello.views.create_checklist),
 	url(r'^checklists/all', hello.views.get_all_active_checkLists),	
 	url(r'^checklists/remove', hello.views.remove_checklist),	
-	url(r'^checklist/items', hello.views.get_all_items_by_checklist_id)
+	url(r'^checklist/items', hello.views.get_all_items_by_checklist_id),
+	url(r'^checklist/update', hello.views.update_checklist)
 ]

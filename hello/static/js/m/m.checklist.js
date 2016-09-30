@@ -2,13 +2,14 @@ function checklistModel(checklist)
 {
 	var self = this;
 	self.listItem = ko.observableArray();
-	self.name = checklist.fields.name;	
+	self.name = ko.observable(checklist.fields.name);	
 	self.removed = checklist.fields.removed;	
 	self.pk = checklist.pk;
 	self.shopplinglistInput = ko.observable('');
 	self.showChecklist = ko.observable(true);
 	self.showList = ko.observable(false);
-	self.checklistMenu = ko.observable(false);	
+	self.checklistMenu = ko.observable(false);
+	self.showRename = ko.observable(false);	
 
 	function loaded(data) {		
 		self.listItem.removeAll();
@@ -63,8 +64,26 @@ function checklistModel(checklist)
 		self.showList(!self.showList());
 	}
 
-	self.toggleChecklist = function() {
+	var toggleChecklist = function() {
 		self.checklistMenu(!self.checklistMenu());
+	}
+
+	var rename = function() {
+		self.checklistMenu(false);		
+		self.showRename(true);
+	}
+
+	var update = function() {
+		
+		$.ajax({
+			  type: "POST",
+			  url: "checklist/update",
+			  data: {name: self.name(), id: self.pk},
+			  success: function(){			  	
+			  	self.showRename(false);			  				  	  				 			 
+			  }
+			});
+				
 	}
 
 	load(self.pk);
@@ -72,5 +91,8 @@ function checklistModel(checklist)
 	self.create = create;
 	self.toggleList = toggleList;
 	self.remove = remove;
+	self.toggleChecklist = toggleChecklist; 
+	self.rename = rename; 
+	self.update = update; 
 	return self;		
 }
