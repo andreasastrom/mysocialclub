@@ -1,6 +1,5 @@
 .login-background {
-	height: 96vh;
-	/*width: 100vw;*/
+	height: 96vh;	
 	background-color: #373447;	
 	background-size: cover;
 	color: #fff;
@@ -13,7 +12,22 @@
 
 .login-text {
 	text-align: center;
-	margin-bottom: 3rem;
+	margin-bottom: 3rem; 
+
+	h1 {
+		font-family: 'Source Sans Pro', sans-serif;
+		text-transform: lowercase;
+	}
+
+	h3 {
+		text-transform: uppercase;
+	}
+}
+
+.login-container {
+	margin-bottom: 10px;
+	width: 100%;
+	color: #54C8FF;
 }
 
 .login-control {
@@ -29,6 +43,11 @@
 
 .login-button {
 	width: 100%;
+}
+
+.login-help {
+	margin-top: 10px; 
+	cursor: pointer;
 }
 
 .login-control:focus {
