@@ -1,4 +1,4 @@
-ko.components.register('your-component-name', {
-    viewModel: SomeComponentViewModel,
-    template: 'some template'
+ko.components.register('countdown', {
+    viewModel: countdownVm,
+    template: {require: 'text!templates/countdownTemplate.html'}
 });

@@ -11,7 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/lodash/4.16.1/lodash.min.js"></script>
-
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script> -->
     
    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>    
@@ -34,14 +34,16 @@
 
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 
-    <script src="{% static 'js/main.js'%}"></script>
+    <script data-main="{% static 'main.js'%}" src="{% static 'js/lib/require.js'%}"></script>
+    <!-- <script src="{% static 'js/lib/text.js'%}"></script> -->
     <script src="{% static 'js/items.js'%}"></script>
     <script src="{% static 'js/vm/vm.checklist.js'%}"></script>
-    <script src="{% static 'js/countdown.js'%}"></script>
+    <script src="{% static 'js/vm/vm.countdown.js'%}"></script>
     <script src="{% static 'js/weather.js'%}"></script>
     <script src="{% static 'js/login.js'%}"></script>
     <script src="{% static 'js/bakery.js'%}"></script>
     <script src="{% static 'js/m/m.checklist.js'%}"></script>
+    <script src="{% static 'js/ko.components.js'%}"></script>
 
     <script src="{% static 'js/m/m.checklist.js'%}"></script>
 
@@ -120,71 +122,9 @@
                 </div>        
             </div>
 
-            <div class="col-md-2 col-xs-12">
-                <div class="countdown-container" data-bind="visible: showTheWorld">
-                    <!-- ko foreach:{data: activityList(),as: 'activity'}-->
-                    <div class="countdown" data-bind="visible: showActivity">
-                        <div class="countdown-close" data-bind="click: removeThisActicity, visible: countdownSettings()">
-                            <i class="fa fa-times" aria-hidden="true"></i>
-                        </div>
-                        <div class="countdown-row" data-bind="css: activity.style, click: setIsSelected">
-                            <h1 data-bind="text: activity.daysLeft"></h1>
-                            <span data-bind="text: activity.title, visible: !isSelected()"></span>
-                            <span data-bind="visible: isSelected, text: activity.date"></span>
-                        </div>
-                    </div>
-                    <!-- /ko -->
+            <countdown></countdown>
 
-                    <span data-bind="click: showCountdownSettings, visible: !showLoader()">
-                        <i class="fa fa-gear fa-lg"></i>
-                        Redigera
-                    </span>
-                    <div data-bind="visible: countdownSettings">
-                        <i class="fa fa-spinner fa-spin fa-3x fa-fw loading-spinner" data-bind="visible: showLoader()"></i>
-                        <div data-bind="visible: !showLoader()">
-                            <input type="text" class="form-control" placeholder="Aktivitet" data-bind="value: countdownactivity, valueUpdate: 'keypress'"></input>
-                            <!-- <input type="datetime" class="form-control" placeholder="Datum" data-bind="value: countdowndate(), valueUpdate: 'keypress'"></input> -->                        
-                            <div class="form-group">
-                                <div class='input-group date' id='datetimepicker1'>
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                    </span>
-                                    <input type='text' id="myDateTime" class="form-control"></input>
-                                    
-                                </div>
-                            </div>        
-
-
-                            <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle countdown-dropdown-buttom" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    <span data-bind="text: styleText"></span>
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu countdown-dropdown-list" aria-labelledby="dropdownMenu1">
-                                    <li data-bind="click: function(){style('green'); styleText('Grön');}">
-                                        <a>Grön<i class="fa fa-circle green-dropdown circle"></i></a>
-                                    </li>
-                                    <li data-bind="click: function(){style('orange'); styleText('Orange');}">
-                                        <a>Orange<i class="fa fa-circle orange-dropdown circle"></i></a>
-                                    </li>
-                                    <li data-bind="click: function(){style('teal'); styleText('Teal');}">
-                                        <a>Teal<i class="fa fa-circle teal-dropdown circle"></i></a>
-                                    </li>
-                                    <li data-bind="click: function(){style('red'); styleText('Röd');}">
-                                        <a>Röd<i class="fa fa-circle red-dropdown circle"></i></a>
-                                    </li>
-                                    <li data-bind="click: function(){style('blue'); styleText('Blå');}">
-                                        <a>Blå<i class="fa fa-circle blue-dropdown circle"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <button class="btn btn-success countdown-create" data-bind="click: createCountdown">Skapa</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-xs-12">
+            <!-- <div class="col-md-3 col-xs-12">
                 <div class="weather-container">
                     <h2 data-bind="text: destionationName()"></h2>
                     <h1 data-bind="text: temperature() + ' °C '"></h1>
@@ -194,15 +134,11 @@
                         <li><span data-bind="text: 'Min: ' + minTemp() + ' °C'"></span></li>
                         <li>Wind<span data-bind="text: ': ' + wind() + ' m/s'"></span></li>
                     </ul>
-
-                    <!-- ko if: drawChart -->
-                    <canvas id="myChart" width="400" height="400"></canvas>
-                    <!-- /ko -->
-
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- /ko -->
+
 
         <!-- ko if : !loggedIn() -->
         <div class="login-background" data-bind="visible: !loggedIn()">

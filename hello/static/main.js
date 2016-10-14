@@ -1,8 +1,8 @@
 require.config({
-	paths: {text: 'lib/text'}
+	paths: {text: 'js/lib/text'}
 })
 
-// require(['js/items'], 
+// require(['items'], 
 // 	function(module, text){
 // 		console.log("te")
 // 	}
@@ -31,7 +31,7 @@ function myViewModel(){
 	}
 
 	self.checklistVm = checklistVm();
-	self.countdownVm = countdownVm();
+	//self.countdownVm = countdownVm();
 	// self.weatherVm = weatherVm();
 
 

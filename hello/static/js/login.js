@@ -1,6 +1,10 @@
 
 function login(main) {
 	var self = this; 
+
+	self.loggedIn = ko.observable(false); 
+	var loggedIn = ko.observable(false);	
+
 	self.username = ko.observable('');
 	self.password = ko.observable('');
 	self.logonFailed = ko.observable(false);

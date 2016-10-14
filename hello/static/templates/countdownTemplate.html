@@ -1,0 +1,64 @@
+<div class="col-md-2 col-xs-12">
+                <div class="countdown-container" data-bind="visible: showTheWorld">
+                    <!-- ko foreach:{data: activityList(),as: 'activity'}-->
+                    <div class="countdown" data-bind="visible: showActivity">
+                        <div class="countdown-close" data-bind="click: removeThisActicity, visible: $parent.countdownSettings()">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </div>
+                        <div class="countdown-row" data-bind="css: activity.style, click: setIsSelected">
+                            <h1 data-bind="text: activity.daysLeft"></h1>
+                            <span data-bind="text: activity.title, visible: !isSelected()"></span>
+                            <span data-bind="visible: isSelected, text: activity.date"></span>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+
+                    <span data-bind="click: showCountdownSettings, visible: !showLoader()">
+                        <i class="fa fa-gear fa-lg"></i>
+                        Redigera
+                    </span>
+                    <div data-bind="visible: countdownSettings">
+                        <i class="fa fa-spinner fa-spin fa-3x fa-fw loading-spinner" data-bind="visible: showLoader()"></i>
+                        <div data-bind="visible: !showLoader()">
+                            <input type="text" class="form-control" placeholder="Aktivitet" data-bind="value: countdownactivity, valueUpdate: 'keypress'"></input>
+                            <!-- <input type="datetime" class="form-control" placeholder="Datum" data-bind="value: countdowndate(), valueUpdate: 'keypress'"></input> -->                        
+                            <div class="form-group">
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                    <input type='text' id="myDateTime" class="form-control"></input>
+                                    
+                                </div>
+                            </div>        
+
+
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle countdown-dropdown-buttom" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <span data-bind="text: styleText"></span>
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu countdown-dropdown-list" aria-labelledby="dropdownMenu1">
+                                    <li data-bind="click: function(){style('green'); styleText('Grön');}">
+                                        <a>Grön<i class="fa fa-circle green-dropdown circle"></i></a>
+                                    </li>
+                                    <li data-bind="click: function(){style('orange'); styleText('Orange');}">
+                                        <a>Orange<i class="fa fa-circle orange-dropdown circle"></i></a>
+                                    </li>
+                                    <li data-bind="click: function(){style('teal'); styleText('Teal');}">
+                                        <a>Teal<i class="fa fa-circle teal-dropdown circle"></i></a>
+                                    </li>
+                                    <li data-bind="click: function(){style('red'); styleText('Röd');}">
+                                        <a>Röd<i class="fa fa-circle red-dropdown circle"></i></a>
+                                    </li>
+                                    <li data-bind="click: function(){style('blue'); styleText('Blå');}">
+                                        <a>Blå<i class="fa fa-circle blue-dropdown circle"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button class="btn btn-success countdown-create" data-bind="click: createCountdown">Skapa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>

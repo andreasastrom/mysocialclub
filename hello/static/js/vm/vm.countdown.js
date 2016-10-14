@@ -1,6 +1,5 @@
 function countdownVm() {
 	var self = this;
-	self.title = "hejhej"
 	self.countdownactivity = ko.observable('');
 	self.countdowndate = ko.observable('');
 	self.activityList = ko.observableArray();
