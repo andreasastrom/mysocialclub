@@ -2,10 +2,6 @@ from django.db import models
 from .models import Person
 
 
-def db_connector():
-	print "fisk"
+def db_connector():	
 	per = Person()
-	per.create("hadsasd")
-	#person = Person().create("andreas")
-	#print person
-	#return "hej"
+	per.create("hadsasd")	

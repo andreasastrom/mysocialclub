@@ -3,6 +3,7 @@ function login(main) {
 	var self = this; 
 
 	self.loggedIn = ko.observable(false); 
+	self.fireAnimation = ko.observable(false);
 	var loggedIn = ko.observable(false);	
 
 	self.username = ko.observable('');
@@ -15,8 +16,12 @@ function login(main) {
 		  url: "/login/",
 		  data: {username: username, password: password},
 		  success: function(response){
+		  	self.fireAnimation(true);
 		  	setCookie("loggin",true,2)
-		  	main.loggedIn(true);//getItems();
+		  	setTimeout(function(){
+			    main.loggedIn(true);//getItems();
+			}, 1500);
+		  	
 		  }, 
 		  error: function(response){	
 		  	main.loggedIn(false);

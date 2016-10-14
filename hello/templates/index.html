@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>    
     <script src="https://cdn.jsdelivr.net/lodash/4.16.1/lodash.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script> -->
     
    
@@ -37,6 +38,7 @@
     <script data-main="{% static 'main.js'%}" src="{% static 'js/lib/require.js'%}"></script>
     <!-- <script src="{% static 'js/lib/text.js'%}"></script> -->
     <script src="{% static 'js/items.js'%}"></script>
+    <script src="{% static 'js/vm/vm.menu.js'%}"></script>
     <script src="{% static 'js/vm/vm.checklist.js'%}"></script>
     <script src="{% static 'js/vm/vm.countdown.js'%}"></script>
     <script src="{% static 'js/weather.js'%}"></script>
@@ -53,7 +55,8 @@
     <title>Mette & Andreas</title>
 </head>
 <body>
-    <div class="container-fluid">
+    <topmenu></topmenu>
+    <div class="container-fluid">    
         <!-- ko if: loggedIn() -->
         <div class="row">
             <div class="col-md-4 col-xs-12">
@@ -144,8 +147,8 @@
         <div class="login-background" data-bind="visible: !loggedIn()">
             <div class="row">
                 <div class="login-box col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 ">
-                    <div class="login-text">
-                        <h1>Welcome</h1>
+                    <div class="login-text">                    
+                        <h1 data-bind="css: { 'animated bounceOutUp' : fireAnimation }">Welcome</h1>
                         <h3>Today will be great</h3>                    
                     </div>                
                     <div class="ui left icon input login-container">

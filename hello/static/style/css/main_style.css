@@ -235,7 +235,9 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
 
 .login-box {
   position: fixed;
-  top: 20%; }
+  top: 20%;
+  left: 3px;
+  right: 10px; }
 
 .login-text {
   text-align: center;
@@ -272,3 +274,18 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
 
 .login-control:focus {
   box-shadow: none; }
+
+.menu {
+  height: 4.5rem;
+  line-height: 4.5rem;
+  padding-left: 1rem;
+  background-color: #FFFFFF;
+  box-shadow: 0px 2px 2px 0px #777777; }
+
+.sign-out {
+  position: relative;
+  float: right;
+  height: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer; }

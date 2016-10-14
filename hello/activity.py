@@ -6,6 +6,8 @@ from django.core import serializers
 
 
 def create_countdown_activity(title, date, style):
+	if style =="":
+		style="green"
 	c = Countdown(title=title,starttime=date,style=style)
 	c.save()
 
