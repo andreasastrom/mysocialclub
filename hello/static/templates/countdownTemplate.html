@@ -2,13 +2,17 @@
                 <div class="countdown-container" data-bind="visible: showTheWorld">
                     <!-- ko foreach:{data: activityList(),as: 'activity'}-->
                     <div class="countdown" data-bind="visible: showActivity">
-                        <div class="countdown-close" data-bind="click: removeThisActicity, visible: $parent.countdownSettings()">
+                        <div class="countdown-close" data-bind="click: removeThisActicity">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </div>
                         <div class="countdown-row" data-bind="css: activity.style, click: setIsSelected">
-                            <h1 data-bind="text: activity.daysLeft"></h1>
-                            <span data-bind="text: activity.title, visible: !isSelected()"></span>
-                            <span data-bind="visible: isSelected, text: activity.date"></span>
+                            <div class="countdown-left">
+                                <h1 data-bind="text: activity.daysLeft"></h1> 
+                            </div>
+                            <div class="countdown-right">
+                                <span data-bind="text: activity.title, visible: !isSelected()"></span>
+                                <span data-bind="visible: isSelected, text: activity.date"></span>
+                            </div>
                         </div>
                     </div>
                     <!-- /ko -->

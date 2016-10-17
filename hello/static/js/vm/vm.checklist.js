@@ -8,18 +8,8 @@ function checklistVm() {
 		var addChecklist = true;	
 		self.checklists.removeAll();
 		$.each(data, function (index, checklist){
-			var d = new checklistModel(checklist);						
-			// if(self.checklists().length > 0 ) {
-			// 	addChecklist = _.some(self.checklists(), function(list){
-			// 		return list.checklist_id = d.checklist_id;
-			// 	});	
-			// }			
-			// if(addChecklist) {
-				self.checklists.push(d);
-			// }
-			// else {
-			// 	console.log(d);	
-			// }
+			var checklist = new checklistModel(checklist);						
+			self.checklists.push(checklist);			
 		});
 	}
 

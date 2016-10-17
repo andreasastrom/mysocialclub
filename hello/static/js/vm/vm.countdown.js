@@ -55,8 +55,8 @@ function countdownVm() {
 	}
 
 	function activityFactory(acitivty){
-		this.title = acitivty.fields.title; 
-		this.date = moment(acitivty.fields.starttime).format('YYYY-MM-DD hh:mm');
+		this.title = acitivty.fields.title; 		
+		this.date = moment.utc(acitivty.fields.starttime).format('YYYY-MM-DD HH:mm');		
 		this.daysLeft = (moment(acitivty.fields.starttime).diff(moment(), 'days') > 0 ? moment(acitivty.fields.starttime).diff(moment(), 'days') : moment(acitivty.fields.starttime).diff(moment(), 'hours') + 'h'); 
 		this.id = acitivty.pk;
 		this.showActivity = ko.observable(true);
@@ -67,9 +67,10 @@ function countdownVm() {
 			this.isSelected(!this.isSelected());
 		}
 
-		this.removeThisActicity = function(){
-			this.showActivity(false);
-			removeActicity(this.id);
+		this.removeThisActicity = function(){			
+			if(removeActicity(this.id)){
+				this.showActivity(false);
+			}
 		}
 
 		return this; 
@@ -79,15 +80,21 @@ function countdownVm() {
 		self.countdownSettings(!self.countdownSettings());
 	}
 
-	function removeActicity(id){		
-		$.ajax({
-		  type: "POST",
-		  url: "/activity/remove",
-		  data: {id: id},
-		  success: function(){		  	
-		  	getActivities();
-		  }
-		});
+	function removeActicity(id){
+		if (confirm('Är du säker på att du vill ta bort listan?')) {    				
+			$.ajax({
+				type: "POST",
+				url: "/activity/remove",
+				data: {id: id},
+				success: function(){		  	
+					getActivities();
+					return true; 
+				}
+			});
+		}
+		else {
+			return false; 
+		}
 	}
 
 	getActivities();

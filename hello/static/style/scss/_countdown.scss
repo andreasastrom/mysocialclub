@@ -1,6 +1,6 @@
 .countdown {
 	position: relative;
-	height: 165px;
+	height: 10.5rem;
 }
 
 .countdown-container {
@@ -9,27 +9,29 @@
 
 .countdown-close {	
     z-index: 1;
-    right: -11px;
-    height: 30px;
-    width: 30px;
-    background-color: #fff; 
+    right: 0;
+    height: 2.5rem;
+    width: 2.5rem;
+    line-height: 2.5rem;    
+    color: $colorWhite;
     text-align: center;
-    border-radius: 15px;
-    top: -10px;
-    position: absolute;
-    box-shadow: 0 0 0 1px #ccc;
-    padding-top: 7px;
-    cursor: pointer;       
+    border-radius: 1.5rem;    
+    position: absolute;    
+    cursor: pointer;
+
+    &:hover {
+    	background-color: rgba(255,255,255,0.2);  
+    }      
 }
 
 .countdown-row {
 	position: absolute;
 	width: 100%;
-	text-align: center;
-	padding-top: 10px;
-	padding-bottom: 30px;
-	margin-bottom: 10px;
-	border-radius: 4px;
+	padding-left: 1rem;
+	padding-top: 1rem;
+	padding-bottom: 3rem;
+	margin-bottom: 1rem;
+	border-radius: 0.5rem;
 }
 h1 {
 	font-size: 60px;
@@ -51,4 +53,17 @@ h1 {
 
 .countdown-create {
 	margin-top: 10px;
+}
+
+.countdown-left {
+	display: inline-block;		
+}
+.countdown-right {
+	display: inline-block;
+	position: absolute;
+	top: 2rem;
+	margin-left: 1rem;
+	font-size: 1.4rem;
+	word-break: break-word;
+	color: $colorWhite;
 }
