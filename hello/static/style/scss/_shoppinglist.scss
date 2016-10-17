@@ -72,21 +72,33 @@
 
 .shoppinglist-add-toggler {
 	text-align: center; 
-	background-color: #ccc;
-	border-radius: 5px;
-	padding: 5px;
-	margin-top: 10px;
+	background-color: $colorGreyLight;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	margin-top: 1rem;
 	cursor: pointer; 
-	color: #666;
+	color: $colorGreyDark;
 
 	&:hover {
 		background-color: #a29d9d;
-		color: #ccc;
+		color: $colorGreyLight;
 	}
 }
 
 .shoppinglist-menu-button {
 	float: right;
+}
+
+.shoppinglist-create {
+	margin-top: 1rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	background-color: $colorGreyLight;
+	color: $colorGreyDark;
+
+	h3 {
+		text-transform: uppercase;
+	}
 }
 
 .shoppinglist-menu {
@@ -127,10 +139,7 @@
 	position: relative;
 	margin-right: 40px;
 	z-index: 2;
-	
-
 }
-
 
 @media screen and (max-width: 480px) {
     .shoppinglist-menu {     	

@@ -121,19 +121,29 @@ h1 {
 
 .shoppinglist-add-toggler {
   text-align: center;
-  background-color: #ccc;
-  border-radius: 5px;
-  padding: 5px;
-  margin-top: 10px;
+  background-color: #CCCCCC;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-top: 1rem;
   cursor: pointer;
-  color: #666; }
+  color: #666666; }
 
 .shoppinglist-add-toggler:hover {
   background-color: #a29d9d;
-  color: #ccc; }
+  color: #CCCCCC; }
 
 .shoppinglist-menu-button {
   float: right; }
+
+.shoppinglist-create {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #CCCCCC;
+  color: #666666; }
+
+.shoppinglist-create h3 {
+  text-transform: uppercase; }
 
 .shoppinglist-menu {
   position: absolute;
