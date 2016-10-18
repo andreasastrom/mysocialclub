@@ -3,6 +3,5 @@ venv
 staticfiles
 .env
 db.sqlite3
-#/gettingstarted/settings.py#
 # Directories #
 node_modules/
