@@ -65,5 +65,10 @@ h1 {
 	margin-left: 1rem;
 	font-size: 1.4rem;
 	word-break: break-word;
-	color: $colorWhite;
+	color: $colorWhite;	
+}
+
+.countdown-datetime {
+	font-size: 1rem;
+	display: block;	
 }

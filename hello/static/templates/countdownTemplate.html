@@ -11,7 +11,8 @@
                             </div>
                             <div class="countdown-right">
                                 <span data-bind="text: activity.title, visible: !isSelected()"></span>
-                                <span data-bind="visible: isSelected, text: activity.date"></span>
+                                <span class="countdown-datetime" data-bind="visible: isSelected, text: activity.date"></span>
+                                <span class="countdown-datetime" data-bind="visible: isSelected, text: activity.time"></span>
                             </div>
                         </div>
                     </div>
