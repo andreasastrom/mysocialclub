@@ -18,22 +18,23 @@
                     </div>
                     <!-- /ko -->
 
-                    <span data-bind="click: showCountdownSettings, visible: !showLoader()">
-                        <i class="fa fa-gear fa-lg"></i>
-                        Redigera
-                    </span>
-                    <div data-bind="visible: countdownSettings">
+                    <div class="countdown-add-toggler" data-bind="visible: !countdownSettings()">
+                        <span data-bind="click: showCountdownSettings, visible: !showLoader()">
+                            <h2>+</h2>
+                            Lägg till en aktivitet
+                        </span>
+                    </div>
+                    <div class="countdown-add-toggler-container" data-bind="visible: countdownSettings">
                         <i class="fa fa-spinner fa-spin fa-3x fa-fw loading-spinner" data-bind="visible: showLoader()"></i>
                         <div data-bind="visible: !showLoader()">
                             <input type="text" class="form-control" placeholder="Aktivitet" data-bind="value: countdownactivity, valueUpdate: 'keypress'"></input>
-                            <!-- <input type="datetime" class="form-control" placeholder="Datum" data-bind="value: countdowndate(), valueUpdate: 'keypress'"></input> -->                        
+                                                    
                             <div class="form-group">
                                 <div class='input-group date' id='datetimepicker1'>
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>
                                     <input type='text' id="myDateTime" class="form-control"></input>
-                                    
                                 </div>
                             </div>        
 
@@ -65,5 +66,7 @@
                             <button class="btn btn-success countdown-create" data-bind="click: createCountdown">Skapa</button>
                         </div>
                     </div>
+
+              
                 </div>
             </div>

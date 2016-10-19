@@ -52,7 +52,7 @@ h1 {
 }
 
 .countdown-create {
-	margin-top: 10px;
+	margin-top: 1rem;
 }
 
 .countdown-left {
@@ -71,4 +71,28 @@ h1 {
 .countdown-datetime {
 	font-size: 1rem;
 	display: block;	
+}
+
+.countdown-add-toggler {
+	text-align: center; 
+	background-color: $colorGreyLight;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	margin-bottom: 1.5rem;
+	cursor: pointer; 
+	color: $colorGreyDark;
+
+	&:hover {
+		background-color: #a29d9d;
+		color: $colorGreyDark;
+	}
+}
+
+.countdown-add-toggler-container {
+	padding: 0.5rem; 
+	background-color: $colorGreyLight;
+	color: $colorWhite;
+	border-radius: 0.5rem;
+	margin-bottom: 10rem;
+	font-size: 1.2rem;
 }

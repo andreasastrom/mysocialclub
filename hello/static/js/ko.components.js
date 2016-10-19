@@ -7,3 +7,17 @@ ko.components.register('topmenu', {
     viewModel: menuVm,
     template: {require: 'text!templates/menuTemplate.html'}
 });
+
+ko.components.register('add-more', {
+    viewModel: function(params) {    	
+    	addMoreVm(
+    		params.title,
+    		params.title2,
+    		params.show,
+    		params.inputValue, 
+    		params.submitInput,
+    		params.visible
+		)
+    },    
+    template: {require: 'text!templates/addMoreTemplate.html'},     
+});

@@ -58,7 +58,7 @@ function countdownVm() {
 		this.title = acitivty.fields.title; 		
 		this.date = moment.utc(acitivty.fields.starttime).format('YYYY-MM-DD');		
 		this.time = moment.utc(acitivty.fields.starttime).format('HH:mm');		
-		this.daysLeft = (moment(acitivty.fields.starttime).diff(moment(), 'days') > 0 ? moment(acitivty.fields.starttime).diff(moment(), 'days') : moment(acitivty.fields.starttime).diff(moment(), 'hours') + 'h'); 
+		this.daysLeft = (moment(acitivty.fields.starttime).diff(moment(), 'days') > 0 ? moment(acitivty.fields.starttime).diff(moment(), 'days') : moment.utc(acitivty.fields.starttime).diff(moment(), 'hours') + 'h'); 
 		this.id = acitivty.pk;
 		this.showActivity = ko.observable(true);
 		this.style = acitivty.fields.style;
