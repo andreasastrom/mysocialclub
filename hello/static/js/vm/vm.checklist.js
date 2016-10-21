@@ -37,7 +37,7 @@ function checklistVm() {
 	}
 
 	self.addNewChecklist = function() {
-		self.addList(true);
+		self.addList(!self.addList());
 	}
 
 	load();	

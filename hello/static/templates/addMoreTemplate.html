@@ -1,4 +1,4 @@
-<div class="shoppinglist-add-toggler" data-bind="click: addNewChecklist, visible: !visible()">
+<div class="shoppinglist-add-toggler" data-bind="click: show, visible: !visible()">
     <h2>+</h2>
     <p data-bind="text: title"></p>
 </div>
@@ -10,3 +10,5 @@
 	    <span class="input-group-addon" data-bind="click: submitInput">Skapa</span>
 	</div>		
 </div>
+
+<div class="coverPage" data-bind="visible: visible, click: show"></div>

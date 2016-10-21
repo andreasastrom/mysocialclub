@@ -78,7 +78,6 @@ h1 {
 .countdown-add-toggler-container {
   padding: 0.5rem;
   background-color: #CCCCCC;
-  color: #FFFFFF;
   border-radius: 0.5rem;
   margin-bottom: 10rem;
   font-size: 1.2rem; }
@@ -165,7 +164,9 @@ h1 {
   padding: 0.5rem;
   border-radius: 0.5rem;
   background-color: #CCCCCC;
-  color: #666666; }
+  color: #666666;
+  z-index: 3;
+  position: relative; }
 
 .shoppinglist-create h3 {
   text-transform: uppercase; }
