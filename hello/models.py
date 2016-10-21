@@ -23,3 +23,9 @@ class Countdown(models.Model):
 	starttime =  models.DateTimeField('date deleted', auto_now_add=False, null=True)
 	done = models.IntegerField(default=0)
 	style = models.CharField(max_length=64)
+
+class Application(models.Model):
+	name = models.CharField(max_length=100)
+	createdtime = models.DateTimeField('date created', auto_now_add=True)
+	deletedtime = models.DateTimeField('date deleted', auto_now_add=False, null=True)
+	active = models.IntegerField(default=1)
