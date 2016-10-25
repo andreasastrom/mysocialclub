@@ -24,9 +24,10 @@
                             Lägg till en aktivitet
                         </span>
                     </div>
-                    <div class="countdown-add-toggler-container" data-bind="visible: countdownSettings">
+
+                    <div class="countdown-add-toggler-box" data-bind="visible: countdownSettings">
                         <i class="fa fa-spinner fa-spin fa-3x fa-fw loading-spinner" data-bind="visible: showLoader()"></i>
-                        <div data-bind="visible: !showLoader()">
+                        <div class="countdown-container" data-bind="visible: !showLoader()">
                             <input type="text" class="form-control" placeholder="Aktivitet" data-bind="value: countdownactivity, valueUpdate: 'keypress'"></input>
                                                     
                             <div class="form-group">
@@ -64,9 +65,11 @@
                             </div>
 
                             <button class="btn btn-success countdown-create" data-bind="click: createCountdown">Skapa</button>
+                            
                         </div>
+                        <div class="coverPage" data-bind=" click: showCountdownSettings"></div>
                     </div>
+
                     
-                <div class="coverPage" data-bind=" click: showCountdownSettings"></div>
                 </div>  
             </div>
