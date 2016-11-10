@@ -296,7 +296,7 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   color: #0288D1; }
 
 .login-background {
-  position: absolute;
+  position: fixed;
   background-color: #373447;
   background-size: cover;
   color: #fff;
