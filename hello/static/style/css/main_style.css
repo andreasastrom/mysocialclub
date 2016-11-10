@@ -340,10 +340,10 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   margin-bottom: 20px; }
 
 .login-button {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 1rem !important; }
 
 .login-help {
-  margin-top: 10px;
   cursor: pointer; }
 
 .login-control:focus {

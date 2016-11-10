@@ -40,6 +40,8 @@
     <script src="{% static 'js/items.js'%}"></script>
     <script src="{% static 'js/vm/vm.menu.js'%}"></script>
     <script src="{% static 'js/vm/vm.checklist.js'%}"></script>
+    <script src="{% static 'js/vm/vm.login.js'%}"></script>
+    <script src="{% static 'js/vm/vm.checklist.js'%}"></script>
     <script src="{% static 'js/vm/vm.countdown.js'%}"></script>
     <script src="{% static 'js/vm/vm.addMore.js'%}"></script>    
     <script src="{% static 'js/weather.js'%}"></script>
@@ -127,32 +129,7 @@
 
 
         <!-- ko if : !loggedIn() -->
-        <div class="login-background" data-bind="visible: !loggedIn()">
-            <div class="row">
-                <div class="login-box col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 ">
-                    <div class="login-text">                    
-                        <h1 data-bind="css: { 'animated bounceOutUp' : fireAnimation }">Welcome</h1>
-                        <h3>Today will be great</h3>                    
-                    </div>                
-                    <div class="ui left icon input login-container">
-                      <input type="text" placeholder="Username" data-bind="value: username, valueUpdate: 'keypress'">
-                      <i class="user icon"></i>
-                    </div>
-                    <br/>
-
-                    <div class="ui small left icon input login-container">
-                      <input type="password" placeholder="Password" data-bind="value: password, valueUpdate: 'keypress'">
-                      <i class="key icon"></i>
-                    </div>
-
-                    <button class="ui blue inverted button login-button" data-bind="click: logOn">Log in</button>
-                    <div class="login-help">
-                        <span data-bind="visible: logonFailed">Inloggnigen misslyckades. </span><a>Glömt lösenord?</a>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
+            <login-template params="loggedInOk: loggedIn"></login-template>
         <!-- /ko -->
     </div>
 </body>
