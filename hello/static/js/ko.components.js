@@ -21,3 +21,13 @@ ko.components.register('add-more', {
     },    
     template: {require: 'text!templates/addMoreTemplate.html'},     
 });
+
+
+ko.components.register('login-template', {
+    viewModel: function(params) {
+        loginVm(
+            params.loggedInOk
+        )
+    },
+    template: {require: 'text!templates/loginTemplate.html'}
+})

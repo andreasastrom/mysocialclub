@@ -1,6 +1,7 @@
 .countdown {
-  position: relative;
-  height: 10.5rem; }
+  /*position: relative;*/
+  height: 10.5rem;
+  width: 100%; }
 
 .countdown-container {
   margin-top: 20px; }
@@ -21,7 +22,7 @@
   background-color: rgba(255, 255, 255, 0.2); }
 
 .countdown-row {
-  position: absolute;
+  position: relative;
   width: 100%;
   padding-left: 1rem;
   padding-top: 1rem;
@@ -56,7 +57,8 @@ h1 {
   margin-left: 1rem;
   font-size: 1.4rem;
   word-break: break-word;
-  color: #FFFFFF; }
+  color: #FFFFFF;
+  margin-right: 3rem; }
 
 .countdown-datetime {
   font-size: 1rem;
@@ -293,7 +295,7 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   color: #0288D1; }
 
 .login-background {
-  position: absolute;
+  position: fixed;
   background-color: #373447;
   background-size: cover;
   color: #fff;
@@ -337,10 +339,10 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   margin-bottom: 20px; }
 
 .login-button {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 1rem !important; }
 
 .login-help {
-  margin-top: 10px;
   cursor: pointer; }
 
 .login-control:focus {

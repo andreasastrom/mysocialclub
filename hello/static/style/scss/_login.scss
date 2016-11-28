@@ -1,5 +1,5 @@
 .login-background {
-	position: absolute;
+	position: fixed;
 	background-color: $colorPurple;	
 	background-size: cover;
 	color: #fff;
@@ -51,10 +51,10 @@
 
 .login-button {
 	width: 100%;
+	margin-bottom: 1rem !important;
 }
 
 .login-help {
-	margin-top: 10px; 
 	cursor: pointer;
 }
 
