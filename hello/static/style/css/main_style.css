@@ -133,6 +133,9 @@ h1 {
 .list-counter {
   text-align: center; }
 
+.shoppinglist-header {
+  cursor: pointer; }
+
 .shoppinglist-close {
   position: relative;
   z-index: 1;
