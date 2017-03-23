@@ -100,7 +100,11 @@ h1 {
 
 .list-group-container {
   position: relative;
-  top: 15px; }
+  top: 1.5rem;
+  overflow: hidden;
+  display: block;
+  padding-right: 0.5rem;
+  word-break: break-word; }
 
 .listeItem-delete {
   float: right;
