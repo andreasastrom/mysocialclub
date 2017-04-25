@@ -1,4 +1,3 @@
-
 function loginVm(loggedInOk) {
 	var self = this; 
 
@@ -31,7 +30,7 @@ function loginVm(loggedInOk) {
 		});
 	}
 
-	function logOn(){
+	function logOn(){		
 		self.logonFailed(false);
 		var username = self.username(); 
 		var password = self.password();
