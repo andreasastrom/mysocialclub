@@ -17,11 +17,10 @@ $( document ).ready(function() {
 
 function myViewModel(){
 	var self = this;
-	self.loggedIn = ko.observable(false); 
-	var loggedIn = ko.observable(false);	
+	self.loggedIn = ko.observable(false);
+	var loggedIn = ko.observable(false);
+	var loginStatus = getCookie("login");
 
-	var loginStatus = getCookie("loggin");
-	
 	if(loginStatus){
 		self.loggedIn(true);
 	}
@@ -34,7 +33,5 @@ function myViewModel(){
 	//self.countdownVm = countdownVm();
 	// self.weatherVm = weatherVm();
 
-
-		
-	return self; 	
+	return self;
 }

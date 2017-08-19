@@ -2,26 +2,16 @@ require.config({
 	paths: {text: 'lib/text'}
 })
 
-// require(['js/items'], 
-// 	function(module, text){
-// 		console.log("te")
-// 	}
-// 	,function(err){
-// 		console.log(err);
-// 	});
-
 $( document ).ready(function() {
 	ko.applyBindings(new myViewModel());
 });
 
-
 function myViewModel(){
 	var self = this;
-	self.loggedIn = ko.observable(false); 
-	var loggedIn = ko.observable(false);	
+	self.loggedIn = ko.observable(false);
+	var loggedIn = ko.observable(false);
 
-	var loginStatus = getCookie("loggin");
-	
+	var loginStatus = getCookie("login");
 	if(loginStatus){
 		self.loggedIn(true);
 	}
@@ -34,7 +24,5 @@ function myViewModel(){
 	self.countdownVm = countdownVm();
 	// self.weatherVm = weatherVm();
 
-
-		
-	return self; 	
+	return self;
 }

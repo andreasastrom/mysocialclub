@@ -1,7 +1,7 @@
 function menuVm() {
 	var self = this;
 	var signout = function(){
-		removeCookie("loggin");		
+		removeCookie("login");		
 		location.reload();
 	}
 	self.signout = signout;

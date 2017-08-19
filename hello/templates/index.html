@@ -64,52 +64,57 @@
         <!-- ko if: loggedIn() -->
         <div class="row">
             <div class="col-md-4 col-xs-12">
-                <!-- ko foreach: checklists -->
-                <div class="coverPage" data-bind="visible: checklistMenu, click: toggleChecklist"></div>
-                <div class="coverPage" data-bind="visible: showRename(), click: update"></div>
+                
+                <div class="checklist-container">
+                    <!-- ko foreach: checklists -->
+                    <div class="coverPage" data-bind="visible: checklistMenu, click: toggleChecklist"></div>
+                    <div class="coverPage" data-bind="visible: showRename(), click: update"></div>
 
-                <div class="shoppinglist-container" data-bind="visible: showChecklist">
-                    
-                    <div class="shoppinglist-menu-button" data-bind="click: toggleChecklist">
-                        <i class="fa fa-bars"></i>                        
-                    </div>
-
-                    <div class="shoppinglist-menu" data-bind="visible: checklistMenu()">
-                            <a data-bind="click: rename">Byt namn</a>
-                            <a data-bind="click: remove">Ta bort</a>
-                            <a>Arkivera</a>
-                    </div>                    
-                    <h2 class="shoppinglist-header" data-bind="text: name, click: toggleList, visible: !showRename()"></h2>
-                    
-                    <div class="renameChecklist" data-bind="visible: showRename()">                                                    
-                        <input type="text" class="form-control " dir="auto" data-bind="value: name" aria-describedby="basic-addon2">
-                    </div>
-
-                    <div data-bind="visible: showList() && !showRename()">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Vad?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
-                            <span class="input-group-addon" data-bind="click:create">Lägg till</span>
+                    <div class="shoppinglist-container" data-bind="visible: showChecklist">
+                        <span class="checklist-header-container" data-bind="click: toggleList">
+                            <h3 class="shoppinglist-header" data-bind="text: name, visible: !showRename(), css: {'active': showList()}"></h3>
+                            <div class="list-counter" data-bind="visible: listItem().length > 0">
+                                <b data-bind="text: doneItem().length + '/' + listItem().length"></b>
+                            </div>
+                        </span>
+                        <div class="renameChecklist" data-bind="visible: showRename()">
+                            <input type="text" class="form-control checklist-edit " dir="auto" data-bind="value: name" aria-describedby="basic-addon2">
                         </div>
 
-                        <div class="list-group-container">
-                            <ul class="list-group" id="myShoppingList" data-bind="foreach: listItem()">
-                                <li class="list-group-item" data-bind="visible: showItem">
-                                    <div class="list-group-text" data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
-                                        <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
-                                        <span data-bind="text: name, css:{'list-group-item-done':done}"></span>
-                                    </div>
-                                    <div class="listeItem-delete" data-bind="click: deleteItem">
-                                        <i class="fa fa-trash-o"></i>
-                                    </dib>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="list-counter" data-bind="visible: listItem().length > 0">
-                            <b data-bind="text: doneItem().length + '/' + listItem().length"></b>
+                        <div data-bind="visible: showList() && !showRename()">
+                            <!-- <div class="shoppinglist-menu-button" data-bind="click: toggleChecklist">
+                                <i class="fa fa-bars"></i>
+                            </div> -->
+
+                            <!-- <div class="shoppinglist-menu" data-bind="visible: checklistMenu()">
+                                    <a data-bind="click: rename">Byt namn</a>
+                                    <a data-bind="click: remove">Ta bort</a>
+                                    <a>Arkivera</a>
+                            </div> -->
+
+                            <div class="list-group-container">
+                                <ul class="checklist" id="myShoppingList" data-bind="foreach: listItem()">
+                                    <li class="checklist-item-container" data-bind="visible: showItem">
+                                        <div class="list-group-text" data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
+                                            <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
+                                            <span class="checklist-item-text" data-bind="text: name, css:{'list-group-item-done':done}"></span>
+                                        </div>
+                                        <div class="listeItem-delete" data-bind="click: deleteItem">
+                                            <i class="fa fa-trash-o"></i>
+                                        </dib>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="checklist-input-container">
+                                <input type="text" class="form-control checklist-input" placeholder="Lägg till något?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
+                                <span class="checklist-input-create" data-bind="click:create">
+                                    <i class="fa fa-paper-plane"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>                
-                <!-- /ko -->
+                    <!-- /ko -->
+                </div>
                 <div>                                        
                     <add-more params="
                         title:'Lägg till en lista',                    

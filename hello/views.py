@@ -13,11 +13,11 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
+    #userModel.remove_user_by_name("sara")
     #userModel.create_user()
     #checklist.getAllActiveCheckLists()
     return render(request, 'index.html')
 
-	
 def db(request):
     greeting = Greeting()
     greeting.save()
@@ -95,6 +95,7 @@ def user_login(request):
     if user is not None:
         # the password verified for the user
         if user.is_active:
+            print user
             print("User is valid, active and authenticated")
             return HttpResponse('Success', status=200)
         else:
@@ -103,8 +104,6 @@ def user_login(request):
     else:
         print "nej"
         return HttpResponse('Unauthorized', status=401)
-    
-    
 
 def get_all_active_checkLists(request):
     all_active_checklists = checklist.get_all_active_checkLists()

@@ -10,33 +10,33 @@ function loginVm(loggedInOk) {
 	self.logonFailed = ko.observable(false);
 	self.resetPassword = ko.observable(false);
 	
-	function logginUser(username, password){
+	function loginUser(username, password){
 		$.ajax({
 		  type: "POST",
 		  url: "/login/",
 		  data: {username: username, password: password},
 		  success: function(response){
 		  	self.fireAnimation(true);
-		  	setCookie("loggin",true,2)
+		  	setCookie("login",true,2)
 		  	setTimeout(function(){
 			    loggedInOk(true);//getItems();
 			}, 1500);
-		  	
-		  }, 
-		  error: function(response){	
+
+		  },
+		  error: function(response){
 		  	loggedInOk(false);
 		  	self.logonFailed(true);
 		  }
 		});
 	}
 
-	function logOn(){		
+	function logOn(){
 		self.logonFailed(false);
-		var username = self.username(); 
+		var username = self.username();
 		var password = self.password();
 		self.username('');
 		self.password('');
-		logginUser(username, password);
+		loginUser(username, password);
 	}
 
 	function forgotPassword(){
