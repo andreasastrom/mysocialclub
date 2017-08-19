@@ -32,30 +32,43 @@
 	font-weight: 100;
 	outline: none;
 }
+//LIST 
 
 .list-group-container {
 	overflow: hidden;
-   	word-break: break-word;
+	word-break: break-word;
+	-webkit-animation: fadeIn 1s;
+	animation: fadeIn 1s;
 }
 
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}  
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
 
 .listeItem-delete {
 	float: right;
 	width: 100px;
 	text-align: right;
 	color: #000;
+	flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .list-group-text {
-	width: 60%;
-    display: inline-block;
+	display: inline-block;
 }
 
 .checklist-header-container {
 	display: block;
     width: 100%;
     height: 100%;
-    padding: 1em 0.5em;
+    padding: 1em;
+    padding-left: 0em;
 }
 
 .checklist {
@@ -67,6 +80,8 @@
 	cursor: pointer;
 	/* background-color: #e6e6e6; */
 	padding: 1rem 0.5rem;
+	display: flex;
+    flex-direction: row;
 }
 
 .checklist-item-container:nth-child(2n+1) {
@@ -99,7 +114,7 @@
 	font-weight: 300;
 
 	&.active {
-		border-left: 2px solid orange;
+		border-left: 2px solid $colorTurquoise;
 		padding-left: 0.5em;
 	}
 }
@@ -197,7 +212,7 @@
 }
 
 @media screen and (max-width: 480px) {
-    .shoppinglist-menu {     	
+    .shoppinglist-menu {
     	position: absolute;
     	right: 15px;
     }
@@ -208,7 +223,14 @@
 .checklist-input-container {
 	position: relative;
 	width: 100%;
-    margin-bottom: 0.5em;
+	margin-bottom: 0.5em;
+
+	.form-control:focus {
+		border-color: $colorTurquoise;
+		outline: 0;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(161, 165, 169, 0.6);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(161, 165, 169, 0.6);
+	}
 }
 
 .checklist-input {
@@ -227,7 +249,7 @@
     border-radius: 15px;
 	width: 30px;
 	line-height: 30px;
-	background-color: orange;
+	background-color: $colorTurquoise;
 	color: $colorWhite;
     box-sizing: border-box;
 	display: inline-block;

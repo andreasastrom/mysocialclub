@@ -95,10 +95,10 @@
                             <div class="list-group-container">
                                 <ul class="checklist" id="myShoppingList" data-bind="foreach: listItem()">
                                     <li class="checklist-item-container" data-bind="visible: showItem">
-                                        <div class="list-group-text" data-bind="click: markItemAsDone, style: { color: (done? '#00796B' : '#000')}">
+                                        <div class="list-group-text" data-bind="click: markItemAsDone, style: { color: (done? '#009688' : '#000')}">
                                             <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
-                                            <span class="checklist-item-text" data-bind="text: name, css:{'list-group-item-done':done}"></span>
                                         </div>
+                                        <span class="checklist-item-text" data-bind="text: name, css:{'list-group-item-done':done}"></span>
                                         <div class="listeItem-delete" data-bind="click: deleteItem">
                                             <i class="fa fa-trash-o"></i>
                                         </dib>
@@ -115,7 +115,7 @@
                     </div>
                     <!-- /ko -->
                 </div>
-                <div>                                        
+                <!-- <div>
                     <add-more params="
                         title:'Lägg till en lista',                    
                         title2: 'Skapa en lista',                        
@@ -124,10 +124,10 @@
                         submitInput: createChecklist, 
                         visible: addList
                     "></add-more>
-                </div>        
+                </div>         -->
             </div>
 
-            <countdown></countdown>
+            <!-- <countdown></countdown> -->
 
         </div>
         <!-- /ko -->
