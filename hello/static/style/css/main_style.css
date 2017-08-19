@@ -274,7 +274,6 @@ h1 {
   padding-right: 3em; }
 
 .checklist-input-create {
-  color: #fff;
   position: absolute;
   top: 2px;
   right: 3px;
@@ -283,7 +282,8 @@ h1 {
   border-radius: 15px;
   width: 30px;
   line-height: 30px;
-  background-color: #CCCCCC;
+  background-color: orange;
+  color: #fff;
   box-sizing: border-box;
   display: inline-block; }
 
