@@ -81,7 +81,10 @@
                             <input type="text" class="form-control checklist-edit " dir="auto" data-bind="value: name" aria-describedby="basic-addon2">
                         </div>
 
-                        <div data-bind="visible: showList() && !showRename()">
+                        <div class="checklist" data-bind="visible: showList() && !showRename()">
+                            <!-- <div class="checklist-menu">
+                                <i class="fa fa-ellipsis-h checklist-menu-btn"></i>
+                            </div> -->
                             <!-- <div class="shoppinglist-menu-button" data-bind="click: toggleChecklist">
                                 <i class="fa fa-bars"></i>
                             </div> -->
@@ -93,7 +96,7 @@
                             </div> -->
 
                             <div class="list-group-container">
-                                <ul class="checklist" id="myShoppingList" data-bind="foreach: listItem()">
+                                <ul class="checklist-list" id="myShoppingList" data-bind="foreach: listItem()">
                                     <li class="checklist-item-container" data-bind="visible: showItem">
                                         <div class="list-group-text" data-bind="click: markItemAsDone, style: { color: (done? '#009688' : '#000')}">
                                             <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>

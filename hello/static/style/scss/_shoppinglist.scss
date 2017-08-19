@@ -72,6 +72,10 @@
 }
 
 .checklist {
+	position: relative;
+}
+
+.checklist-list {
 	list-style: none;
 	padding-left: 1em;
 }

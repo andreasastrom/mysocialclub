@@ -10,7 +10,6 @@ function ItemFactory(item, reload){
 	}
 
 	this.deleteItem = function(){
-		this.showItem(false);
 		removeItem(this.id)
 	}
 
@@ -28,15 +27,18 @@ function ItemFactory(item, reload){
 	}
 
 	function removeItem(id){
-		$.ajax({
-		  type: "POST",
-		  url: "/items/remove",
-		  data: {id: id},
-		  success: function(){
-		  	console.log("Remove");
-		  	reload(checklist_id);
-		  }
-		});
+		if (confirm("Do you wan't to remove this item?")) {
+			this.showItem(false);
+			$.ajax({
+			type: "POST",
+			url: "/items/remove",
+			data: {id: id},
+			success: function(){
+				console.log("Remove");
+				reload(checklist_id);
+			}
+			});
+		}
 	}
 
 		return this; 
