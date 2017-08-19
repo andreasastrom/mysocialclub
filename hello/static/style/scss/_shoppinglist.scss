@@ -219,7 +219,6 @@
 }
 
 .checklist-input-create {
-	color: $colorWhite;
 	position: absolute;
     top: 2px;
 	right: 3px;
@@ -228,7 +227,8 @@
     border-radius: 15px;
 	width: 30px;
 	line-height: 30px;
-	background-color: $colorGreyLight;
+	background-color: orange;
+	color: $colorWhite;
     box-sizing: border-box;
 	display: inline-block;
 }
