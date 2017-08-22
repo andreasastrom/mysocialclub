@@ -1,16 +1,19 @@
 function ItemFactory(item, reload){
 	this.name = item.fields.name;
 	this.done = item.fields.done;
-	this.id = item.pk;	
+	this.id = item.pk;
 	this.showItem = ko.observable(true);
-	var checklist_id = item.fields.checklist;	
-	
+	var checklist_id = item.fields.checklist;
+
 	this.markItemAsDone = function(){
 		updateItem(this.id, this.done);
 	}
 
 	this.deleteItem = function(){
-		removeItem(this.id)
+		if (confirm("Do you wan't to remove this item?")) {
+			removeItem(this.id)
+			this.showItem(false);
+		}
 	}
 
 	function updateItem(id, done){
@@ -27,19 +30,15 @@ function ItemFactory(item, reload){
 	}
 
 	function removeItem(id){
-		if (confirm("Do you wan't to remove this item?")) {
-			this.showItem(false);
-			$.ajax({
+		$.ajax({
 			type: "POST",
 			url: "/items/remove",
 			data: {id: id},
 			success: function(){
-				console.log("Remove");
 				reload(checklist_id);
 			}
-			});
-		}
+		});
 	}
 
-		return this; 
+		return this;
 	}
