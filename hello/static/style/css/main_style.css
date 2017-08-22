@@ -224,31 +224,36 @@ h1 {
 
 .shoppinglist-add-toggler {
   text-align: center;
-  background-color: #CCCCCC;
-  border-radius: 0.5rem;
+  /* background-color: $colorGreyLight;
+	border-radius: 0.5rem; */
   padding: 0.5rem;
   margin-top: 1rem;
   cursor: pointer;
   color: #666666; }
 
 .shoppinglist-add-toggler:hover {
-  background-color: #a29d9d;
-  color: #CCCCCC; }
+  background-color: #009688;
+  color: #009688; }
+
+.input-group-addon {
+  background-color: #009688;
+  color: #fff; }
 
 .shoppinglist-menu-button {
   float: right; }
 
 .shoppinglist-create {
   margin-top: 1rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  background-color: #CCCCCC;
+  padding: 2em 0.5rem 1em 0.5em;
+  background-color: rgba(204, 204, 204, 0.2);
+  /* border: 1px solid rgb(204, 204, 204); */
   color: #666666;
   z-index: 3;
   position: relative; }
 
 .shoppinglist-create h3 {
-  text-transform: uppercase; }
+  font-weight: 300;
+  color: #000; }
 
 .shoppinglist-menu {
   position: absolute;
