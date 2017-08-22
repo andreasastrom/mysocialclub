@@ -7,10 +7,10 @@
 	height: 4.5rem;
 	line-height: 4.5rem;
 	padding-left: 1rem;
-	background-color: $colorWhite;
-	color: $colorBlack; 
+	background-color: $colorTurquoise;
+	color: $colorWhite;
 	box-shadow: 0px 2px 2px 0px #777777;
-	z-index: 4;	
+	z-index: 4;
 }
 
 .left-menu {
@@ -21,7 +21,7 @@
 	float: right;
 	height: 100%;
 	padding-left: 1rem;
-	padding-right: 1rem;	
+	padding-right: 1rem;
 	cursor: pointer;
 
 	& :active {
