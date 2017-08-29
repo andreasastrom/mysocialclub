@@ -501,12 +501,11 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
 
 .sub-menu-container {
   position: fixed;
-  background-color: rgba(244, 244, 244, 0.5);
   left: 0p;
   left: 0px;
   right: 0px;
   bottom: 0px;
-  top: 0px;
+  top: 0rem;
   z-index: 2; }
 
 .sub-menu {
@@ -515,5 +514,11 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   right: 0px;
   bottom: 0px;
   height: 100%;
-  width: 40%;
-  padding-top: 6em; }
+  width: 0px;
+  padding-top: 6em;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  box-shadow: 1px 1px 1px 1px #ccc; }
+
+.sub-menu-container .bigMenu {
+  width: 80%; }

@@ -8,13 +8,12 @@
 <!-- <div class="sign-out" data-bind="click: signout">Logga ut</div> -->
 </div>
 
-<!-- ko if: showSubMenu() -->
+
 <div class="sub-menu-container">
-    <div class="sub-menu">
+    <div class="sub-menu" data-bind="css: {'bigMenu': showSubMenu()}">
         <ul>
             <li>Inställningar</li>
             <li data-bind="click: signout">Logga ut</li>
         </ul>
     </div>
 </div>
-<!-- /ko -->
