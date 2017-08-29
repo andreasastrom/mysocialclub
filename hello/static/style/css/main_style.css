@@ -496,4 +496,5 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   border-radius: 50%;
   text-align: center;
   background-color: #fff;
-  color: #009688; }
+  color: #009688;
+  cursor: pointer; }

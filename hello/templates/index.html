@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -9,28 +10,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.js"></script>
     <script src="https://cdn.jsdelivr.net/lodash/4.16.1/lodash.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script> -->
-    
-   
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>    
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/locale/sv.js"></script>    
-    
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/locale/sv.js"></script>
+
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+        crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+
     <link rel="stylesheet" type="text/css" href="{% static 'font-awesome-4.6.3/css/font-awesome.min.css'%}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'style/css/main_style.css'%}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'style/css/main_style.css'%}">
 
 
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
@@ -43,7 +47,7 @@
     <script src="{% static 'js/vm/vm.login.js'%}"></script>
     <script src="{% static 'js/vm/vm.checklist.js'%}"></script>
     <script src="{% static 'js/vm/vm.countdown.js'%}"></script>
-    <script src="{% static 'js/vm/vm.addMore.js'%}"></script>    
+    <script src="{% static 'js/vm/vm.addMore.js'%}"></script>
     <script src="{% static 'js/weather.js'%}"></script>
     <script src="{% static 'js/login.js'%}"></script>
     <script src="{% static 'js/bakery.js'%}"></script>
@@ -57,15 +61,16 @@
     <link rel="icon" type="image/png" href="{% static 'icon/fav.gif'%}" sizes="32x32" />
     <title>The Social club</title>
 </head>
+
 <body>
     <!-- ko if: loggedIn() -->
     <topmenu></topmenu>
     <!-- /ko -->
-    <div class="container-fluid">    
+
+    <div class="container-fluid" data-bind="css: {'hidden': loggedIn()}">
         <!-- ko if: loggedIn() -->
         <div class="row">
             <div class="col-md-4 col-xs-12">
-                
                 <div class="checklist-container">
                     <!-- ko foreach: checklists -->
                     <div class="coverPage" data-bind="visible: checklistMenu, click: toggleChecklist"></div>
@@ -83,19 +88,6 @@
                         </div>
 
                         <div class="checklist" data-bind="visible: showList() && !showRename()">
-                            <!-- <div class="checklist-menu">
-                                <i class="fa fa-ellipsis-h checklist-menu-btn"></i>
-                            </div> -->
-                            <!-- <div class="shoppinglist-menu-button" data-bind="click: toggleChecklist">
-                                <i class="fa fa-bars"></i>
-                            </div> -->
-
-                            <!-- <div class="shoppinglist-menu" data-bind="visible: checklistMenu()">
-                                    <a data-bind="click: rename">Byt namn</a>
-                                    <a data-bind="click: remove">Ta bort</a>
-                                    <a>Arkivera</a>
-                            </div> -->
-
                             <div class="list-group-container">
                                 <ul class="checklist-list" id="myShoppingList" data-bind="foreach: listItem()">
                                     <li class="checklist-item-container" data-bind="visible: showItem">
@@ -105,22 +97,22 @@
                                         <span class="checklist-item-text" data-bind="text: name, css:{'list-group-item-done':done}"></span>
                                         <div class="listeItem-delete" data-bind="click: deleteItem">
                                             <i class="fa fa-times"></i>
-                                        </dib>
+                                            </dib>
                                     </li>
                                 </ul>
-                            </div>
-                            <div class="checklist-input-container">
-                                <input type="text" class="form-control checklist-input" placeholder="Lägg till något?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
-                                <span class="checklist-input-create" data-bind="click:create">
+                                </div>
+                                <div class="checklist-input-container">
+                                    <input type="text" class="form-control checklist-input" placeholder="Lägg till något?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
+                                    <span class="checklist-input-create" data-bind="click:create">
                                     <i class="fa fa-paper-plane"></i>
                                 </span>
+                                </div>
                             </div>
                         </div>
+                        <!-- /ko -->
                     </div>
-                    <!-- /ko -->
-                </div>
-                <div>
-                    <add-more params="
+                    <div>
+                        <add-more params="
                         title:'Lägg till en lista',
                         title2: 'Skapa en lista',
                         show: addNewChecklist,
@@ -128,19 +120,17 @@
                         submitInput: createChecklist,
                         visible: addList
                     "></add-more>
+                    </div>
                 </div>
+
             </div>
-
-            <!-- <countdown></countdown> -->
-
-        </div>
-        <!-- /ko -->
+            <!-- /ko -->
 
 
-        <!-- ko if : !loggedIn() -->
+            <!-- ko if: showLogon() -->
             <login-template params="loggedInOk: loggedIn"></login-template>
-        <!-- /ko -->
-    </div>
+            <!-- /ko -->
+        </div>
 </body>
-</html>
 
+</html>

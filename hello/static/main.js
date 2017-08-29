@@ -13,6 +13,7 @@ require.config({
 $(document).ready(function() {
 	var self = this;
 	var vm = new viewModel();
+	ko.applyBindings(vm);
 	var token = getCookie("thesocialclub");
 	if(token) {	
 		$.ajax({
@@ -27,16 +28,17 @@ $(document).ready(function() {
 		//http://localhost:5000/user/authenticate/
 	}
 	else {
-		vm.loggedIn(false);
+		vm.showLogon(true);
 		login(self);
 	}
-	ko.applyBindings(vm);
+	
 });
 
 
 function viewModel(){
 	var self = this;
 	self.loggedIn = ko.observable(false);
+	self.showLogon = ko.observable(false);
 	var loggedIn = ko.observable(false);
 	var token = getCookie("thesocialclub");
 	/* if(token) {	
