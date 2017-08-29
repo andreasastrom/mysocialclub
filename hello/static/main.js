@@ -14,6 +14,7 @@ $(document).ready(function() {
 	var self = this;
 	var vm = new viewModel();
 	ko.applyBindings(vm);
+	$('#main').removeClass('hidden');
 	var token = getCookie("thesocialclub");
 	if(token) {	
 		$.ajax({
