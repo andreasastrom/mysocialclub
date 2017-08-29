@@ -1,9 +1,20 @@
 <div class="menu">
 <div class="left-menu">TSC</div>
 <div class="user-container">
-    <div class="user-badge">
+    <div class="user-badge" data-bind="click: toggleSubMenu">
         <span data-bind="text: userModel.initials"></span>
     </div>
 </div>
-<div class="sign-out" data-bind="click: signout">Logga ut</div>
+<!-- <div class="sign-out" data-bind="click: signout">Logga ut</div> -->
 </div>
+
+<!-- ko if: showSubMenu() -->
+<div class="sub-menu-container">
+    <div class="sub-menu">
+        <ul>
+            <li>Inställningar</li>
+            <li data-bind="click: signout">Logga ut</li>
+        </ul>
+    </div>
+</div>
+<!-- /ko -->

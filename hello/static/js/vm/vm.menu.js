@@ -1,9 +1,15 @@
 function menuVm() {
 	var self = this;
+	self.showSubMenu = ko.observable(false);
+	self.userModel = new userModel();
+
 	var signout = function(){
-		removeCookie("thesocialclub");		
+		removeCookie("thesocialclub");
 		location.reload();
 	}
-	self.userModel = new userModel();
+	var toggleSubMenu = function() {
+		self.showSubMenu(!self.showSubMenu());
+	}
+	self.toggleSubMenu = toggleSubMenu;
 	self.signout = signout;
 }

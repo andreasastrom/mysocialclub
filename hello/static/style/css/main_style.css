@@ -498,3 +498,22 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   background-color: #fff;
   color: #009688;
   cursor: pointer; }
+
+.sub-menu-container {
+  position: fixed;
+  background-color: rgba(244, 244, 244, 0.5);
+  left: 0p;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 0px;
+  z-index: 2; }
+
+.sub-menu {
+  background-color: #fff;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  height: 100%;
+  width: 40%;
+  padding-top: 6em; }
