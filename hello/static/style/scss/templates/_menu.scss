@@ -28,3 +28,20 @@
 		
 	}
 }
+
+.user-container {
+}
+
+.user-badge {
+	position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1rem;
+	height: 3rem;
+	width: 3rem;
+	line-height: 3rem;
+	border-radius: 50%;
+	text-align: center;
+	background-color: $colorWhite;
+	color: $colorTurquoise;
+}

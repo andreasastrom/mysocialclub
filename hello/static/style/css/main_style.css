@@ -483,3 +483,17 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   padding-left: 1rem;
   padding-right: 1rem;
   cursor: pointer; }
+
+.user-badge {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 1rem;
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #fff;
+  color: #009688; }

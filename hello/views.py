@@ -10,6 +10,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
+from django.conf import settings
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from rest_framework.authtoken.models import Token
+
 
 # Create your views here.
 def index(request):
@@ -78,11 +83,11 @@ def remove_acticity(request):
 
 
 def get_weather(request):
-    weather = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Taormina&units=metric&appid=05cded3be7ec61a14bd04f1a39eb18a5')
+    weather = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Taormina&units=metric&appid=05cded3be7ec61a1bd04f1a39eb18a5')
     return HttpResponse(weather)
 
-def login(request):
-    return render(request, 'login.html')
+''' def login(request):
+    return render(request, 'login.html') '''
 # def emai_check(user):
 #     return user.email.end
 
@@ -93,11 +98,12 @@ def user_login(request):
     password = request.POST['password']
     user = authenticate(username=username, password=password)
     if user is not None:
+        print user.username
+        token = Token.objects.get(user=user)
         # the password verified for the user
         if user.is_active:
-            print user
             print("User is valid, active and authenticated")
-            return HttpResponse('Success', status=200)
+            return HttpResponse(token, status=200)
         else:
             print"ej bra"
             return HttpResponse('Unauthorized', status=401)
@@ -117,13 +123,42 @@ def create_checklist(request):
 
 @csrf_exempt
 def remove_checklist(request):
-    id = request.POST['id']    
+    id = request.POST['id']
     checklist.remove(id)
     return HttpResponse('Success', status=200)
 
 @csrf_exempt
 def update_checklist(request):
     id = request.POST['id']
-    name = request.POST['name']    
+    name = request.POST['name']
     checklist.update(id, name)
     return HttpResponse('Success', status=200)
+
+
+def bundle(request):
+    userData = user
+
+@csrf_exempt
+def authenticate_with_token (request):
+    print request
+    token = request.POST['token']
+    token = Token.objects.get(key=token)
+    if token is not None:
+        user = userModel.get_user_by_id(token.user_id)
+        print user
+        #print user.email
+        #serialize_user = serializers.serialize('json', user)
+        #return HttpResponse(user, status=200)
+        #data = serializers.serialize('json', [user])
+        return HttpResponse(user, content_type='application/json')
+    else:
+        return HttpResponse('Unauthorized', status=401)
+
+#### new stuff
+@csrf_exempt
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    if created:
+        test = Token.objects.create(user=instance)
+        print
+    
+    return HttpResponse('Ok', status=200)

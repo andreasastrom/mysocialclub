@@ -10,28 +10,55 @@ require.config({
 // 		console.log(err);
 // 	});
 
-$( document ).ready(function() {
-	ko.applyBindings(new myViewModel());
+$(document).ready(function() {
+	var self = this;
+	var vm = new viewModel();
+	var token = getCookie("thesocialclub");
+	if(token) {	
+		$.ajax({
+			type: "POST",
+			url: "/user/authenticate/",
+			data: {token: token},
+			success: function(response) {
+				self.user = response;
+				vm.loggedIn(true);
+			}
+		});
+		//http://localhost:5000/user/authenticate/
+	}
+	else {
+		vm.loggedIn(false);
+		login(self);
+	}
+	ko.applyBindings(vm);
 });
 
 
-function myViewModel(){
+function viewModel(){
 	var self = this;
 	self.loggedIn = ko.observable(false);
 	var loggedIn = ko.observable(false);
-	var loginStatus = getCookie("login");
-
-	if(loginStatus){
-		self.loggedIn(true);
+	var token = getCookie("thesocialclub");
+	/* if(token) {	
+		$.ajax({
+			type: "POST",
+			url: "/user/authenticate/",
+			data: {token: token},
+			success: function(response) {
+				self.user = response;
+				self.loggedIn(true);
+			}
+		});
+		//http://localhost:5000/user/authenticate/
 	}
 	else {
 		self.loggedIn(false);
 		login(self);
-	}
+	} */
 
 	self.checklistVm = checklistVm();
 	//self.countdownVm = countdownVm();
 	// self.weatherVm = weatherVm();
 
-	return self;
+	//return self;
 }

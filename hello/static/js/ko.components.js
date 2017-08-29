@@ -30,4 +30,5 @@ ko.components.register('login-template', {
         )
     },
     template: {require: 'text!templates/loginTemplate.html'}
-})
+});
+
