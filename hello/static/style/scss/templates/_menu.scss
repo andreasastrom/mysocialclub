@@ -68,8 +68,9 @@
 	right: 0px;
 	bottom: 0px;
 	height: 100%;
-	width: 100%;
+	width: 80%;
 	padding-top: 6em;
+	box-shadow: 1px 1px 1px 1px #ccc;
 
 	ul {
 		list-style-type: none;
@@ -82,5 +83,5 @@
 }
 
 .bigMenu {
-	width: 80%;
+	width: 100%;
 }

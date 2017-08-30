@@ -517,8 +517,9 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   right: 0px;
   bottom: 0px;
   height: 100%;
-  width: 100%;
-  padding-top: 6em; }
+  width: 80%;
+  padding-top: 6em;
+  box-shadow: 1px 1px 1px 1px #ccc; }
 
 .sub-menu ul {
   list-style-type: none;
@@ -528,4 +529,4 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   padding: 0.5em; }
 
 .bigMenu {
-  width: 80%; }
+  width: 100%; }

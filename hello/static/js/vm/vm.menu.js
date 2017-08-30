@@ -10,6 +10,11 @@ function menuVm() {
 	var toggleSubMenu = function() {
 		self.showSubMenu(!self.showSubMenu());
 	}
+
+	self.settings = function() {
+		document.state("edituser");
+		self.showSubMenu(!self.showSubMenu());
+	}
 	self.toggleSubMenu = toggleSubMenu;
 	self.signout = signout;
 }
