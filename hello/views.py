@@ -140,16 +140,10 @@ def bundle(request):
 
 @csrf_exempt
 def authenticate_with_token (request):
-    print request
     token = request.POST['token']
     token = Token.objects.get(key=token)
     if token is not None:
         user = userModel.get_user_by_id(token.user_id)
-        print user
-        #print user.email
-        #serialize_user = serializers.serialize('json', user)
-        #return HttpResponse(user, status=200)
-        #data = serializers.serialize('json', [user])
         return HttpResponse(user, content_type='application/json')
     else:
         return HttpResponse('Unauthorized', status=401)
@@ -162,3 +156,11 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
         print
     
     return HttpResponse('Ok', status=200)
+
+
+@csrf_exempt
+def update_user(request):
+    print request.body
+    user = request.body
+    userModel.update(user)
+    return HttpResponse('Success', status=200)

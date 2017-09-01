@@ -20,7 +20,7 @@ function checklistVm() {
 		});   
 	}
 
-	self.createChecklist = function(){		
+	self.createChecklist = function(){
 		if(self.checklistName().length > 0) {
 			var name = self.checklistName();
 			$.ajax({
@@ -28,9 +28,9 @@ function checklistVm() {
 				  url: "/checklist/create",
 				  data: {name: name},
 				  success: function(){
-				  	self.checklistName('')				  	
+				  	self.checklistName('')
 				  	self.addList(false);
-				  	load()				  				  	  				 			  
+				  	load()
 				  }
 			});
 		}

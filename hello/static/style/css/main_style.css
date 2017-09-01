@@ -528,3 +528,13 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
 
 .bigMenu {
   width: 100%; }
+
+.edit-user-container {
+  margin-top: 2.5rem; }
+
+.edit-user-attribute-list {
+  list-style-type: none;
+  padding: 0px; }
+
+.edit-user-label {
+  display: block; }

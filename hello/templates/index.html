@@ -46,6 +46,7 @@
     <script src="{% static 'js/vm/vm.menu.js'%}"></script>
     <script src="{% static 'js/vm/vm.checklist.js'%}"></script>
     <script src="{% static 'js/vm/vm.login.js'%}"></script>
+    <script src="{% static 'js/vm/vm.edituser.js'%}"></script>
     <script src="{% static 'js/vm/vm.checklist.js'%}"></script>
     <script src="{% static 'js/vm/vm.countdown.js'%}"></script>
     <script src="{% static 'js/vm/vm.addMore.js'%}"></script>
@@ -123,7 +124,7 @@
             <!-- /ko -->
 
              <!-- ko if: document.state() === "edituser" -->
-             Edit user
+             <edit-user></edit-user>
              <!-- /ko -->
 
 

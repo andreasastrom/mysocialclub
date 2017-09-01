@@ -28,7 +28,6 @@ def get_user_by_id(id):
 	#data = serializers.serialize('json', [user])
 	return user
 
-
 def mappedUser(rawUser):
 	user = {}
 	print rawUser
@@ -39,4 +38,13 @@ def mappedUser(rawUser):
 	user['last_name'] = rawUser.last_name
 	json_data = json.dumps(user)
 	return json_data
-	
+
+def update(userData):
+	if userData is not None:
+		new_user = json.loads(userData)
+		user = User.objects.get(id=new_user['id'])
+		if user is not None:
+			user.username = new_user['username']
+			user.first_name = new_user['firstname']
+			user.last_name = new_user['lastname']
+			user.save()
