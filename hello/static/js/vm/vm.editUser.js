@@ -7,5 +7,4 @@ function editUserVm() {
 	}
 
 	self.save = save;
-	/* alert("Hej"); */
 }
