@@ -15,6 +15,11 @@ function menuVm() {
 		document.state("edituser");
 		self.showSubMenu(!self.showSubMenu());
 	}
+
+	self.home = function() {
+		document.state("checklist");
+	}
+	
 	self.toggleSubMenu = toggleSubMenu;
 	self.signout = signout;
 }
