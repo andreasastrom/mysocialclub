@@ -22,6 +22,7 @@ function menuVm() {
 
 	self.recipe = function() {
 		document.state("recipe")
+		self.showSubMenu(!self.showSubMenu());
 	}
 
 	self.toggleSubMenu = toggleSubMenu;
