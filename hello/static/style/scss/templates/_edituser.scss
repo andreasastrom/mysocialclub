@@ -7,6 +7,21 @@
 	padding: 0px;
 }
 
-.edit-user-label{
+.edit-user-attribute {
+	margin: 1rem 0rem;
+}
+
+.edit-user-label {
 	display: block;
+}
+
+.edit-user-input {
+	width: 100%;
+    border: none;
+    border-bottom: 1px solid $colorGreyDark;
+	padding: 0.2rem 0rem;
+
+	&:focus {
+		outline: none;
+	}
 }

@@ -6,15 +6,15 @@
 		<ul class="edit-user-attribute-list">
 			<li class="edit-user-attribute">
 				<label class="edit-user-label" for="user-name">Användarnamn</label>
-				<input type="text" id="user-name" data-bind=" value: user.username">
+				<input type="text" id="user-name" class="edit-user-input" data-bind=" value: user.username">
 			</li>
 			<li class="edit-user-attribute">
 				<label class="edit-user-label" for="user-firstname">Förnamn</label>
-				<input type="text" id="user-firstname" data-bind=" value: user.firstname">
+				<input type="text" id="user-firstname" class="edit-user-input" data-bind=" value: user.firstname">
 			</li>
 			<li class="edit-user-attribute">
 				<label class="edit-user-label" for="user-lastname">Efternamn</label>
-				<input type="text" id="user-lastname" data-bind=" value: user.lastname">
+				<input type="text" id="user-lastname" class="edit-user-input" data-bind=" value: user.lastname">
 			</li>
 		</ul>
 		<button class="btn" data-bind="click: save">Spara</button>

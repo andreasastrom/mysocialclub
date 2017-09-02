@@ -19,7 +19,6 @@ function userModel()
 			"firstname" : self.firstname(),
 			"lastname" : self.lastname()
 		}
-		alert(user);
 		$.ajax({
 			type: "POST",
 			url: "user/update/",

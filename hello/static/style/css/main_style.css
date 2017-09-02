@@ -524,7 +524,9 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   font-size: 1.4rem; }
 
 .sub-menu ul li {
-  padding: 0.5em; }
+  padding: 0.5em;
+  border-bottom: 1px solid #ccc;
+  padding: 1em; }
 
 .bigMenu {
   width: 100%; }
@@ -536,5 +538,17 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
   list-style-type: none;
   padding: 0px; }
 
+.edit-user-attribute {
+  margin: 1rem 0rem; }
+
 .edit-user-label {
   display: block; }
+
+.edit-user-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #666666;
+  padding: 0.2rem 0rem; }
+
+.edit-user-input:focus {
+  outline: none; }
