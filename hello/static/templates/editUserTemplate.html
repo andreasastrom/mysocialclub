@@ -1,5 +1,9 @@
 <div class="edit-user-container">
 	<div class="edit-user">
+		<!-- ko if: status() -->
+		<span class="edit-user-status" data-bind="text: statusText "></span>
+		<!-- /ko -->
+
 		<!-- <div class="edit-user-icon"></div>
 		<button class="btn btn-upload">Ladda upp en bild</button> -->
 		<h3>Uppdatera din användare</h3>

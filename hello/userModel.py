@@ -48,3 +48,9 @@ def update(userData):
 			user.first_name = new_user['firstname']
 			user.last_name = new_user['lastname']
 			user.save()
+			return True
+		else:
+			return False
+	else:
+		return False
+

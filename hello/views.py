@@ -162,5 +162,8 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 def update_user(request):
     print request.body
     user = request.body
-    userModel.update(user)
-    return HttpResponse('Success', status=200)
+    response = userModel.update(user)
+    if response:
+        return HttpResponse('Success', status=200)
+    else:
+        return HttpResponse('Error', status=404)

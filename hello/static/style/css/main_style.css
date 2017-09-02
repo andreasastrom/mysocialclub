@@ -531,6 +531,12 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
 .bigMenu {
   width: 100%; }
 
+.edit-user-status {
+  background-color: #4CAF50;
+  padding: 1rem;
+  display: block;
+  color: #fff; }
+
 .edit-user-container {
   margin-top: 2.5rem; }
 

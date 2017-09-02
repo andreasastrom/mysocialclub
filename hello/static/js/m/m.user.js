@@ -12,9 +12,9 @@ function userModel()
 		alert("Hej");
 	}
 
-	update = function(){
+	update = function(user, callback){
 		var user = {
-			"id": self.id, 
+			"id": self.id,
 			"username" : self.username(),
 			"firstname" : self.firstname(),
 			"lastname" : self.lastname()
@@ -22,11 +22,13 @@ function userModel()
 		$.ajax({
 			type: "POST",
 			url: "user/update/",
-			dataType: "json",
 			contentType :   'application/json',
 			data: JSON.stringify(user),
-			success: function(){
-				debugger;
+			success: function(response) {
+				callback();
+			},
+			error: function(error) {
+				console.log("error");
 			}
 		});
 	}
