@@ -563,4 +563,5 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
 .btn-save {
   width: 100%;
   margin-top: 1em;
-  height: 4em; }
+  height: 4em;
+  background-color: #CCCCCC; }
