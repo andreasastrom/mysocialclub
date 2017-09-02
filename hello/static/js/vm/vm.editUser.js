@@ -13,7 +13,7 @@ function editUserVm() {
 		self.statusText('Uppdatering klar');
 		setTimeout(function () {
 			self.status(false);
-		},2500);
+		},4000);
 	}
 
 	self.save = save;
