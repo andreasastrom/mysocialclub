@@ -9,6 +9,7 @@ class Greeting(models.Model):
 class Checklist(models.Model):
 	name = models.CharField(max_length=100)
 	removed = models.IntegerField(default=0)
+	listtype = models.IntegerField(default=0)
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Item(models.Model):
