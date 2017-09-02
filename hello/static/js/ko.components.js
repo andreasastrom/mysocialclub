@@ -36,4 +36,8 @@ ko.components.register('login-template', {
 ko.components.register('edit-user', {
     viewModel: editUserVm,
     template: {require: 'text!templates/editUserTemplate.html'}
-})
+});
+ko.components.register('recipe', {
+    viewModel: recipeVm,
+    template: {require: 'text!templates/recipeTemplate.html'}
+});

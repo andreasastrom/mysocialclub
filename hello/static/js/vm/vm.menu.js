@@ -19,7 +19,11 @@ function menuVm() {
 	self.home = function() {
 		document.state("checklist");
 	}
-	
+
+	self.recipe = function() {
+		document.state("recipe")
+	}
+
 	self.toggleSubMenu = toggleSubMenu;
 	self.signout = signout;
 }

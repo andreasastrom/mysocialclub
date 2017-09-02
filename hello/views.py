@@ -118,7 +118,8 @@ def get_all_active_checkLists(request):
 @csrf_exempt
 def create_checklist(request):
     name = request.POST['name']
-    checklist.create_checklist(name)
+    user_id = int(request.POST['user_id'])
+    checklist.create_checklist(name, user_id)
     return HttpResponse('Success', status=200)
 
 @csrf_exempt
