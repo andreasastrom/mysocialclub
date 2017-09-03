@@ -1,12 +1,12 @@
 <div class="edit-user-container">
 	<div class="edit-user">
 		<!-- ko if: status() -->
-		<span class="edit-user-status" data-bind="text: statusText "></span>
+		<span class="save-status" data-bind="text: statusText "></span>
 		<!-- /ko -->
 
 		<!-- <div class="edit-user-icon"></div>
 		<button class="btn btn-upload">Ladda upp en bild</button> -->
-		<h3>Uppdatera din användare</h3>
+		<div class="edit-user-badge"><span data-bind="text: user.initials"></span></div>
 		<ul class="edit-user-attribute-list">
 			<li class="edit-user-attribute">
 				<label class="edit-user-label" for="user-name">Användarnamn</label>
@@ -20,7 +20,11 @@
 				<label class="edit-user-label" for="user-lastname">Efternamn</label>
 				<input type="text" id="user-lastname" class="edit-user-input" data-bind=" value: user.lastname">
 			</li>
+			<li class="edit-user-attribute">
+				<label class="edit-user-label" for="user-email">Email</label>
+				<input type="text" id="user-email" class="edit-user-input" data-bind=" value: user.email">
+			</li>
 		</ul>
-		<button class="btn btn-save" data-bind="click: save">Spara</button>
+		<button class="btn btn-save" data-bind="click: save">Uppdatera</button>
 	</div>
 </div>

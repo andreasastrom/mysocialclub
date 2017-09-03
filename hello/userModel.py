@@ -22,15 +22,12 @@ def remove_user_by_name(username):
 
 
 def get_user_by_id(id):
-
 	user_data = User.objects.get(id=id)
 	user = mappedUser(user_data)
-	#data = serializers.serialize('json', [user])
 	return user
 
 def mappedUser(rawUser):
 	user = {}
-	print rawUser
 	user['id'] = rawUser.id
 	user['username'] = rawUser.username
 	user['email'] = rawUser.email
@@ -47,6 +44,7 @@ def update(userData):
 			user.username = new_user['username']
 			user.first_name = new_user['firstname']
 			user.last_name = new_user['lastname']
+			user.email = new_user['email']
 			user.save()
 			return True
 		else:
