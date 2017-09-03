@@ -6,6 +6,7 @@ $(document).ready(function() {
 	var self = this;
 	var vm = new viewModel();
 	self.state = ko.observable("checklist")
+	self.server = server();
 	ko.applyBindings(vm);
 
 	$('#main').removeClass('hidden');

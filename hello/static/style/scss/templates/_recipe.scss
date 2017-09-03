@@ -5,11 +5,11 @@
 .recipe-menu {
 	position: fixed;
     top: 4.5em;
-    background-color: $colorGreyLight;
     left: 0px;
     right: 0px;
     height: 3.5em;
     padding: 1em;
+	background-color: $colorGreyLight;
 }
 
 .recipe-menu-list {
@@ -21,8 +21,12 @@
 
 .recipe-menu-list-item {
 	display: inline;
-	margin: 0px 15%;
+	margin: 0px 5%;
 	position: relative;
+
+	&.active {
+		color: $colorPink;
+	}
 
 	&.active:after {
 		content: '';
@@ -32,6 +36,19 @@
 		border-right: 10px solid transparent;
 		position: absolute;
 		bottom: -2.3em;
-		left: -3em;
+		left: 0em;
+	}
+}
+
+.recipe-input {
+	display: block;
+	width: 100%;
+	border: none;
+    border-bottom: 1px solid #666666;
+    padding: 0.2rem 0rem;
+	border-radius: 0px;
+
+	&:focus {
+		outline: none;
 	}
 }

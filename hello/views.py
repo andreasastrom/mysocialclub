@@ -5,7 +5,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from .models import Greeting
 import requests
-from hello import item, activity, userModel, checklist
+import json
+
+from hello import item, activity, userModel, checklist, recipeModel
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -14,6 +16,7 @@ from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
+
 
 
 # Create your views here.
@@ -43,9 +46,7 @@ def get_all_items(request):
 
 @csrf_exempt
 def get_all_items_by_checklist_id(request):
-    print request
     id = request.GET.get("checklist_id", 0)
-    print id 
     i = item.get_all_items_by_checklist_id(id)
     return HttpResponse(i)
 
@@ -155,16 +156,38 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         test = Token.objects.create(user=instance)
         print
-    
     return HttpResponse('Ok', status=200)
 
 
+
+### NEW GOOD STUFFE 2017
+#USER
 @csrf_exempt
 def update_user(request):
-    print request.body
     user = request.body
     response = userModel.update(user)
     if response:
         return HttpResponse('Success', status=200)
+    else:
+        return HttpResponse('Error', status=404)
+
+
+#RECIPE
+@csrf_exempt
+def create_recipe(request):
+    print request.body
+    if request.body is not None:
+        data = json.loads(request.body)
+        print data
+        print type(request)
+        recipe = data['recipe']
+        user_id = int(data['user_id'])
+        print user_id
+        print recipe
+        recipe_response = recipeModel.create(recipe, user_id)
+        if recipe_response:
+            return HttpResponse('Success', status=200)
+        else:
+            return HttpResponse('Error', status=404)
     else:
         return HttpResponse('Error', status=404)

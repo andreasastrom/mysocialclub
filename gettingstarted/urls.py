@@ -29,12 +29,16 @@ urlpatterns = [
 	url(r'^loginpage', hello.views.login),
 
 	url(r'^checklist/create', hello.views.create_checklist),
-	url(r'^checklists/all', hello.views.get_all_active_checkLists),	
-	url(r'^checklists/remove', hello.views.remove_checklist),	
+	url(r'^checklists/all', hello.views.get_all_active_checkLists),
+	url(r'^checklists/remove', hello.views.remove_checklist),
 	url(r'^checklist/items', hello.views.get_all_items_by_checklist_id),
 	url(r'^checklist/update', hello.views.update_checklist),
-	
+
 	url(r'^user/authenticate', hello.views.authenticate_with_token),
-	url(r'^user/update', hello.views.update_user)
+	url(r'^user/update', hello.views.update_user),
+
+	url(r'^recipe/create', hello.views.create_recipe)
+
+
 	#,url(r'^get_auth_token/$', hello.views.create_auth_token, name='get_auth_token')
 ]

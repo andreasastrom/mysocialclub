@@ -32,3 +32,9 @@ class Application(models.Model):
 	createdtime = models.DateTimeField('date created', auto_now_add=True)
 	deletedtime = models.DateTimeField('date deleted', auto_now_add=False, null=True)
 	active = models.IntegerField(default=1)
+
+class Recipe(models.Model):
+	name = models.CharField(max_length=100)
+	link = models.CharField(max_length=2048)
+	deleted = models.IntegerField(default=0)
+	created_user = models.ForeignKey(User, on_delete=models.CASCADE)
