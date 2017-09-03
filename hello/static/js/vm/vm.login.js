@@ -24,6 +24,7 @@ function loginVm(loggedInOk) {
 						url: "/user/authenticate/",
 						data: {token: token},
 						success: function(response) {
+							document.user = response
 							console.log(response);
 							self.loggedIn(true);
 						}

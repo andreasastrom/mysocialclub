@@ -18,7 +18,7 @@ urlpatterns = [
 	url(r'^items/create', hello.views.create_item),
 	url(r'^items/update', hello.views.update_item),
 	url(r'^items/remove', hello.views.remove_item),
-	
+
 
 	url(r'^activity/create', hello.views.create_activity),
 	url(r'^activity/all', hello.views.get_all_activities),
@@ -26,6 +26,8 @@ urlpatterns = [
 	url(r'^weather/get/', hello.views.get_weather),
 
 	url(r'^login/$', hello.views.user_login),
+	url(r'^login/user', hello.views.get_user_by_token),
+
 	url(r'^loginpage', hello.views.login),
 
 	url(r'^checklist/create', hello.views.create_checklist),

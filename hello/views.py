@@ -92,25 +92,6 @@ def get_weather(request):
 # def emai_check(user):
 #     return user.email.end
 
-# @user_passes_test(email_check)
-@csrf_exempt
-def user_login(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        print user.username
-        token = Token.objects.get(user=user)
-        # the password verified for the user
-        if user.is_active:
-            print("User is valid, active and authenticated")
-            return HttpResponse(token, status=200)
-        else:
-            print"ej bra"
-            return HttpResponse('Unauthorized', status=401)
-    else:
-        print "nej"
-        return HttpResponse('Unauthorized', status=401)
 
 def get_all_active_checkLists(request):
     all_active_checklists = checklist.get_all_active_checkLists()
@@ -140,16 +121,6 @@ def update_checklist(request):
 def bundle(request):
     userData = user
 
-@csrf_exempt
-def authenticate_with_token (request):
-    token = request.POST['token']
-    token = Token.objects.get(key=token)
-    if token is not None:
-        user = userModel.get_user_by_id(token.user_id)
-        return HttpResponse(user, content_type='application/json')
-    else:
-        return HttpResponse('Unauthorized', status=401)
-
 #### new stuff
 @csrf_exempt
 def create_auth_token(sender, instance=None, created=False, **kwargs):
@@ -175,15 +146,10 @@ def update_user(request):
 #RECIPE
 @csrf_exempt
 def create_recipe(request):
-    print request.body
     if request.body is not None:
         data = json.loads(request.body)
-        print data
-        print type(request)
         recipe = data['recipe']
         user_id = int(data['user_id'])
-        print user_id
-        print recipe
         recipe_response = recipeModel.create(recipe, user_id)
         if recipe_response:
             return HttpResponse('Success', status=200)
@@ -191,3 +157,50 @@ def create_recipe(request):
             return HttpResponse('Error', status=404)
     else:
         return HttpResponse('Error', status=404)
+
+
+#LOGIN
+@csrf_exempt
+def user_login(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        token = Token.objects.get(user=user)
+        if user.is_active:
+            return HttpResponse(token, status=200)
+        else:
+            return HttpResponse('Unauthorized', status=401)
+    else:
+        return HttpResponse('Unauthorized', status=401)
+
+@csrf_exempt
+def get_user_by_token(request):
+    if request is not None:
+        data = json.loads(request.body)
+        key = str(data['token'])
+        if key is not None:
+            token = Token.objects.get(key=key)
+            if token is not None:
+                user = userModel.get_user_by_id(token.user_id)
+                if user is not None:
+                    return HttpResponse(user, status=200)
+                else:
+                    return HttpResponse('Error', status=404)
+            else:
+                return HttpResponse('Error', status=404)
+        else:
+            return HttpResponse('Error', status=404)
+    else:
+        return HttpResponse('Error', status=404)
+
+## DESSA TVÅ SKA SLÅS IHOP.
+@csrf_exempt
+def authenticate_with_token (request):
+    token = request.POST['token']
+    token = Token.objects.get(key=token)
+    if token is not None:
+        user = userModel.get_user_by_id(token.user_id)
+        return HttpResponse(user, content_type='application/json')
+    else:
+        return HttpResponse('Unauthorized', status=401)
