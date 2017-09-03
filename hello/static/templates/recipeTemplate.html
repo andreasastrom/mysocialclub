@@ -10,12 +10,18 @@
 	<span class="save-status" data-bind="text: 'Sparad och klar' "></span>
 	<!-- /ko -->
 	<!-- ko if: currentState() === 'add' -->
-		<h3>Recept</h3>
-		<label for="recipe-name">Namn</label>
-		<input type="text" id="recipe-name" class="recipe-input" data-bind="value: name, valueUpdate: 'afterKeyDown'">
-		<label for="recipe-link">Länk</label>
-		<input type="text" id="recipe-link" class="recipe-input" data-bind="value: link, valueUpdate: 'afterKeyDown'">
-
-		<button class="btn btn-save" data-bind="click: create">Spara</button>
+	<h3>Lägg till</h3>
+	<label for="recipe-name">Namn</label>
+	<input type="text" id="recipe-name" class="recipe-input" data-bind="value: name, valueUpdate: 'afterKeyDown'">
+	<label for="recipe-link">Länk</label>
+	<input type="text" id="recipe-link" class="recipe-input" data-bind="value: link, valueUpdate: 'afterKeyDown'">
+	
+	<button class="btn btn-save" data-bind="click: create">Spara</button>
+	<!-- /ko -->
+	<!-- ko if: currentState() === 'favorit' -->
+	<h3>Favoriter</h3>
+	<!-- /ko -->
+	<!-- ko if: currentState() === 'seach' -->
+	<h3>Sök</h3>
 	<!-- /ko -->
 </div>
