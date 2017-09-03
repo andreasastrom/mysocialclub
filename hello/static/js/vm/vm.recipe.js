@@ -4,6 +4,7 @@ function recipeVm() {
 	self.name = ko.observable('');
 	self.link = ko.observable('');
 	self.saveSuccess = ko.observable(false);
+	self.currentState = ko.observable('add');
 
 	function create() {
 		if (!!self.name() && !!self.link()) {
@@ -32,5 +33,10 @@ function recipeVm() {
 		}
 	}
 
+	function toggleSubMenu(state) {
+		self.currentState(state);
+	}
+
 	self.create = create;
+	self.toggleSubMenu = toggleSubMenu;
 }

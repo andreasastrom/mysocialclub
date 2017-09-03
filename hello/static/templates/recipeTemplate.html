@@ -1,19 +1,21 @@
 <div class="recipe-menu">
 	<ul class="recipe-menu-list">
-		<li class="recipe-menu-list-item">Favoriter</li>
-		<li class="recipe-menu-list-item">Sök</li>
-		<li class="recipe-menu-list-item active">Lägg till</li>
+		<li class="recipe-menu-list-item" data-bind="click: function(){toggleSubMenu('add')}, css: {'active': currentState() === 'add'}">Lägg till</li>
+		<li class="recipe-menu-list-item" data-bind="click: function(){toggleSubMenu('favorit')}, css: {'active': currentState() === 'favorit'}">Favoriter</li>
+		<li class="recipe-menu-list-item" data-bind="click: function(){toggleSubMenu('seach')}, css: {'active': currentState() === 'seach'}">Sök</li>
 	</ul>
 </div>
 <div class="recipe-container">
-	<h3>Recept</h3>
-	<!-- ko if: saveSuccess -->
-	<span class="edit-user-status" data-bind="text: 'Sparad och klar' "></span>
-	<!-- /ko -->
-	<label for="recipe-name">Namn</label>
-	<input type="text" id="recipe-name" class="recipe-input" data-bind="value: name, valueUpdate: 'afterKeyDown'">
-	<label for="recipe-link">Länk</label>
-	<input type="text" id="recipe-link" class="recipe-input" data-bind="value: link, valueUpdate: 'afterKeyDown'">
+	<!-- ko if: currentState() === 'add' -->
+		<h3>Recept</h3>
+		<!-- ko if: saveSuccess -->
+		<span class="edit-user-status" data-bind="text: 'Sparad och klar' "></span>
+		<!-- /ko -->
+		<label for="recipe-name">Namn</label>
+		<input type="text" id="recipe-name" class="recipe-input" data-bind="value: name, valueUpdate: 'afterKeyDown'">
+		<label for="recipe-link">Länk</label>
+		<input type="text" id="recipe-link" class="recipe-input" data-bind="value: link, valueUpdate: 'afterKeyDown'">
 
-	<button class="btn btn-save" data-bind="click: create">Spara</button>
+		<button class="btn btn-save" data-bind="click: create">Spara</button>
+	<!-- /ko -->
 </div>
