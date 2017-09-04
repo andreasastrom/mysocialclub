@@ -88,7 +88,7 @@ function checklistModel(checklist) {
 		$.ajax({
 			type: "POST",
 			url: "checklist/update",
-			data: { name: self.name(), shared: self.shared(), id: self.pk },
+			data: { name: self.name(), shared: (self.shared() ? 1 : 0), id: self.pk },
 			success: function () {
 				self.showRename(false);
 				self.saveSuccess(true);
