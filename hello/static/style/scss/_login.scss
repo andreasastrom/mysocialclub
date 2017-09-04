@@ -1,8 +1,8 @@
 .login-background {
 	position: fixed;
-	background-color: $colorPurple;	
+	background-color: $colorTurquoise;
 	background-size: cover;
-	color: #fff;
+	color: $colorWhite;
 	top: 0;
     left: 0;
     bottom: 0;
@@ -15,12 +15,12 @@
 	position: fixed;
 	top: 20%;
 	left: 3px;
-	right: 10px;		
+	right: 10px;
 }
 
 .login-text {
 	text-align: center;
-	margin-bottom: 3rem; 
+	margin-bottom: 3rem;
 
 	h1 {
 		font-family: 'Source Sans Pro', sans-serif;
@@ -56,6 +56,10 @@
 
 .login-help {
 	cursor: pointer;
+
+	.login-forgot-password {
+		color: $colorWhite;
+	}
 }
 
 .login-control:focus {

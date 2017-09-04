@@ -438,7 +438,7 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
 
 .login-background {
   position: fixed;
-  background-color: #373447;
+  background-color: #009688;
   background-size: cover;
   color: #fff;
   top: 0;
@@ -486,6 +486,9 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
 
 .login-help {
   cursor: pointer; }
+
+.login-help .login-forgot-password {
+  color: #fff; }
 
 .login-control:focus {
   box-shadow: none; }
