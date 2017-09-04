@@ -260,17 +260,17 @@
 	display: inline-block;
 }
 
-
 //NEW STUFF
 .checklist-edit {
-	background-color: $colorWhite;
+	background-color: #f7f7f7;
     position: fixed;
     left: 1rem;
     right: 1rem;
     bottom: 1rem;
 	top: 6rem;
 	padding: 1rem;
-    border: 1px solid $colorGrey;
+	border: 1px solid $colorGrey;
+	z-index: 2;
 }
 
 .checklist-edit-close {
