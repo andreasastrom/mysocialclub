@@ -11,6 +11,7 @@ function checklistModel(checklist) {
 	self.showRename = ko.observable(false);
 	self.doneItem = ko.observableArray();
 	self.itemsToDo = ko.observableArray();
+	self.shared = ko.observable(checklist.fields.shared);
 
 	//NEW stuff
 	self.editChecklist = ko.observable(false);
@@ -87,7 +88,7 @@ function checklistModel(checklist) {
 		$.ajax({
 			type: "POST",
 			url: "checklist/update",
-			data: { name: self.name(), id: self.pk },
+			data: { name: self.name(), shared: self.shared(), id: self.pk },
 			success: function () {
 				self.showRename(false);
 				self.saveSuccess(true);

@@ -11,6 +11,7 @@ class Checklist(models.Model):
 	removed = models.IntegerField(default=0)
 	listtype = models.IntegerField(default=0)
 	created_user = models.ForeignKey(User, on_delete=models.CASCADE)
+	shared = models.IntegerField(default=0)
 
 class Item(models.Model):
 	name = models.CharField(max_length=100)

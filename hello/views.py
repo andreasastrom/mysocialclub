@@ -118,7 +118,8 @@ def remove_checklist(request):
 def update_checklist(request):
     id = request.POST['id']
     name = request.POST['name']
-    checklist.update(id, name)
+    shared = request.POST['shared']
+    checklist.update(id, shared, name)
     return HttpResponse('Success', status=200)
 
 
