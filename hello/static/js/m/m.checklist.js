@@ -35,7 +35,7 @@ function checklistModel(checklist) {
 		$.ajax({
 			type: "GET",
 			url: "/checklist/items",
-			data: { checklist_id: checklist_id },
+			data: { checklist_id: self.id },
 			success: function (data) {
 				loaded(JSON.parse(data));
 			}
@@ -48,10 +48,10 @@ function checklistModel(checklist) {
 			$.ajax({
 				type: "POST",
 				url: "/items/create",
-				data: { name: inputvalue, checklist: self.pk },
+				data: { name: inputvalue, checklist: self.id },
 				success: function () {
 					self.shopplinglistInput('');
-					load(self.pk);
+					load(self.id);
 				}
 			});
 		}
@@ -62,7 +62,7 @@ function checklistModel(checklist) {
 			$.ajax({
 				type: "POST",
 				url: "/checklists/remove",
-				data: { id: this.pk },
+				data: { id: this.id },
 				success: function () {
 					self.editChecklist(false);
 					self.showChecklist(false);
@@ -111,7 +111,7 @@ function checklistModel(checklist) {
 	}
 	//NEW STUFF END
 
-	load(self.pk);
+	load(self.id);
 	//function som hämtar alla checklistepunkter med rätt id.
 	self.create = create;
 	self.toggleList = toggleList;
