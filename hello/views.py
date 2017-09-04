@@ -97,7 +97,7 @@ def get_all_active_checkLists(request):
     user_id = request.GET['user_id']
     if user_id is not None:
         all_active_checklists = checklist.get_all_active_checkLists(user_id)
-        return HttpResponse(all_active_checklists, status=200)
+        return HttpResponse(all_active_checklists, content_type='application/json', status=200)
     else:
         return HttpResponse('Error', status=404)
 

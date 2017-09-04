@@ -23,10 +23,10 @@ def remove_user_by_name(username):
 
 def get_user_by_id(id):
 	user_data = User.objects.get(id=id)
-	user = mappedUser(user_data)
+	user = user_mapper(user_data)
 	return user
 
-def mappedUser(rawUser):
+def user_mapper(rawUser):
 	user = {}
 	user['id'] = rawUser.id
 	user['username'] = rawUser.username

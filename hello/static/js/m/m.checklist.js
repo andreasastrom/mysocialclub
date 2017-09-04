@@ -1,9 +1,9 @@
 function checklistModel(checklist) {
 	var self = this;
 	self.listItem = ko.observableArray();
-	self.name = ko.observable(checklist.fields.name);
-	self.removed = checklist.fields.removed;
-	self.pk = checklist.pk;
+	self.name = ko.observable(checklist.name);
+	self.removed = checklist.removed;
+	self.id = checklist.id;
 	self.shopplinglistInput = ko.observable('');
 	self.showChecklist = ko.observable(true);
 	self.showList = ko.observable(false);
@@ -11,9 +11,11 @@ function checklistModel(checklist) {
 	self.showRename = ko.observable(false);
 	self.doneItem = ko.observableArray();
 	self.itemsToDo = ko.observableArray();
-	self.shared = ko.observable(checklist.fields.shared);
 
 	//NEW stuff
+	self.shared = ko.observable(checklist.shared);
+	self.editable = ko.observable(checklist.editable);
+	console.log(checklist.editable);
 	self.editChecklist = ko.observable(false);
 	self.saveSuccess = ko.observable(false);
 
@@ -49,7 +51,6 @@ function checklistModel(checklist) {
 				data: { name: inputvalue, checklist: self.pk },
 				success: function () {
 					self.shopplinglistInput('');
-					console.log("Allt funkade");
 					load(self.pk);
 				}
 			});
@@ -88,7 +89,7 @@ function checklistModel(checklist) {
 		$.ajax({
 			type: "POST",
 			url: "checklist/update",
-			data: { name: self.name(), shared: (self.shared() ? 1 : 0), id: self.pk },
+			data: { name: self.name(), shared: (self.shared() ? 1 : 0), id: self.id },
 			success: function () {
 				self.showRename(false);
 				self.saveSuccess(true);
