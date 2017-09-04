@@ -5,7 +5,7 @@
 			<div class="list-counter" data-bind="visible: listItem().length > 0 && !showList()">
 				<b data-bind="text: doneItem().length + '/' + listItem().length"></b>
 			</div>
-			<b style="float: right" data-bind="visible: showList()">...</b>
+			<b style="float: right" data-bind="visible: showList(), click: edit">...</b>
 		</span>
 
 		<div class="checklist" data-bind="visible: showList()">
@@ -28,17 +28,32 @@
 						<i class="fa fa-paper-plane"></i>
 					</span>
 				</div>
-				<b data-bind="text: doneItem().length + '/' + listItem().length"></b>
+				<b class="checklist-item-counter-bottom" data-bind="text: doneItem().length + '/' + listItem().length"></b>
 			</div>
 		</div>
+		<!-- ko if: editChecklist() -->
+		<div class="checklist-edit">
+				<span class="checklist-edit-close" data-bind="click: close">X</span>
+				<div class="checklist-edit-container">
+					<!-- ko if: saveSuccess -->
+					<span class="save-status" data-bind="text: 'Sparad och klar' "></span>
+					<!-- /ko -->
+					<h3 data-bind="text: 'Redigera'"></h3>
+					<label for="checklist-name"></label>
+					<input type="text" id="checklist-name" class="checklist-edit-input" data-bind="value: name">
+					<button class="btn btn-save" data-bind="click: update">Spara</button>
+					<button class="btn btn-delete" data-bind="click: remove">Ta bort</button>
+				</div>
+			</div>
+		<!-- /ko -->
 	</div>
 	<div>
-		<add-more params="
-			title:'Lägg till en lista',
-			title2: 'Skapa en lista',
-			show: addNewChecklist,
-			inputValue: checklistName,
-			submitInput: createChecklist,
-			visible: addList
-		"></add-more>
+	<add-more params="
+		title:'Lägg till en lista',
+		title2: 'Skapa en lista',
+		show: addNewChecklist,
+		inputValue: checklistName,
+		submitInput: createChecklist,
+		visible: addList
+	"></add-more>
 </div>

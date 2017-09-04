@@ -4,6 +4,8 @@ function checklistVm() {
 	self.checklistName = ko.observable('');
 	self.addList = ko.observable(false);
 
+	//BORDE BRYTA UTT MYCKET HÄR OCH LÄGGA I m.checklist. Där ska alla checklistdata bo. Det som ska finnas här är bara själva listorna.
+
 	function loaded(data) {
 		var addChecklist = true;
 		self.checklists.removeAll();

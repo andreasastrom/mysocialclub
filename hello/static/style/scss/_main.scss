@@ -10,3 +10,21 @@
     color: $colorBlue;
     margin-bottom: 1em;
 }
+
+//CUSTOM BUTTONS
+
+.btn-save {
+	width: 100%;
+    margin-top: 1em;
+	height: 4em;
+	background-color: $colorTurquoise;
+	color: $colorWhite;
+}
+
+.btn-delete {
+	width: 100%;
+    margin-top: 1em;
+    height: 4em;
+    background-color: transparent;
+    color: #009688;
+}
