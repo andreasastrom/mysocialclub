@@ -14,13 +14,12 @@ function checklistVm() {
 	}
 
 	function load() {
-		$.getJSON('/checklists/all', function (data) {
+		$.getJSON('/checklists/all', {"user_id" : document.user.id}, function (data) {
 			loaded(data);
 		});
 	}
 
 	self.createChecklist = function () {
-		debugger;
 		if (self.checklistName().length > 0) {
 			var name = self.checklistName();
 			$.ajax({

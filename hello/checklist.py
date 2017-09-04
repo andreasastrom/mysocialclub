@@ -2,8 +2,8 @@ from .models import Checklist
 from django.contrib.auth.models import User
 from django.core import serializers
 
-def get_all_active_checkLists():
-	all_checklists = Checklist.objects.filter(removed=0)
+def get_all_active_checkLists(user_id):
+	all_checklists = Checklist.objects.filter(removed=0, created_user=user_id)
 	all_checklists_serialized = serializers.serialize('json', all_checklists)	
 	return all_checklists_serialized
 

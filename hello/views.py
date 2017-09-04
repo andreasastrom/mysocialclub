@@ -92,10 +92,14 @@ def get_weather(request):
 # def emai_check(user):
 #     return user.email.end
 
-
+@csrf_exempt
 def get_all_active_checkLists(request):
-    all_active_checklists = checklist.get_all_active_checkLists()
-    return HttpResponse(all_active_checklists)
+    user_id = request.GET['user_id']
+    if user_id is not None:
+        all_active_checklists = checklist.get_all_active_checkLists(user_id)
+        return HttpResponse(all_active_checklists, status=200)
+    else:
+        return HttpResponse('Error', status=404)
 
 @csrf_exempt
 def create_checklist(request):

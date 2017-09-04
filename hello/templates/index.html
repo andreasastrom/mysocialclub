@@ -77,48 +77,7 @@
             <div class="col-md-4 col-xs-12">
 
                 <!-- ko if: document.state() === "checklist" -->
-                <div class="checklist-container" data-bind="foreach: checklists">
-                    <div class="shoppinglist-container" data-bind="visible: showChecklist">
-                        <span class="checklist-header-container" data-bind="click: toggleList">
-                            <h3 class="shoppinglist-header" data-bind="text: name, visible: !showRename(), css: {'active': showList()}"></h3>
-                            <div class="list-counter" data-bind="visible: listItem().length > 0">
-                                <b data-bind="text: doneItem().length + '/' + listItem().length"></b>
-                            </div>
-                        </span>
-
-                        <div class="checklist" data-bind="visible: showList()">
-                            <div class="list-group-container">
-                                <ul class="checklist-list" id="myShoppingList" data-bind="foreach: listItem()">
-                                    <li class="checklist-item-container" data-bind="visible: showItem">
-                                        <div class="list-group-text" data-bind="click: markItemAsDone, style: { color: (done? '#009688' : '#000')}">
-                                            <i class="fa fa-lg" data-bind="css: {'fa-square-o' : !done, 'fa-check-square-o': done}"></i>
-                                        </div>
-                                        <span class="checklist-item-text" data-bind="text: name, css:{'list-group-item-done':done}"></span>
-                                        <div class="listeItem-delete" data-bind="click: deleteItem">
-                                            <i class="fa fa-times"></i>
-                                            </dib>
-                                    </li>
-                                </ul>
-                                </div>
-                                <div class="checklist-input-container">
-                                    <input type="text" class="form-control checklist-input" placeholder="Lägg till något?" data-bind="value:shopplinglistInput, valueUpdate:'keypress'"></input>
-                                    <span class="checklist-input-create" data-bind="click:create">
-                                    <i class="fa fa-paper-plane"></i>
-                                </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <add-more params="
-                        title:'Lägg till en lista',
-                        title2: 'Skapa en lista',
-                        show: addNewChecklist,
-                        inputValue: checklistName,
-                        submitInput: createChecklist,
-                        visible: addList
-                    "></add-more>
-                    </div>
+                <checklist></checklist>
                     <!-- /ko -->
                 </div>
 

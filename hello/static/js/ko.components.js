@@ -41,3 +41,7 @@ ko.components.register('recipe', {
     viewModel: recipeVm,
     template: {require: 'text!templates/recipeTemplate.html'}
 });
+ko.components.register('checklist', {
+    viewModel: checklistVm,
+    template: {require: 'text!templates/checklistTemplate.html'}
+});
