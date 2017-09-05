@@ -668,3 +668,7 @@ input[type='text'], input[type='number'], input[type='datetime'], input[type='pa
 
 .recipe-input:focus {
   outline: none; }
+
+.recipe-loader {
+  font-size: 2em;
+  text-align: center; }

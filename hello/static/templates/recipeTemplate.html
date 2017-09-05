@@ -15,16 +15,24 @@
 	<input type="text" id="recipe-name" class="recipe-input" data-bind="value: name, valueUpdate: 'afterKeyDown'">
 	<label for="recipe-link">Länk</label>
 	<input type="text" id="recipe-link" class="recipe-input" data-bind="value: link, valueUpdate: 'afterKeyDown'">
-	
+
 	<button class="btn btn-save" data-bind="click: create">Spara</button>
 	<!-- /ko -->
 	<!-- ko if: currentState() === 'favorit' -->
 	<h3>Favoriter</h3>
+	<!-- ko if: !loader() -->
 	<ul class="recipe-list" data-bind="foreach: recipeList">
 		<li class="recipe-list-item">
 			<span data-bind="text: name"></span>
 		</li>
 	</ul>
+	<!-- /ko -->
+	<!-- ko if: loader() -->
+		<div class="recipe-loader">
+			<i class="loader fa fa-spinner fa-spin"></i>
+			<h3>Läser in</h3>
+		</div>
+	<!-- /ko -->
 	<!-- /ko -->
 	<!-- ko if: currentState() === 'seach' -->
 	<h3>Sök</h3>
