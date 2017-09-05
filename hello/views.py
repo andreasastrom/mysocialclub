@@ -78,7 +78,6 @@ def get_all_activities(request):
 @csrf_exempt
 def remove_acticity(request):
     id = request.POST.get("id", "")
-    print id
     activity.remove_acticity(id)
     return render(request, 'index.html')
 
@@ -131,7 +130,6 @@ def bundle(request):
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         test = Token.objects.create(user=instance)
-        print
     return HttpResponse('Ok', status=200)
 
 

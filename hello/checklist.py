@@ -11,9 +11,7 @@ def get_all_active_checkLists(user_id):
 	for checklist in all_checklists:
 		checklistdata = checklist_mapper(checklist, user_id)
 		mappedList.append(checklistdata)
-	print mappedList
 	all_checklists_json = json.dumps(mappedList)
-	#all_checklists_serialized = serializers.serialize('json', mappedList)
 	return all_checklists_json
 
 def create_checklist(name,user_id):
