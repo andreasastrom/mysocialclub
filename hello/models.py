@@ -35,6 +35,7 @@ class Application(models.Model):
 	active = models.IntegerField(default=1)
 
 class Recipe(models.Model):
+	createdtime = models.DateTimeField('date created', auto_now_add=True)
 	name = models.CharField(max_length=100)
 	link = models.CharField(max_length=2048)
 	deleted = models.IntegerField(default=0)

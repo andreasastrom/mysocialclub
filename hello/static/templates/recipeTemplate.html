@@ -20,6 +20,11 @@
 	<!-- /ko -->
 	<!-- ko if: currentState() === 'favorit' -->
 	<h3>Favoriter</h3>
+	<ul class="recipe-list" data-bind="foreach: recipeList">
+		<li class="recipe-list-item">
+			<span data-bind="text: name"></span>
+		</li>
+	</ul>
 	<!-- /ko -->
 	<!-- ko if: currentState() === 'seach' -->
 	<h3>Sök</h3>

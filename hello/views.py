@@ -86,11 +86,6 @@ def get_weather(request):
     weather = requests.get('http://api.openweathermap.org/data/2.5/weather?q=Taormina&units=metric&appid=05cded3be7ec61a1bd04f1a39eb18a5')
     return HttpResponse(weather)
 
-''' def login(request):
-    return render(request, 'login.html') '''
-# def emai_check(user):
-#     return user.email.end
-
 @csrf_exempt
 def get_all_active_checkLists(request):
     user_id = request.GET['user_id']
@@ -161,6 +156,13 @@ def create_recipe(request):
     else:
         return HttpResponse('Error', status=404)
 
+@csrf_exempt
+def get_last_ten_recipes(request):
+    recipes = recipeModel.get()
+    if recipes is not None:
+        return HttpResponse(recipes, content_type='application/json', status=200)
+    else:
+        return HttpResponse('Error', status=404)
 
 #LOGIN
 @csrf_exempt

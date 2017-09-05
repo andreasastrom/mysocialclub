@@ -14,3 +14,18 @@ def create(recipe, user_id):
 		return True
 	else:
 		return False
+
+
+def get():
+	recipes = Recipe.objects.all()[:10]
+	mappedRecipes = []
+	for recipe in recipes:
+		mappedRecipes.append(recipe_mapper(recipe))
+	return json.dumps(mappedRecipes)
+
+def recipe_mapper(rawRecipe):
+	recipe = {}
+	recipe['id'] = rawRecipe.id
+	recipe['name'] = rawRecipe.name
+	recipe['link'] = rawRecipe.link
+	return recipe

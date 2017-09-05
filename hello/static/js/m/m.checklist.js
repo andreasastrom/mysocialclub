@@ -15,7 +15,6 @@ function checklistModel(checklist) {
 	//NEW stuff
 	self.shared = ko.observable(checklist.shared);
 	self.editable = ko.observable(checklist.editable);
-	console.log(checklist.editable);
 	self.editChecklist = ko.observable(false);
 	self.saveSuccess = ko.observable(false);
 

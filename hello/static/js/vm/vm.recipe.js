@@ -5,6 +5,7 @@ function recipeVm() {
 	self.link = ko.observable('');
 	self.saveSuccess = ko.observable(false);
 	self.currentState = ko.observable('add');
+	self.recipeList = ko.observableArray();
 
 	function create() {
 		if (!!self.name() && !!self.link()) {
@@ -16,7 +17,7 @@ function recipeVm() {
 				}
 			};
 			server.post(
-				'/recipe/create/',
+				'/recipe/create',
 				data,
 				function success() {
 					self.name('');
@@ -33,10 +34,34 @@ function recipeVm() {
 		}
 	}
 
-	function toggleSubMenu(state) {
-		self.currentState(state);
+	function get() {
+		server.get(
+			'/recipe/get',
+			null,
+			function success(response) {
+				mapRecipes(response);
+			},
+			null);
 	}
 
+	function toggleSubMenu(state) {
+		if(state === 'favorit'){
+			self.get();
+			self.currentState(state);
+		}
+		else {
+			self.currentState(state);
+		}
+	}
+
+	function mapRecipes(recipes) {
+		_.each(recipes, function(recipe) {
+			var mappedRecipe = new recipeModel(recipe);
+			self.recipeList.push(mappedRecipe);
+		});
+	}
+
+	self.get = get;
 	self.create = create;
 	self.toggleSubMenu = toggleSubMenu;
 }
