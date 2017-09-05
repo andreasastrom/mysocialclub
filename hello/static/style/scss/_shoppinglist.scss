@@ -19,19 +19,9 @@
 
 .checklist-item-text {
 	padding-left: 0.5em;
+	flex: 1 1 30em;
 }
 
-/* .checklist-edit {
-	background-color: rgba(244,244,244,0.5);
-    border: none;
-    border-radius: 0px;
-    box-shadow: none;
-    padding: 0px;
-    margin: 0px;
-    color: black;
-	font-weight: 100;
-	outline: none;
-} */
 //LIST 
 
 .list-group-container {
@@ -50,13 +40,12 @@
       to { opacity: 1; }
 }
 
-.listeItem-delete {
+.listItem-delete {
 	float: right;
-	width: 100px;
+	width: 10em;
 	text-align: right;
 	color: #000;
-	flex-grow: 1;
-    flex-shrink: 1;
+	flex: 2 2 10em;
 }
 
 .list-group-text {
