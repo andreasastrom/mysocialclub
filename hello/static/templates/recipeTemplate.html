@@ -23,7 +23,11 @@
 	<!-- ko if: !loader() -->
 	<ul class="recipe-list" data-bind="foreach: recipeList">
 		<li class="recipe-list-item">
-			<span data-bind="text: name"></span>
+			<b data-bind="text: name"></b>
+			<!-- <ul class="recipe-tag-list">
+				<li class="recipe-tag">tag</li>
+				<li class="recipe-tag">tag</li>
+			</ul> -->
 		</li>
 	</ul>
 	<!-- /ko -->

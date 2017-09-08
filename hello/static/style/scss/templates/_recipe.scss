@@ -62,3 +62,36 @@
 	font-size: 2em;
 	text-align: center;
 }
+
+.recipe-list {
+	padding: 0rem;
+	list-style-type: none;
+
+	.recipe-list-item {
+		min-height: 2.5rem;
+		padding: 0.5rem;
+		border: 0.1rem solid $colorGreyLight;
+		/* border-left: 0.2rem solid $colorTurquoise; */
+		margin: 0.5rem 0rem;
+		border-radius: 0.2rem;
+	}
+
+	/* .recipe-list-item:nth-child(odd){
+		background-color: $colorGrey;
+	} */
+}
+
+.recipe-tag-list {
+	list-style-type: none;
+	padding: 0rem;
+	margin-top: 0.5rem;
+
+	.recipe-tag {
+		display: inline;
+		display: inline;
+		background-color: $colorBlue;
+		padding: 0.2rem 0.5rem;
+		border-radius: 1rem;
+		color: $colorWhite;
+	}
+}
