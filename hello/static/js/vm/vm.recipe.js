@@ -3,6 +3,7 @@ function recipeVm() {
 	var server = document.server;
 	self.name = ko.observable('');
 	self.link = ko.observable('');
+	self.vegetarian = ko.observable(false);
 	self.saveSuccess = ko.observable(false);
 	self.currentState = ko.observable('add');
 	self.recipeList = ko.observableArray();
@@ -10,11 +11,13 @@ function recipeVm() {
 
 	function create() {
 		if (!!self.name() && !!self.link()) {
+			debugger;
 			var data = {
 				"user_id": document.user.id,
 				"recipe": {
 					"name": self.name(),
-					"link": self.link()
+					"link": self.link(),
+					"vegetarian": self.vegetarian() ? 1 : 0
 				}
 			};
 			server.post(

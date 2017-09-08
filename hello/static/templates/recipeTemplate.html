@@ -15,6 +15,11 @@
 	<input type="text" id="recipe-name" class="recipe-input" data-bind="value: name, valueUpdate: 'afterKeyDown'">
 	<label for="recipe-link">Länk</label>
 	<input type="text" id="recipe-link" class="recipe-input" data-bind="value: link, valueUpdate: 'afterKeyDown'">
+	<div class="checkbox">
+		<label>
+			<input type="checkbox" data-bind="checked: vegetarian"> Vegitarisk
+		</label>
+	</div>
 
 	<button class="btn btn-save" data-bind="click: create">Spara</button>
 	<!-- /ko -->
@@ -24,6 +29,10 @@
 	<ul class="recipe-list" data-bind="foreach: recipeList">
 		<li class="recipe-list-item">
 			<b data-bind="text: name"></b>
+			<!-- ko if: vegetarian -->
+			<i class="fa fa-pagelines recipe-vego" aria-hidden="true"></i>
+			<!-- /ko -->
+			<span class="recipe-link" data-bind="text: link"></span>
 			<!-- <ul class="recipe-tag-list">
 				<li class="recipe-tag">tag</li>
 				<li class="recipe-tag">tag</li>

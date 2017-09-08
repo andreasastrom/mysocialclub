@@ -79,6 +79,16 @@
 	/* .recipe-list-item:nth-child(odd){
 		background-color: $colorGrey;
 	} */
+
+	.recipe-vego {
+		color: $colorGreen;
+	}
+
+	.recipe-link {
+		display: block;
+		font-size: 10px;
+		color: $colorGreyDark;
+	}
 }
 
 .recipe-tag-list {

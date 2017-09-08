@@ -678,10 +678,7 @@ label {
 
 .recipe-list {
   padding: 0rem;
-  list-style-type: none;
-  /* .recipe-list-item:nth-child(odd){
-		background-color: $colorGrey;
-	} */ }
+  list-style-type: none; }
 
 .recipe-list .recipe-list-item {
   min-height: 2.5rem;
@@ -690,6 +687,17 @@ label {
   /* border-left: 0.2rem solid $colorTurquoise; */
   margin: 0.5rem 0rem;
   border-radius: 0.2rem; }
+
+/* .recipe-list-item:nth-child(odd){
+		background-color: $colorGrey;
+	} */
+.recipe-list .recipe-vego {
+  color: #388E3C; }
+
+.recipe-list .recipe-link {
+  display: block;
+  font-size: 10px;
+  color: #666666; }
 
 .recipe-tag-list {
   list-style-type: none;

@@ -40,3 +40,4 @@ class Recipe(models.Model):
 	link = models.CharField(max_length=2048)
 	deleted = models.IntegerField(default=0)
 	created_user = models.ForeignKey(User, on_delete=models.CASCADE)
+	vegetarian = models.IntegerField(default=0)

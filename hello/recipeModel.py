@@ -9,7 +9,8 @@ def create(recipe, user_id):
 		user = User.objects.get(id=user_id)
 		name = recipe['name']
 		link = recipe['link']
-		new_recipe = Recipe(name=name,link=link,created_user=user)
+		vegetarian = recipe['vegetarian']
+		new_recipe = Recipe(name=name,link=link,vegetarian=vegetarian,created_user=user)
 		new_recipe.save()
 		return True
 	else:
@@ -17,7 +18,7 @@ def create(recipe, user_id):
 
 
 def get():
-	recipes = Recipe.objects.all()[:10]
+	recipes = Recipe.objects.order_by('-createdtime')[:10]
 	mappedRecipes = []
 	for recipe in recipes:
 		mappedRecipes.append(recipe_mapper(recipe))
@@ -28,4 +29,5 @@ def recipe_mapper(rawRecipe):
 	recipe['id'] = rawRecipe.id
 	recipe['name'] = rawRecipe.name
 	recipe['link'] = rawRecipe.link
+	recipe['vegetarian'] = rawRecipe.vegetarian
 	return recipe
