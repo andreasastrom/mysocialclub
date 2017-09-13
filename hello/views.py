@@ -164,6 +164,19 @@ def get_last_ten_recipes(request):
     else:
         return HttpResponse('Error', status=404)
 
+@csrf_exempt
+def remove_recipe(request):
+    if request.body is not None:
+        data = json.loads(request.body)
+        id = data['id']
+        status = recipeModel.remove(id)
+        if status:
+            return HttpResponse('Success', status=200)
+        else:
+            return HttpResponse('Error', status=404)
+    else:
+        return HttpResponse('Error', status=404)
+
 #LOGIN
 @csrf_exempt
 def user_login(request):

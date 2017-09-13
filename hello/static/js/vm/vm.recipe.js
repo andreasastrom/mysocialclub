@@ -11,7 +11,6 @@ function recipeVm() {
 
 	function create() {
 		if (!!self.name() && !!self.link()) {
-			debugger;
 			var data = {
 				"user_id": document.user.id,
 				"recipe": {
@@ -52,9 +51,7 @@ function recipeVm() {
 
 	function toggleSubMenu(state) {
 		if(state === 'favorit') {
-			if(self.recipeList().length == 0) {
-				self.get();
-			}
+			self.get();
 			self.currentState(state);
 		}
 		else {
@@ -63,6 +60,7 @@ function recipeVm() {
 	}
 
 	function mapRecipes(recipes) {
+		self.recipeList.removeAll();
 		_.each(recipes, function(recipe) {
 			var mappedRecipe = new recipeModel(recipe);
 			self.recipeList.push(mappedRecipe);

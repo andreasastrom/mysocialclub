@@ -40,7 +40,9 @@ urlpatterns = [
 	url(r'^user/update', hello.views.update_user),
 
 	url(r'^recipe/create', hello.views.create_recipe),
-	url(r'^recipe/get', hello.views.get_last_ten_recipes)
+	url(r'^recipe/get', hello.views.get_last_ten_recipes),
+	url(r'^recipe/remove', hello.views.remove_recipe)
+
 
 
 	#,url(r'^get_auth_token/$', hello.views.create_auth_token, name='get_auth_token')

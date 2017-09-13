@@ -28,7 +28,7 @@
 	width: 32.7%;
 
 	&.active {
-		color: $colorTurquoise;
+		color: $colorWhite;
 		background-color: $colorGrey;
 	}
 
@@ -76,10 +76,6 @@
 		border-radius: 0.2rem;
 	}
 
-	/* .recipe-list-item:nth-child(odd){
-		background-color: $colorGrey;
-	} */
-
 	.recipe-vego {
 		color: $colorGreen;
 	}
@@ -104,4 +100,28 @@
 		border-radius: 1rem;
 		color: $colorWhite;
 	}
+}
+
+.edit-recipie-container {
+	position: fixed;
+    background-color: $colorWhite;
+    top: 4rem;
+    left: 0rem;
+    right: 0rem;
+    height: 100%;
+}
+.edit-recipie {
+	position: relative;
+    bottom: 1rem;
+    padding-top: 1rem;
+    margin-top: 3rem;
+    margin-left: 1rem;
+    background-color: $colorWhite;
+    margin-right: 1rem;
+    overflow: hidden;
+}
+.edit-recipie-close {
+	position: absolute;
+    right: 0.5em;
+    top: 0em;
 }

@@ -18,7 +18,7 @@ def create(recipe, user_id):
 
 
 def get():
-	recipes = Recipe.objects.order_by('-createdtime')[:10]
+	recipes = Recipe.objects.filter(deleted=0).order_by('-createdtime')[:10]
 	mappedRecipes = []
 	for recipe in recipes:
 		mappedRecipes.append(recipe_mapper(recipe))
@@ -31,3 +31,11 @@ def recipe_mapper(rawRecipe):
 	recipe['link'] = rawRecipe.link
 	recipe['vegetarian'] = rawRecipe.vegetarian
 	return recipe
+
+def remove(id):
+	rec = Recipe.objects.filter(id=id)
+	if rec is not None:
+		rec.update(deleted = 1)
+		return True
+	else:
+		return False

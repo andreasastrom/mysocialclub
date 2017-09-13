@@ -26,20 +26,36 @@
 	<!-- ko if: currentState() === 'favorit' -->
 	<h3>Favoriter</h3>
 	<!-- ko if: !loader() -->
-	<ul class="recipe-list" data-bind="foreach: recipeList">
-		<li class="recipe-list-item">
-			<b data-bind="text: name"></b>
-			<!-- ko if: vegetarian -->
-			<i class="fa fa-pagelines recipe-vego" aria-hidden="true"></i>
+	<ul class="recipe-list">
+		<!-- ko foreach: recipeList -->
+			<!-- ko if: show -->
+				<li class="recipe-list-item" data-bind="click: toggleEditRecipe">
+					<b data-bind="text: name"></b>
+					<!-- ko if: vegetarian -->
+					<i class="fa fa-pagelines recipe-vego" aria-hidden="true"></i>
+					<!-- /ko -->
+					<span class="recipe-link" data-bind="text: link"></span>
+					<!-- <ul class="recipe-tag-list">
+						<li class="recipe-tag">tag</li>
+						<li class="recipe-tag">tag</li>
+					</ul> -->
+				</li>
+
+				<!-- ko if: editRecipie -->
+				<div class="edit-recipie-container">
+					<div class="edit-recipie">
+						<span class="edit-recipie-close" data-bind="click: toggleEditRecipe">x</span>
+						<h4 data-bind="text: name"></h4>
+						<a data-bind="attr: {href: link}, text: link"></a>
+						<button class="btn btn-save">Spara</button>
+						<button class="btn btn-delete" data-bind="click: remove">Ta bort</button>
+					</div>
+				</div>
+				<!-- /ko -->
 			<!-- /ko -->
-			<span class="recipe-link" data-bind="text: link"></span>
-			<!-- <ul class="recipe-tag-list">
-				<li class="recipe-tag">tag</li>
-				<li class="recipe-tag">tag</li>
-			</ul> -->
-		</li>
+		<!-- /ko -->
 	</ul>
-	<!-- /ko -->
+	<!-- /ko -->	
 	<!-- ko if: loader() -->
 		<div class="recipe-loader">
 			<i class="loader fa fa-spinner fa-spin"></i>
