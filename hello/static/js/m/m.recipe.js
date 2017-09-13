@@ -14,15 +14,17 @@ function recipeModel(recipe)
 	}
 
 	function remove() {
-		server.post(
-			'/recipe/remove',
-			{'id': self.id},
-			function(response){
-				self.show(false);
-				self.editRecipie(false);
-			},
-			null
-		);
+		if (confirm('Är du säker på att du vill ta bort receptet?')) {
+			server.post(
+				'/recipe/remove',
+				{'id': self.id},
+				function(response){
+					self.show(false);
+					self.editRecipie(false);
+				},
+				null
+			);
+		}
 	}
 
 	self.remove = remove;
