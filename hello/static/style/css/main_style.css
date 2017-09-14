@@ -88,22 +88,12 @@ h1 {
   position: relative;
   z-index: 2; }
 
-/* .shoppinglist-container {
-	background-color: #555555;
-	color: #fff;
-	padding: 10px;
-	margin-top: 20px;
-	border-radius: 5px;
-	box-shadow: 0px 2px 2px 0px #777777;
-	font-family: 'Source Sans Pro', sans-serif;
-	text-transform: uppercase;
-} */
 .shoppinglist-container {
   border-bottom: 1px solid rgba(204, 204, 204, 0.4);
   font-family: 'Source Sans Pro', sans-serif; }
 
 .checklist-container {
-  margin-top: 10px; }
+  margin-top: 2rem; }
 
 .checklist-item-text {
   padding-left: 0.5em;
@@ -691,6 +681,9 @@ label {
 .recipe-list .recipe-vego {
   color: #388E3C; }
 
+.recipe-list .recipe-favorite {
+  color: #D32F2F; }
+
 .recipe-list .recipe-link {
   display: block;
   font-size: 10px;
@@ -711,23 +704,36 @@ label {
 
 .edit-recipie-container {
   position: fixed;
-  background-color: #fff;
-  top: 4rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 4.5rem;
   left: 0rem;
   right: 0rem;
-  height: 100%; }
+  height: 100%;
+  padding: 1rem; }
 
 .edit-recipie {
   position: relative;
-  bottom: 1rem;
-  padding-top: 1rem;
-  margin-top: 3rem;
-  margin-left: 1rem;
   background-color: #fff;
-  margin-right: 1rem;
-  overflow: hidden; }
+  overflow: hidden;
+  padding: 1rem;
+  padding-bottom: 4rem;
+  word-wrap: break-word; }
 
 .edit-recipie-close {
   position: absolute;
-  right: 0.5em;
-  top: 0em; }
+  right: 0.5rem;
+  top: 0rem;
+  font-size: 1.5rem; }
+
+.edit-recipe-icons {
+  margin-bottom: 0.5rem; }
+
+.recipe-icon-list {
+  list-style-type: none;
+  padding: 0rem;
+  margin: 0rem;
+  font-size: 1.4rem; }
+
+.recipe-icon-list .recipe-icon-item {
+  display: inline;
+  margin-right: 1rem; }

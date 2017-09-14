@@ -50,7 +50,7 @@ function recipeVm() {
 	}
 
 	function toggleSubMenu(state) {
-		if(state === 'favorit') {
+		if(state === 'favorite') {
 			self.get();
 			self.currentState(state);
 		}

@@ -1,7 +1,7 @@
 <div class="recipe-menu">
 	<ul class="recipe-menu-list">
 		<li class="recipe-menu-list-item" data-bind="click: function(){toggleSubMenu('add')}, css: {'active': currentState() === 'add'}">Lägg till</li>
-		<li class="recipe-menu-list-item" data-bind="click: function(){toggleSubMenu('favorit')}, css: {'active': currentState() === 'favorit'}">Favoriter</li>
+		<li class="recipe-menu-list-item" data-bind="click: function(){toggleSubMenu('favorite')}, css: {'active': currentState() === 'favorite'}">Favoriter</li>
 		<li class="recipe-menu-list-item" data-bind="click: function(){toggleSubMenu('seach')}, css: {'active': currentState() === 'seach'}">Sök</li>
 	</ul>
 </div>
@@ -23,7 +23,7 @@
 
 	<button class="btn btn-save" data-bind="click: create">Spara</button>
 	<!-- /ko -->
-	<!-- ko if: currentState() === 'favorit' -->
+	<!-- ko if: currentState() === 'favorite' -->
 	<h3>Favoriter</h3>
 	<!-- ko if: !loader() -->
 	<ul class="recipe-list">
@@ -46,8 +46,20 @@
 					<div class="edit-recipie">
 						<span class="edit-recipie-close" data-bind="click: toggleEditRecipe">x</span>
 						<h4 data-bind="text: name"></h4>
+						<div class="edit-recipe-icons">
+							<ul class="recipe-icon-list">
+								<li class="recipe-icon-item" data-bind="click: toggleFavorite">
+									<i class="fa" data-bind="css: {'recipe-favorite fa-heart' : favorite, 'fa-heart-o' : !favorite() }"></i>
+								</li>
+								<!-- ko if: vegetarian -->
+								<li class="recipe-icon-item">
+									<i class="fa fa-pagelines recipe-vego"></i>
+								</li>
+								<!-- /ko -->
+							</ul>
+						</div>
 						<a data-bind="attr: {href: link}, text: link"></a>
-						<button class="btn btn-save">Spara</button>
+						<button class="btn btn-save" data-bind="click: update">Spara</button>
 						<button class="btn btn-delete" data-bind="click: remove">Ta bort</button>
 					</div>
 				</div>
@@ -55,7 +67,7 @@
 			<!-- /ko -->
 		<!-- /ko -->
 	</ul>
-	<!-- /ko -->	
+	<!-- /ko -->
 	<!-- ko if: loader() -->
 		<div class="recipe-loader">
 			<i class="loader fa fa-spinner fa-spin"></i>

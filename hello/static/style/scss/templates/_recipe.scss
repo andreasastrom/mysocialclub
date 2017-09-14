@@ -80,6 +80,10 @@
 		color: $colorGreen;
 	}
 
+	.recipe-favorite {
+		color: $colorRed;
+	}
+
 	.recipe-link {
 		display: block;
 		font-size: 10px;
@@ -104,24 +108,39 @@
 
 .edit-recipie-container {
 	position: fixed;
-    background-color: $colorWhite;
-    top: 4rem;
+    background-color: rgba(0,0,0,0.7);
+    top: 4.5rem;
     left: 0rem;
     right: 0rem;
     height: 100%;
+    padding: 1rem;
 }
 .edit-recipie {
 	position: relative;
-    bottom: 1rem;
-    padding-top: 1rem;
-    margin-top: 3rem;
-    margin-left: 1rem;
     background-color: $colorWhite;
-    margin-right: 1rem;
     overflow: hidden;
+	padding: 1rem;
+	padding-bottom: 4rem;
+	word-wrap: break-word;
 }
 .edit-recipie-close {
 	position: absolute;
-    right: 0.5em;
-    top: 0em;
+    right: 0.5rem;
+	top: 0rem;
+	font-size: 1.5rem;
+}
+
+.edit-recipe-icons {
+	margin-bottom: 0.5rem;
+}
+.recipe-icon-list {
+	list-style-type: none;
+	padding: 0rem;
+	margin: 0rem;
+	font-size: 1.4rem;
+
+	.recipe-icon-item {
+		display: inline;
+		margin-right: 1rem;
+	}
 }

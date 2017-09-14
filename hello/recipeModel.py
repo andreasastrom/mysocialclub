@@ -24,14 +24,6 @@ def get():
 		mappedRecipes.append(recipe_mapper(recipe))
 	return json.dumps(mappedRecipes)
 
-def recipe_mapper(rawRecipe):
-	recipe = {}
-	recipe['id'] = rawRecipe.id
-	recipe['name'] = rawRecipe.name
-	recipe['link'] = rawRecipe.link
-	recipe['vegetarian'] = rawRecipe.vegetarian
-	return recipe
-
 def remove(id):
 	rec = Recipe.objects.filter(id=id)
 	if rec is not None:
@@ -39,3 +31,27 @@ def remove(id):
 		return True
 	else:
 		return False
+
+def update(recipe):
+	if not recipe is None:
+		oldRecipe = Recipe.objects.get(id=recipe['id'])
+		if oldRecipe is not None:
+			oldRecipe.name = recipe['name']
+			print recipe['favorite']
+			oldRecipe.favorite = bool(recipe['favorite'])
+			oldRecipe.save()
+			return True
+		else:
+			return False
+		return True
+	else:
+		return False
+
+def recipe_mapper(rawRecipe):
+	recipe = {}
+	recipe['id'] = rawRecipe.id
+	recipe['name'] = rawRecipe.name
+	recipe['link'] = rawRecipe.link
+	recipe['vegetarian'] = rawRecipe.vegetarian
+	recipe['favorite'] = rawRecipe.favorite
+	return recipe

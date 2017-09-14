@@ -41,7 +41,8 @@ urlpatterns = [
 
 	url(r'^recipe/create', hello.views.create_recipe),
 	url(r'^recipe/get', hello.views.get_last_ten_recipes),
-	url(r'^recipe/remove', hello.views.remove_recipe)
+	url(r'^recipe/remove', hello.views.remove_recipe),
+	url(r'^recipe/update', hello.views.update_recipe)
 
 
 

@@ -41,3 +41,4 @@ class Recipe(models.Model):
 	deleted = models.IntegerField(default=0)
 	created_user = models.ForeignKey(User, on_delete=models.CASCADE)
 	vegetarian = models.IntegerField(default=0)
+	favorite = models.BooleanField(default=False)
