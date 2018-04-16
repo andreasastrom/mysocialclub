@@ -8,7 +8,7 @@ function server() {
 			data: JSON.stringify(data),
 			success: function(response) {
 				if(!!callback){
-					callback();
+					callback(response);
 				}
 			},
 			error: function(error) {

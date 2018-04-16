@@ -5,7 +5,7 @@
 			<div class="list-counter" data-bind="visible: listItem().length > 0 && !showList()">
 				<b data-bind="text: doneItem().length + '/' + listItem().length"></b>
 			</div>
-			<b style="float: right" data-bind="visible: showList(), click: edit">...</b>
+			<b class="list-menu-button" data-bind="visible: showList(), click: edit">...</b>
 		</span>
 
 		<div class="checklist" data-bind="visible: showList()">

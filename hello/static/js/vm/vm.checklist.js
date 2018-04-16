@@ -3,6 +3,7 @@ function checklistVm() {
 	self.checklists = ko.observableArray();
 	self.checklistName = ko.observable('');
 	self.addList = ko.observable(false);
+	self.loader = ko.observable(false);
 
 	//BORDE BRYTA UTT MYCKET HÄR OCH LÄGGA I m.checklist. Där ska alla checklistdata bo. Det som ska finnas här är bara själva listorna.
 
@@ -13,10 +14,12 @@ function checklistVm() {
 			var checklist = new checklistModel(checklist);
 			self.checklists.push(checklist);
 		});
+		self.loader(false);
 	}
 
 	function load() {
-		$.getJSON('/checklists/all', {"user_id" : document.user.id}, function (data) {
+		self.loader(true);
+		$.getJSON('/checklist/all_new', {"user_id" : document.user.id}, function (data) {
 			loaded(data);
 		});
 	}
@@ -34,7 +37,7 @@ function checklistVm() {
 				success: function () {
 					self.checklistName('')
 					self.addList(false);
-					load()
+					//load();
 				}
 			});
 		}

@@ -32,14 +32,6 @@ def db(request):
     greetings = Greeting.objects.all()
     return render(request, 'db.html', {'greetings': greetings})
 
-##Used to create a item. 
-@csrf_exempt
-def create_item(request):
-    name = request.POST.get("name", "")
-    checklist = request.POST.get("checklist", 1)
-    item.create_item(name, checklist)
-    return render(request, 'index.html')
-
 def get_all_items(request):
     i = item.get_all_items()
     return HttpResponse(i)
@@ -49,12 +41,6 @@ def get_all_items_by_checklist_id(request):
     id = request.GET.get("checklist_id", 0)
     i = item.get_all_items_by_checklist_id(id)
     return HttpResponse(i)
-
-@csrf_exempt
-def remove_item(request):
-    id = request.POST.get("id", "")
-    item.remove_item(id)
-    return render(request, 'index.html')
 
 @csrf_exempt
 def update_item(request):
@@ -234,3 +220,39 @@ def authenticate_with_token (request):
         return HttpResponse(user, content_type='application/json')
     else:
         return HttpResponse('Unauthorized', status=401)
+
+#CHECKLIST
+@csrf_exempt
+def get_checklists(request):
+    print request.GET['user_id']
+    if request is not None:
+        user_id = request.GET['user_id']
+        checklists = checklist.checklists(user_id)
+        return HttpResponse(checklists, status=200)
+    else:
+        return HttpResponse('Error', status=404)
+
+
+#ITEM
+@csrf_exempt
+def remove_item(request):
+    if not request is None:
+        data = json.loads(request.body)
+        id = data["id"]
+        item.remove_item(id)
+        return HttpResponse('Success', status=200)
+    else:
+        return HttpResponse('Error', status=404)
+
+
+@csrf_exempt
+def create_item(request):
+    if not request is None:
+        data = json.loads(request.body)
+        name = data["name"]
+        checklist = data["checklist"]
+        newItem = item.create_item(name, checklist)
+        print newItem
+        return HttpResponse(newItem, status=200)
+    else:
+        return HttpResponse('Error', status=404)

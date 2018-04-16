@@ -35,6 +35,7 @@ urlpatterns = [
 	url(r'^checklists/remove', hello.views.remove_checklist),
 	url(r'^checklist/items', hello.views.get_all_items_by_checklist_id),
 	url(r'^checklist/update', hello.views.update_checklist),
+	url(r'^checklist/all_new', hello.views.get_checklists),
 
 	url(r'^user/authenticate', hello.views.authenticate_with_token),
 	url(r'^user/update', hello.views.update_user),

@@ -1,5 +1,6 @@
 function checklistModel(checklist) {
 	var self = this;
+	var server = document.server;
 	self.listItem = ko.observableArray();
 	self.name = ko.observable(checklist.name);
 	self.removed = checklist.removed;
@@ -18,41 +19,55 @@ function checklistModel(checklist) {
 	self.editChecklist = ko.observable(false);
 	self.saveSuccess = ko.observable(false);
 
+
+	function mapItems(items){
+		self.listItem.removeAll();
+		self.doneItem.removeAll();
+		_.each(items, function(item){
+			addItemToList(item);
+		});
+	}
+
+	function addItemToList(item){
+		var _itemModel = new itemModel(item);
+		self.listItem.push(_itemModel);
+	}
+
 	function loaded(data) {
 		self.listItem.removeAll();
 		self.doneItem.removeAll();
 		$.each(data, function (i, item) {
-			var myChecklists = new ItemFactory(item, load);
-			if (item.fields.done == 1) {
+			/* var myChecklists = new ItemFactory(item, load);
+			if (item.fields.done === 1) {
 				self.doneItem.push(item);
 			}
-			self.listItem.push(myChecklists);
-		});
-	}
-
-	function load(checklist_id) {
-		$.ajax({
-			type: "GET",
-			url: "/checklist/items",
-			data: { checklist_id: self.id },
-			success: function (data) {
-				loaded(JSON.parse(data));
-			}
+			self.listItem.push(myChecklists); */
 		});
 	}
 
 	var create = function () {
 		var inputvalue = self.shopplinglistInput();
 		if (self.shopplinglistInput().length > 0) {
-			$.ajax({
+			var item = { name: inputvalue, checklist: self.id }
+			server.post(
+				"/items/create",
+				item,
+				function(response){
+					addItemToList(JSON.parse(response));
+					self.shopplinglistInput('');
+				},
+				null
+			);
+			/* $.ajax({
 				type: "POST",
 				url: "/items/create",
 				data: { name: inputvalue, checklist: self.id },
-				success: function () {
+				success: function (response) {
+					debugger;
 					self.shopplinglistInput('');
 					load(self.id);
 				}
-			});
+			}); */
 		}
 	}
 
@@ -110,7 +125,8 @@ function checklistModel(checklist) {
 	}
 	//NEW STUFF END
 
-	load(self.id);
+	//load(self.id);
+	mapItems(JSON.parse(checklist.items));
 	//function som hämtar alla checklistepunkter med rätt id.
 	self.create = create;
 	self.toggleList = toggleList;

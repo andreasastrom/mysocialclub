@@ -34,7 +34,7 @@ function ItemFactory(item, reload){
 			type: "POST",
 			url: "/items/remove",
 			data: {id: id},
-			success: function(){
+			success: function() {
 				reload(checklist_id);
 			}
 		});
