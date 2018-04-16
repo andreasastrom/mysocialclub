@@ -566,7 +566,7 @@ label {
   z-index: 2;
   -webkit-transition: width 0.5s;
   transition: width 0.5s;
-  box-shadow: 1px 1px 1px 1px #ccc; }
+  box-shadow: 1px 1px 1px 1px #CCCCCC; }
 
 .sub-menu {
   background-color: #fff;
@@ -576,16 +576,19 @@ label {
   height: 100%;
   width: 80%;
   padding-top: 6em;
-  box-shadow: 1px 1px 1px 1px #ccc; }
+  box-shadow: 1px 1px 1px 1px #CCCCCC; }
 
 .sub-menu ul {
   list-style-type: none;
   font-size: 1.4rem; }
 
 .sub-menu ul li {
-  padding: 0.5em;
-  border-bottom: 1px solid #ccc;
-  padding: 1em; }
+  border-bottom: 1px solid #CCCCCC;
+  padding: 1em 0em;
+  cursor: pointer; }
+
+.sub-menu ul li:hover {
+  color: #009688; }
 
 .bigMenu {
   width: 100%; }

@@ -9,33 +9,32 @@
 	padding-left: 1rem;
 	background-color: $colorTurquoise;
 	color: $colorWhite;
-	box-shadow: 0px 2px 2px 0px #777777;
+	-webkit-box-shadow: 0px 2px 2px 0px #777777;
+	        box-shadow: 0px 2px 2px 0px #777777;
 	z-index: 4;
 }
 
 .left-menu {
 	display: inline-block;
 }
+
 .sign-out {
 	display: inline-block;
 	height: 100%;
 	padding-left: 1rem;
 	padding-right: 1rem;
 	cursor: pointer;
-
-	& :active {
-
-	}
+	& :active {}
 }
 
-.user-container {
-}
+.user-container {}
 
 .user-badge {
 	position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 1rem;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
+	right: 1rem;
 	height: 3rem;
 	width: 3rem;
 	line-height: 3rem;
@@ -48,17 +47,16 @@
 
 .sub-menu-container {
 	position: fixed;
-    left: 0p;
+	left: 0p;
 	width: 0%;
-    right: 0px;
-    bottom: 0px;
-    top: 0rem;
-    z-index: 2;
-	-moz-transition: width 0.5s;
-	-o-transition: width 0.5s;
+	right: 0px;
+	bottom: 0px;
+	top: 0rem;
+	z-index: 2;
 	-webkit-transition: width 0.5s;
 	transition: width 0.5s;
-	box-shadow: 1px 1px 1px 1px #ccc;
+	-webkit-box-shadow: 1px 1px 1px 1px $colorGreyLight;
+	        box-shadow: 1px 1px 1px 1px $colorGreyLight;
 }
 
 .sub-menu {
@@ -69,16 +67,18 @@
 	height: 100%;
 	width: 80%;
 	padding-top: 6em;
-	box-shadow: 1px 1px 1px 1px #ccc;
-
+	-webkit-box-shadow: 1px 1px 1px 1px $colorGreyLight;
+	        box-shadow: 1px 1px 1px 1px $colorGreyLight;
 	ul {
 		list-style-type: none;
 		font-size: 1.4rem;
-
 		li {
-			padding: 0.5em;
-			border-bottom: 1px solid #ccc;
-			padding: 1em;
+			border-bottom: 1px solid $colorGreyLight;
+			padding: 1em 0em;
+			cursor: pointer;
+			&:hover {
+				color: $colorTurquoise;
+			}
 		}
 	}
 }
